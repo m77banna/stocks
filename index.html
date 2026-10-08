@@ -38,6 +38,7 @@
   .ci{width:100%;box-sizing:border-box;text-align:center;padding:4px 2px;font-size:13px;}
   .ci.t{text-align:left;}
   td.n{text-align:center;}
+  td.tx{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .up{color:var(--up)}.down{color:var(--down)}.sub{color:var(--sub)}
   .del{color:var(--down);border:none;background:none;}
   h1{font-size:18px;margin:0 0 2px;}
@@ -91,11 +92,11 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? 'â—
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'14%'},{k:'industry',l:'Sector',t:'str',w:'10%'},
-  {k:'cap',l:'Market cap (EGP bn)',t:'num',w:'8.5%'},{k:'weight',l:'Weight %',t:'num',w:'6.5%'},
-  {k:'price',l:'Price',t:'num',w:'7%'},{k:'pe',l:'PE',t:'num',w:'5.5%'},{k:'eps',l:'EPS',t:'num',w:'6%'},
-  {k:'target',l:'Target value',t:'num',w:'8%'},{k:'upside',l:'Upside %',t:'num',w:'7%'},
-  {k:'cfv',l:'Approx. value',t:'num',w:'8%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'8.5%'},{k:'del',l:'',t:'none',w:'3.5%'}
+  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'16%'},{k:'industry',l:'Sector',t:'str',w:'11%'},
+  {k:'cap',l:'Market cap (EGP bn)',t:'num',w:'9%'},
+  {k:'price',l:'Price',t:'num',w:'7.5%'},{k:'pe',l:'PE',t:'num',w:'6%'},{k:'eps',l:'EPS',t:'num',w:'6.5%'},
+  {k:'target',l:'Target value',t:'num',w:'8.5%'},{k:'upside',l:'Upside %',t:'num',w:'7.5%'},
+  {k:'cfv',l:'Approx. value',t:'num',w:'8.5%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'9%'},{k:'del',l:'',t:'none',w:'3.5%'}
 ];
 
 const FPE_DEFAULT=13.82;
@@ -104,15 +105,13 @@ function enrich(){
     cap: (r.shares!=null && r.price!=null) ? r.shares*r.price : null,
     pe: (r.eps && r.price!=null) ? r.price/r.eps : null
   }));
-  const tot = rows.reduce((s,r)=>s+(r.cap||0),0);
   return rows.map(r=>{
     const fpe = r.fpe ?? FPE_DEFAULT;
     const ok = r.pe!=null && r.pe>=3 && r.pe<=50 && r.eps>0 && r.price>0;
     const cfv = ok ? +(r.price*Math.min(Math.max(((r.price+r.eps*fpe)/2)/r.price,0.6),1.6)).toFixed(2) : null;
     return {...r, cfv,
       upside: (r.target!=null && r.price) ? +(((r.target-r.price)/r.price)*100).toFixed(2) : null,
-      cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null,
-      weight: (tot>0 && r.cap!=null) ? +((r.cap/tot)*100).toFixed(2) : null};
+      cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null};
   });
 }
 const fmt=(n,s='')=> n==null||isNaN(n)?'â€”':n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+s;
@@ -144,10 +143,9 @@ function render(){
     const u=r.upside==null?'sub':(r.upside>=0?'up':'down');
     return `<tr data-id="${r.id}">
       <td class="n"><b>${esc(r.symbol)}</b></td>
-      <td><input class="ci t" data-f="name" value="${esc(r.name)}"></td>
-      <td><input class="ci t" data-f="industry" value="${esc(r.industry)}"></td>
+      <td class="tx" title="${esc(r.name)}">${esc(r.name)}</td>
+      <td class="tx" title="${esc(r.industry)}">${esc(r.industry)}</td>
       <td class="n">${fmt(r.cap)}</td>
-      <td><b>${fmt(r.weight,'%')}</b></td>
       <td class="n">${fmt(r.price)}</td><td class="n">${fmt(r.pe)}</td>
       ${num(r,'eps')}
       ${num(r,'target')}
@@ -290,7 +288,7 @@ async function fetchLatest(){
     const j=await getLatest(), by={};
     (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null) by[s.symbol]=s; });
     let n=0, filled=0;
-    stocks.forEach(s=>{ const l=by[s.symbol]; if(!l) return; if(!s.name){ fillNew(s,l); filled++; } else s.price=l.price; if(l.cap_bn && l.price) s.shares=l.cap_bn/l.price; n++; });
+    stocks.forEach(s=>{ const l=by[s.symbol]; if(!l) return; if(!s.name){ fillNew(s,l); filled++; } else s.price=l.price; if(l.name) s.name=l.name; if(l.sector) s.industry=l.sector; if(l.cap_bn && l.price) s.shares=l.cap_bn/l.price; n++; });
     if(filled) markDirty();
     if(n){ render(); st.textContent='Last update: '+new Date(j.updated_at).toLocaleString('en-GB',{dateStyle:'short',timeStyle:'short'})+' ('+n+' stocks, ~15 min delayed)'; }
     else st.textContent='No updated prices yet';
