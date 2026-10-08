@@ -1,4 +1,289 @@
 {
-  "updated_at": null,
-  "stocks": []
+  "updated_at": "2026-10-08T14:39:44.372409+00:00",
+  "stocks": [
+    {
+      "symbol": "ETEL",
+      "price": 148.0,
+      "prev_close": 149.88,
+      "change_pct": -1.25,
+      "volume": 851694,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "SWDY",
+      "price": 116.0,
+      "prev_close": 118.0,
+      "change_pct": -1.69,
+      "volume": 438226,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "TMGH",
+      "price": 87.89,
+      "prev_close": 88.39,
+      "change_pct": -0.57,
+      "volume": 1232863,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "EGAL",
+      "price": 339.4,
+      "prev_close": 343.41,
+      "change_pct": -1.17,
+      "volume": 309904,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "MFPC",
+      "price": 46.5,
+      "prev_close": 45.9,
+      "change_pct": 1.31,
+      "volume": 576608,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "ABUK",
+      "price": 90.0,
+      "prev_close": 86.54,
+      "change_pct": 4.0,
+      "volume": 1052897,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "ALCN",
+      "price": 33.55,
+      "prev_close": 34.5,
+      "change_pct": -2.75,
+      "volume": 605156,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "ORAS",
+      "price": 71.05,
+      "prev_close": 71.05,
+      "change_pct": 0.0,
+      "volume": 0,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "EFIH",
+      "price": 25.23,
+      "prev_close": 24.79,
+      "change_pct": 1.77,
+      "volume": 4778640,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "ADIB",
+      "price": 47.8,
+      "prev_close": 48.11,
+      "change_pct": -0.64,
+      "volume": 1525188,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "FWRY",
+      "price": 19.06,
+      "prev_close": 18.72,
+      "change_pct": 1.82,
+      "volume": 17635537,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "ORHD",
+      "price": 12.0,
+      "prev_close": 12.03,
+      "change_pct": -0.25,
+      "volume": 7851596,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "VLMRA",
+      "error": "no_data"
+    },
+    {
+      "symbol": "EFID",
+      "price": 19.07,
+      "prev_close": 19.0,
+      "change_pct": 0.37,
+      "volume": 798257,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "JUFO",
+      "price": 25.0,
+      "prev_close": 25.2,
+      "change_pct": -0.79,
+      "volume": 731558,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "PHDC",
+      "price": 12.93,
+      "prev_close": 12.9,
+      "change_pct": 0.23,
+      "volume": 5810586,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "OCDI",
+      "price": 27.32,
+      "prev_close": 27.2,
+      "change_pct": 0.44,
+      "volume": 543704,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "GBCO",
+      "price": 31.01,
+      "prev_close": 31.78,
+      "change_pct": -2.42,
+      "volume": 3395072,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "RAYA",
+      "price": 6.6,
+      "prev_close": 6.5,
+      "change_pct": 1.54,
+      "volume": 1398934,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "EGCH",
+      "price": 13.36,
+      "prev_close": 13.27,
+      "change_pct": 0.68,
+      "volume": 2196237,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "CCAP",
+      "price": 6.62,
+      "prev_close": 6.55,
+      "change_pct": 1.07,
+      "volume": 51695592,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "SCEM",
+      "price": 85.59,
+      "prev_close": 85.85,
+      "change_pct": -0.3,
+      "volume": 445597,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "ORWE",
+      "price": 27.14,
+      "prev_close": 27.0,
+      "change_pct": 0.52,
+      "volume": 403483,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "AMOC",
+      "price": 14.48,
+      "prev_close": 14.31,
+      "change_pct": 1.19,
+      "volume": 17390295,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "MASR",
+      "price": 7.86,
+      "prev_close": 7.61,
+      "change_pct": 3.29,
+      "volume": 7734086,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "TALM",
+      "price": 21.71,
+      "prev_close": 21.83,
+      "change_pct": -0.55,
+      "volume": 823560,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "NIPH",
+      "price": 315.5,
+      "prev_close": 316.07,
+      "change_pct": -0.18,
+      "volume": 120409,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "KORA",
+      "error": "no_data"
+    },
+    {
+      "symbol": "ISPH",
+      "price": 11.7,
+      "prev_close": 11.7,
+      "change_pct": 0.0,
+      "volume": 1872122,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "AMES",
+      "price": 46.35,
+      "prev_close": 47.44,
+      "change_pct": -2.3,
+      "volume": 1110041,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "OIH",
+      "price": 1.88,
+      "prev_close": 1.87,
+      "change_pct": 0.53,
+      "volume": 12201416,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "OLFI",
+      "price": 21.09,
+      "prev_close": 21.08,
+      "change_pct": 0.05,
+      "volume": 518130,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "MPCI",
+      "price": 346.01,
+      "prev_close": 345.0,
+      "change_pct": 0.29,
+      "volume": 201595,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "BONY",
+      "error": "no_data"
+    },
+    {
+      "symbol": "AXPH",
+      "price": 1495.64,
+      "prev_close": 1498.34,
+      "change_pct": -0.18,
+      "volume": 2599,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "AMER",
+      "price": 5.03,
+      "prev_close": 5.02,
+      "change_pct": 0.2,
+      "volume": 9044637,
+      "session_date": "2026-10-07"
+    },
+    {
+      "symbol": "LUTS",
+      "price": 0.92,
+      "prev_close": 0.92,
+      "change_pct": 0.0,
+      "volume": 48548366,
+      "session_date": "2026-10-07"
+    }
+  ]
 }
