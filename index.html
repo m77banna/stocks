@@ -35,9 +35,9 @@
   th{color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
-  .ci{width:100%;box-sizing:border-box;text-align:center;padding:4px 2px;font-size:13px;}
+  .ci{width:100%;box-sizing:border-box;text-align:left;padding:4px 6px;font-size:13px;}
   .ci.t{text-align:left;}
-  td.n{text-align:center;}
+  td.n{text-align:left;}
   td.tx{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .up{color:var(--up)}.down{color:var(--down)}.sub{color:var(--sub)}
   .del{color:var(--down);border:none;background:none;}
@@ -92,11 +92,11 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? 'â—
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'16%'},{k:'industry',l:'Sector',t:'str',w:'11%'},
-  {k:'cap',l:'Market cap (EGP bn)',t:'num',w:'9%'},
-  {k:'price',l:'Price',t:'num',w:'7.5%'},{k:'pe',l:'PE',t:'num',w:'6%'},{k:'eps',l:'EPS',t:'num',w:'6.5%'},
-  {k:'target',l:'Target value',t:'num',w:'8.5%'},{k:'upside',l:'Upside %',t:'num',w:'7.5%'},
-  {k:'cfv',l:'Approx. value',t:'num',w:'8.5%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'9%'},{k:'del',l:'',t:'none',w:'3.5%'}
+  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'18%'},{k:'industry',l:'Sector',t:'str',w:'12%'},
+  {k:'cap',l:'Market cap (EGP bn)',t:'num',w:'9.5%'},
+  {k:'price',l:'Price',t:'num',w:'8%'},{k:'pe',l:'PE',t:'num',w:'6.5%'},
+  {k:'target',l:'Target value',t:'num',w:'9%'},{k:'upside',l:'Upside %',t:'num',w:'8%'},
+  {k:'cfv',l:'Approx. value',t:'num',w:'9%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'10%'},{k:'del',l:'',t:'none',w:'3.5%'}
 ];
 
 const FPE_DEFAULT=13.82;
@@ -147,7 +147,6 @@ function render(){
       <td class="tx" title="${esc(r.industry)}">${esc(r.industry)}</td>
       <td class="n">${fmt(r.cap)}</td>
       <td class="n">${fmt(r.price)}</td><td class="n">${fmt(r.pe)}</td>
-      ${num(r,'eps')}
       ${num(r,'target')}
       <td class="${u}"><b>${fmt(r.upside,'%')}</b></td>
       <td>${fmt(r.cfv)}</td>
