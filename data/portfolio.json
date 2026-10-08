@@ -1,5 +1,5 @@
 {
-  "saved_at": null,
+  "saved_at": "2026-10-08T19:45:13.619Z",
   "stocks": [
     {
       "id": "s0",
@@ -8,8 +8,8 @@
       "industry": "Tech",
       "shares": 1.7027027027,
       "eps": 14.8,
-      "price": 148.0,
-      "target": 135.0,
+      "price": 148,
+      "target": 135,
       "fpe": 16.78
     },
     {
@@ -19,8 +19,8 @@
       "industry": "Industries",
       "shares": 2.1379310345,
       "eps": 7.7333333333,
-      "price": 116.0,
-      "target": 104.0,
+      "price": 116,
+      "target": 104,
       "fpe": 13.82
     },
     {
@@ -30,8 +30,8 @@
       "industry": "Real Estate",
       "shares": 2.0568181818,
       "eps": 7.1895424837,
-      "price": 88.0,
-      "target": 142.0,
+      "price": 88,
+      "target": 142,
       "fpe": 12.71
     },
     {
@@ -41,8 +41,8 @@
       "industry": "Metals",
       "shares": 0.412979351,
       "eps": 37.6666666667,
-      "price": 339.0,
-      "target": 399.0,
+      "price": 339,
+      "target": 399,
       "fpe": 9.51
     },
     {
@@ -52,8 +52,8 @@
       "industry": "Chemicals",
       "shares": 2.829787234,
       "eps": 5.3652968037,
-      "price": 47.0,
-      "target": 47.0,
+      "price": 47,
+      "target": 47,
       "fpe": 12.61
     },
     {
@@ -63,8 +63,8 @@
       "industry": "Chemicals",
       "shares": 1.2555555556,
       "eps": 6.9230769231,
-      "price": 90.0,
-      "target": 89.0,
+      "price": 90,
+      "target": 89,
       "fpe": 12.61
     },
     {
@@ -74,7 +74,7 @@
       "industry": "Transportation",
       "shares": 2.9411764706,
       "eps": 2.4372759857,
-      "price": 34.0,
+      "price": 34,
       "target": 28.55,
       "fpe": 13.82
     },
@@ -85,8 +85,8 @@
       "industry": "Real Estate",
       "shares": 0.1071835804,
       "eps": 105.1558752998,
-      "price": 877.0,
-      "target": 679.0,
+      "price": 877,
+      "target": 679,
       "fpe": 12.71
     },
     {
@@ -96,7 +96,7 @@
       "industry": "Tech",
       "shares": 3.44,
       "eps": 0.7142857143,
-      "price": 25.0,
+      "price": 25,
       "target": 28.1,
       "fpe": 16.78
     },
@@ -107,7 +107,7 @@
       "industry": "Banks",
       "shares": 1.4791666667,
       "eps": 8.9887640449,
-      "price": 48.0,
+      "price": 48,
       "target": 59.72,
       "fpe": 6
     },
@@ -118,7 +118,7 @@
       "industry": "Tech",
       "shares": 3.3684210526,
       "eps": 0.8260869565,
-      "price": 19.0,
+      "price": 19,
       "target": 26.68,
       "fpe": 16.78
     },
@@ -129,8 +129,8 @@
       "industry": "Hotels",
       "shares": 3.6666666667,
       "eps": 1.5,
-      "price": 12.0,
-      "target": 17.0,
+      "price": 12,
+      "target": 17,
       "fpe": 16.72
     },
     {
@@ -139,9 +139,9 @@
       "name": "Valmore",
       "industry": "Petroleum",
       "shares": 1.4137931034,
-      "eps": 4.0,
-      "price": 29.0,
-      "target": 64.0,
+      "eps": 4,
+      "price": 29,
+      "target": 64,
       "fpe": 11.75
     },
     {
@@ -151,8 +151,8 @@
       "industry": "Food",
       "shares": 2.1052631579,
       "eps": 1.4559386973,
-      "price": 19.0,
-      "target": 25.0,
+      "price": 19,
+      "target": 25,
       "fpe": 18.12
     },
     {
@@ -162,8 +162,8 @@
       "industry": "Food",
       "shares": 1.48,
       "eps": 1.5625,
-      "price": 25.0,
-      "target": 29.0,
+      "price": 25,
+      "target": 29,
       "fpe": 18.12
     },
     {
@@ -173,7 +173,7 @@
       "industry": "Real Estate",
       "shares": 2.8461538462,
       "eps": 1.4444444444,
-      "price": 13.0,
+      "price": 13,
       "target": 17.93,
       "fpe": 12.71
     },
@@ -184,8 +184,8 @@
       "industry": "Real Estate",
       "shares": 1.2962962963,
       "eps": 3.0033370412,
-      "price": 27.0,
-      "target": 44.0,
+      "price": 27,
+      "target": 44,
       "fpe": 12.71
     },
     {
@@ -195,7 +195,7 @@
       "industry": "Vehicles",
       "shares": 1.0967741935,
       "eps": 2.2142857143,
-      "price": 31.0,
+      "price": 31,
       "target": 38.14,
       "fpe": 13.82
     },
@@ -204,10 +204,10 @@
       "symbol": "RAYA",
       "name": "Raya",
       "industry": "Tech",
-      "shares": 4.0,
+      "shares": 4,
       "eps": 0.6151142355,
-      "price": 7.0,
-      "target": 11.0,
+      "price": 7,
+      "target": 11,
       "fpe": 16.78
     },
     {
@@ -217,8 +217,8 @@
       "industry": "Chemicals",
       "shares": 2.0769230769,
       "eps": 0.8666666667,
-      "price": 13.0,
-      "target": 16.0,
+      "price": 13,
+      "target": 16,
       "fpe": 12.61
     },
     {
@@ -228,7 +228,7 @@
       "industry": "Finance",
       "shares": 3.7142857143,
       "eps": 0.0654205607,
-      "price": 7.0,
+      "price": 7,
       "target": null,
       "fpe": 18.14
     },
@@ -239,8 +239,8 @@
       "industry": "Cement",
       "shares": 0.2558139535,
       "eps": 12.2857142857,
-      "price": 86.0,
-      "target": 120.0,
+      "price": 86,
+      "target": 120,
       "fpe": 6.22
     },
     {
@@ -250,7 +250,7 @@
       "industry": "Home Furniture",
       "shares": 0.6666666667,
       "eps": 3.0100334448,
-      "price": 27.0,
+      "price": 27,
       "target": 36.35,
       "fpe": 13.82
     },
@@ -261,8 +261,8 @@
       "industry": "Petroleum",
       "shares": 1.2857142857,
       "eps": 1.1666666667,
-      "price": 14.0,
-      "target": 12.0,
+      "price": 14,
+      "target": 12,
       "fpe": 11.75
     },
     {
@@ -272,7 +272,7 @@
       "industry": "Real Estate",
       "shares": 2.125,
       "eps": 1.3333333333,
-      "price": 8.0,
+      "price": 8,
       "target": 11.4,
       "fpe": 12.71
     },
@@ -283,8 +283,8 @@
       "industry": "Educational",
       "shares": 0.7272727273,
       "eps": 0.88,
-      "price": 22.0,
-      "target": 29.0,
+      "price": 22,
+      "target": 29,
       "fpe": 13.82
     },
     {
@@ -294,7 +294,7 @@
       "industry": "Pharmaceuticals",
       "shares": 0.0507936508,
       "eps": 4.7727272727,
-      "price": 315.0,
+      "price": 315,
       "target": null,
       "fpe": 16.61
     },
@@ -305,7 +305,7 @@
       "industry": "Electrical",
       "shares": 2.1428571429,
       "eps": null,
-      "price": 7.0,
+      "price": 7,
       "target": null,
       "fpe": 13.82
     },
@@ -314,9 +314,9 @@
       "symbol": "ISPH",
       "name": "Ibnsina Pharma",
       "industry": "Pharmaceuticals",
-      "shares": 1.0,
+      "shares": 1,
       "eps": 0.8571428571,
-      "price": 12.0,
+      "price": 12,
       "target": 17.26,
       "fpe": 16.61
     },
@@ -327,7 +327,7 @@
       "industry": "Medical",
       "shares": 0.2391304348,
       "eps": 0.4299065421,
-      "price": 46.0,
+      "price": 46,
       "target": null,
       "fpe": 13.82
     },
@@ -336,9 +336,9 @@
       "symbol": "OIH",
       "name": "Orascom Investment",
       "industry": "Tech",
-      "shares": 5.0,
+      "shares": 5,
       "eps": -0.1111111111,
-      "price": 2.0,
+      "price": 2,
       "target": null,
       "fpe": 16.78
     },
@@ -349,8 +349,8 @@
       "industry": "Food",
       "shares": 0.380952381,
       "eps": 1.9090909091,
-      "price": 21.0,
-      "target": 26.0,
+      "price": 21,
+      "target": 26,
       "fpe": 18.12
     },
     {
@@ -360,7 +360,7 @@
       "industry": "Pharmaceuticals",
       "shares": 0.0231213873,
       "eps": 23.0666666667,
-      "price": 346.0,
+      "price": 346,
       "target": null,
       "fpe": 16.61
     },
@@ -382,7 +382,7 @@
       "industry": "Pharmaceuticals",
       "shares": 0.0046791444,
       "eps": 99.7333333333,
-      "price": 1496.0,
+      "price": 1496,
       "target": null,
       "fpe": 16.61
     },
@@ -391,9 +391,9 @@
       "symbol": "AMER",
       "name": "Amer Group",
       "industry": "Real Estate",
-      "shares": 1.0,
+      "shares": 1,
       "eps": 0.3333333333,
-      "price": 5.0,
+      "price": 5,
       "target": null,
       "fpe": 12.71
     },
