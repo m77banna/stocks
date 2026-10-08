@@ -40,7 +40,8 @@
   td.n{text-align:left;}
   td.tx{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .up{color:var(--up)}.down{color:var(--down)}.sub{color:var(--sub)}
-  .del{color:var(--down);border:none;background:none;}
+  .del{color:var(--down);border:none;background:none;padding:2px 4px;white-space:nowrap;}
+  td.act{overflow:visible;white-space:nowrap;}
   h1{font-size:18px;margin:0 0 2px;}
   .head{margin-bottom:8px;}
 </style>
@@ -92,11 +93,11 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'18%'},{k:'industry',l:'Sector',t:'str',w:'12%'},
+  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'16%'},{k:'industry',l:'Sector',t:'str',w:'11%'},
   {k:'cap',l:'Market cap (EGP bn)',t:'num',w:'9.5%'},
   {k:'price',l:'Price',t:'num',w:'8%'},{k:'pe',l:'PE',t:'num',w:'6.5%'},
-  {k:'target',l:'Target value',t:'num',w:'9%'},{k:'upside',l:'Upside %',t:'num',w:'8%'},
-  {k:'cfv',l:'Approx. value',t:'num',w:'9%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'10%'},{k:'del',l:'',t:'none',w:'3.5%'}
+  {k:'target',l:'Target value',t:'num',w:'8.5%'},{k:'upside',l:'Upside %',t:'num',w:'8%'},
+  {k:'cfv',l:'Approx. value',t:'num',w:'8.5%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'9.5%'},{k:'del',l:'',t:'none',w:'7%'}
 ];
 
 const FPE_DEFAULT=13.82;
@@ -150,7 +151,7 @@ function render(){
       <td class="${u}"><b>${fmt(r.upside,'%')}</b></td>
       <td>${fmt(r.cfv)}</td>
       <td class="${r.cupside==null?'sub':(r.cupside>=0?'up':'down')}"><b>${fmt(r.cupside,'%')}</b></td>
-      <td>${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">Confirm?</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
+      <td class="act">${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">Delete?</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
   }).join('');
   document.querySelectorAll('[data-f]').forEach(i=>i.onchange=e=>{
     const s=stocks.find(x=>x.id===e.target.closest('tr').dataset.id), f=e.target.dataset.f;
