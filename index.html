@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>محفظتى</title>
+<title>Portfolio</title>
 <style>
   :root{
     --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --sub:#64748b; --border:#e2e8f0;
@@ -32,11 +32,11 @@
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
   .scroll{overflow-x:auto;}
   table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:1250px;}
-  th{color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:right;}
+  th{color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
   .ci{width:100%;box-sizing:border-box;text-align:center;padding:4px 2px;font-size:13px;}
-  .ci.t{text-align:right;}
+  .ci.t{text-align:left;}
   .up{color:var(--up)}.down{color:var(--down)}.sub{color:var(--sub)}
   .del{color:var(--down);border:none;background:none;}
   h1{font-size:18px;margin:0 0 2px;}
@@ -46,11 +46,11 @@
 <body>
 <div class="wrap">
   <div class="card bar">
-    <button class="primary" id="addRow">+ إضافة سهم</button>
-    <button id="saveFile">⬇ حفظ كملف</button>
-    <label class="btn">⬆ استيراد ملف<input type="file" id="loadFile" accept=".json" hidden></label>
-    <button id="refreshBtn">↻ تحديث الأسعار</button>
-    <button id="resetBtn">↺ استرجاع الأصلى</button>
+    <button class="primary" id="addRow">+ Add stock</button>
+    <button id="saveFile">⬇ Save to file</button>
+    <label class="btn">⬆ Import file<input type="file" id="loadFile" accept=".json" hidden></label>
+    <button id="refreshBtn">↻ Refresh prices</button>
+    <button id="resetBtn">↺ Reset to original</button>
     <span id="upd" class="sub"></span>
     <span id="msg" class="down"></span><span id="totals" class="sub" style="margin-inline-start:auto"></span>
   </div>
@@ -64,7 +64,7 @@
 </div>
 
 <script>
-const SEED = [{"id": "s0", "symbol": "ETEL", "name": "Telecom Egypt", "aname": "المصرية للاتصالات", "industry": "Tech", "shares": 1.7027027027, "eps": 14.8, "price": 148.0, "target": 135.0, "myWeight": 20.0, "fpe": 16.78}, {"id": "s1", "symbol": "SWDY", "name": "El Sewedy Electric", "aname": "السويدى للكابلات", "industry": "Industries", "shares": 2.1379310345, "eps": 7.7333333333, "price": 116.0, "target": 104.0, "myWeight": 20.0, "fpe": 13.82}, {"id": "s2", "symbol": "TMGH", "name": "Talaat Moustafa", "aname": "طلعت مصطفى", "industry": "Real Estate", "shares": 2.0568181818, "eps": 7.1895424837, "price": 88.0, "target": 142.0, "myWeight": 20.0, "fpe": 12.71}, {"id": "s3", "symbol": "EGAL", "name": "Egypt Aluminum", "aname": "مصر للألمونيوم", "industry": "Metals", "shares": 0.412979351, "eps": 37.6666666667, "price": 339.0, "target": 399.0, "myWeight": 20.0, "fpe": 9.51}, {"id": "s4", "symbol": "MFPC", "name": "Misr Fertilizer", "aname": "موبكو", "industry": "Chemicals", "shares": 2.829787234, "eps": 5.3652968037, "price": 47.0, "target": 47.0, "myWeight": 20.0, "fpe": 12.61}, {"id": "s5", "symbol": "ABUK", "name": "Abu Qir Fertilizers", "aname": "أبو قير", "industry": "Chemicals", "shares": 1.2555555556, "eps": 6.9230769231, "price": 90.0, "target": 89.0, "myWeight": 20.0, "fpe": 12.61}, {"id": "s6", "symbol": "ALCN", "name": "Alexandria Container", "aname": "الأسكندرية للحاويات", "industry": "Transportation", "shares": 2.9411764706, "eps": 2.4372759857, "price": 34.0, "target": 28.55, "myWeight": 20.0, "fpe": 13.82}, {"id": "s7", "symbol": "ORAS", "name": "Orascom Construction", "aname": "أوراسكوم للانشاءات", "industry": "Real Estate", "shares": 0.1071835804, "eps": 105.1558752998, "price": 877.0, "target": 679.0, "myWeight": 20.0, "fpe": 12.71}, {"id": "s8", "symbol": "EFIH", "name": "e-finance", "aname": "اى فاينانس", "industry": "Tech", "shares": 3.44, "eps": 0.7142857143, "price": 25.0, "target": 28.1, "myWeight": 20.0, "fpe": 16.78}, {"id": "s9", "symbol": "ADIB", "name": "Abu Dhabi Islamic Bank", "aname": "بنك أبو ظبى", "industry": "Banks", "shares": 1.4791666667, "eps": 8.9887640449, "price": 48.0, "target": 59.72, "myWeight": 20.0, "fpe": 6}, {"id": "s10", "symbol": "FWRY", "name": "Fawry", "aname": "فورى", "industry": "Tech", "shares": 3.3684210526, "eps": 0.8260869565, "price": 19.0, "target": 26.68, "myWeight": 10.0, "fpe": 16.78}, {"id": "s11", "symbol": "ORHD", "name": "Orascom Development", "aname": "أوراسكوم للتنمية", "industry": "Hotels", "shares": 3.6666666667, "eps": 1.5, "price": 12.0, "target": 17.0, "myWeight": 10.0, "fpe": 16.72}, {"id": "s12", "symbol": "VLMRA", "name": "Valmore", "aname": "فالمور", "industry": "Petroleum", "shares": 1.4137931034, "eps": 4.0, "price": 29.0, "target": 64.0, "myWeight": 10.0, "fpe": 11.75}, {"id": "s13", "symbol": "EFID", "name": "Edita", "aname": "ايديتا", "industry": "Food", "shares": 2.1052631579, "eps": 1.4559386973, "price": 19.0, "target": 25.0, "myWeight": 10.0, "fpe": 18.12}, {"id": "s14", "symbol": "JUFO", "name": "Juhayna", "aname": "جهينة", "industry": "Food", "shares": 1.48, "eps": 1.5625, "price": 25.0, "target": 29.0, "myWeight": 10.0, "fpe": 18.12}, {"id": "s15", "symbol": "PHDC", "name": "Palm Hills", "aname": "بالم هيلز", "industry": "Real Estate", "shares": 2.8461538462, "eps": 1.4444444444, "price": 13.0, "target": 17.93, "myWeight": 10.0, "fpe": 12.71}, {"id": "s16", "symbol": "OCDI", "name": "Sixth of October - SODIC", "aname": "سوديك", "industry": "Real Estate", "shares": 1.2962962963, "eps": 3.0033370412, "price": 27.0, "target": 44.0, "myWeight": 10.0, "fpe": 12.71}, {"id": "s17", "symbol": "GBCO", "name": "GB Corp", "aname": "جى بى كورب", "industry": "Vehicles", "shares": 1.0967741935, "eps": 2.2142857143, "price": 31.0, "target": 38.14, "myWeight": 10.0, "fpe": 13.82}, {"id": "s18", "symbol": "RAYA", "name": "Raya", "aname": "راية", "industry": "Tech", "shares": 4.0, "eps": 0.6151142355, "price": 7.0, "target": 11.0, "myWeight": 10.0, "fpe": 16.78}, {"id": "s19", "symbol": "EGCH", "name": "Egyptian Chemicals", "aname": "كيما", "industry": "Chemicals", "shares": 2.0769230769, "eps": 0.8666666667, "price": 13.0, "target": 16.0, "myWeight": 10.0, "fpe": 12.61}, {"id": "s20", "symbol": "CCAP", "name": "QALA For Financials", "aname": "القلعة", "industry": "Finance", "shares": 3.7142857143, "eps": 0.0654205607, "price": 7.0, "target": null, "myWeight": 5.0, "fpe": 18.14}, {"id": "s21", "symbol": "SCEM", "name": "Sinai Cement", "aname": "أسمنت سيناء", "industry": "Cement", "shares": 0.2558139535, "eps": 12.2857142857, "price": 86.0, "target": 120.0, "myWeight": 5.0, "fpe": 6.22}, {"id": "s22", "symbol": "ORWE", "name": "Oriental Weavers", "aname": "النساجون الشرقيون", "industry": "Home Furniture", "shares": 0.6666666667, "eps": 3.0100334448, "price": 27.0, "target": 36.35, "myWeight": 5.0, "fpe": 13.82}, {"id": "s23", "symbol": "AMOC", "name": "Alexandria Mineral Oils", "aname": "اموك", "industry": "Petroleum", "shares": 1.2857142857, "eps": 1.1666666667, "price": 14.0, "target": 12.0, "myWeight": 5.0, "fpe": 11.75}, {"id": "s24", "symbol": "MASR", "name": "Madinet Masr", "aname": "مدينة مصر", "industry": "Real Estate", "shares": 2.125, "eps": 1.3333333333, "price": 8.0, "target": 11.4, "myWeight": 5.0, "fpe": 12.71}, {"id": "s25", "symbol": "TALM", "name": "Taaleem", "aname": "تعليم", "industry": "Educational", "shares": 0.7272727273, "eps": 0.88, "price": 22.0, "target": 29.0, "myWeight": 5.0, "fpe": 13.82}, {"id": "s26", "symbol": "NIPH", "name": "EI- Nile", "aname": "النيل للأدوية", "industry": "Pharmaceuticals", "shares": 0.0507936508, "eps": 4.7727272727, "price": 315.0, "target": null, "myWeight": 5.0, "fpe": 16.61}, {"id": "s27", "symbol": "KORA", "name": "Korra for Energy", "aname": "قرة", "industry": "Electrical", "shares": 2.1428571429, "eps": null, "price": 7.0, "target": null, "myWeight": 5.0, "fpe": 13.82}, {"id": "s28", "symbol": "ISPH", "name": "Ibnsina Pharma", "aname": "ابن سينا فارما", "industry": "Pharmaceuticals", "shares": 1.0, "eps": 0.8571428571, "price": 12.0, "target": 17.26, "myWeight": 5.0, "fpe": 16.61}, {"id": "s29", "symbol": "AMES", "name": "New Medical Center", "aname": "المركز الطبى الجديد", "industry": "Medical", "shares": 0.2391304348, "eps": 0.4299065421, "price": 46.0, "target": null, "myWeight": 5.0, "fpe": 13.82}, {"id": "s30", "symbol": "OIH", "name": "Orascom Investment", "aname": "أوراسكوم للاتصالات", "industry": "Tech", "shares": 5.0, "eps": -0.1111111111, "price": 2.0, "target": null, "myWeight": 5.0, "fpe": 16.78}, {"id": "s31", "symbol": "OLFI", "name": "Obour Land", "aname": "عبور لاند", "industry": "Food", "shares": 0.380952381, "eps": 1.9090909091, "price": 21.0, "target": 26.0, "myWeight": 5.0, "fpe": 18.12}, {"id": "s32", "symbol": "MPCI", "name": "Memphis", "aname": "ممفيس للأدوية", "industry": "Pharmaceuticals", "shares": 0.0231213873, "eps": 23.0666666667, "price": 346.0, "target": null, "myWeight": 5.0, "fpe": 16.61}, {"id": "s33", "symbol": "BONY", "name": "Bonyan", "aname": "بنيان", "industry": "Real Estate", "shares": 1.9093078759, "eps": 1.0826873385, "price": 4.19, "target": 6.27, "myWeight": 5.0, "fpe": 12.71}, {"id": "s34", "symbol": "AXPH", "name": "Alexandria Pharma", "aname": "الأسكندرية للأدوية", "industry": "Pharmaceuticals", "shares": 0.0046791444, "eps": 99.7333333333, "price": 1496.0, "target": null, "myWeight": 5.0, "fpe": 16.61}, {"id": "s35", "symbol": "AMER", "name": "Amer Group", "aname": "عامر جروب", "industry": "Real Estate", "shares": 1.0, "eps": 0.3333333333, "price": 5.0, "target": null, "myWeight": 5.0, "fpe": 12.71}, {"id": "s36", "symbol": "LUTS", "name": "Lotus", "aname": "لوتس", "industry": "Food", "shares": 1.3333333333, "eps": null, "price": 0.855, "target": null, "myWeight": 5.0, "fpe": 18.12}];
+const SEED = [{"id": "s0", "symbol": "ETEL", "name": "Telecom Egypt", "industry": "Tech", "shares": 1.7027027027, "eps": 14.8, "price": 148.0, "target": 135.0, "fpe": 16.78}, {"id": "s1", "symbol": "SWDY", "name": "El Sewedy Electric", "industry": "Industries", "shares": 2.1379310345, "eps": 7.7333333333, "price": 116.0, "target": 104.0, "fpe": 13.82}, {"id": "s2", "symbol": "TMGH", "name": "Talaat Moustafa", "industry": "Real Estate", "shares": 2.0568181818, "eps": 7.1895424837, "price": 88.0, "target": 142.0, "fpe": 12.71}, {"id": "s3", "symbol": "EGAL", "name": "Egypt Aluminum", "industry": "Metals", "shares": 0.412979351, "eps": 37.6666666667, "price": 339.0, "target": 399.0, "fpe": 9.51}, {"id": "s4", "symbol": "MFPC", "name": "Misr Fertilizer", "industry": "Chemicals", "shares": 2.829787234, "eps": 5.3652968037, "price": 47.0, "target": 47.0, "fpe": 12.61}, {"id": "s5", "symbol": "ABUK", "name": "Abu Qir Fertilizers", "industry": "Chemicals", "shares": 1.2555555556, "eps": 6.9230769231, "price": 90.0, "target": 89.0, "fpe": 12.61}, {"id": "s6", "symbol": "ALCN", "name": "Alexandria Container", "industry": "Transportation", "shares": 2.9411764706, "eps": 2.4372759857, "price": 34.0, "target": 28.55, "fpe": 13.82}, {"id": "s7", "symbol": "ORAS", "name": "Orascom Construction", "industry": "Real Estate", "shares": 0.1071835804, "eps": 105.1558752998, "price": 877.0, "target": 679.0, "fpe": 12.71}, {"id": "s8", "symbol": "EFIH", "name": "e-finance", "industry": "Tech", "shares": 3.44, "eps": 0.7142857143, "price": 25.0, "target": 28.1, "fpe": 16.78}, {"id": "s9", "symbol": "ADIB", "name": "Abu Dhabi Islamic Bank", "industry": "Banks", "shares": 1.4791666667, "eps": 8.9887640449, "price": 48.0, "target": 59.72, "fpe": 6}, {"id": "s10", "symbol": "FWRY", "name": "Fawry", "industry": "Tech", "shares": 3.3684210526, "eps": 0.8260869565, "price": 19.0, "target": 26.68, "fpe": 16.78}, {"id": "s11", "symbol": "ORHD", "name": "Orascom Development", "industry": "Hotels", "shares": 3.6666666667, "eps": 1.5, "price": 12.0, "target": 17.0, "fpe": 16.72}, {"id": "s12", "symbol": "VLMRA", "name": "Valmore", "industry": "Petroleum", "shares": 1.4137931034, "eps": 4.0, "price": 29.0, "target": 64.0, "fpe": 11.75}, {"id": "s13", "symbol": "EFID", "name": "Edita", "industry": "Food", "shares": 2.1052631579, "eps": 1.4559386973, "price": 19.0, "target": 25.0, "fpe": 18.12}, {"id": "s14", "symbol": "JUFO", "name": "Juhayna", "industry": "Food", "shares": 1.48, "eps": 1.5625, "price": 25.0, "target": 29.0, "fpe": 18.12}, {"id": "s15", "symbol": "PHDC", "name": "Palm Hills", "industry": "Real Estate", "shares": 2.8461538462, "eps": 1.4444444444, "price": 13.0, "target": 17.93, "fpe": 12.71}, {"id": "s16", "symbol": "OCDI", "name": "Sixth of October - SODIC", "industry": "Real Estate", "shares": 1.2962962963, "eps": 3.0033370412, "price": 27.0, "target": 44.0, "fpe": 12.71}, {"id": "s17", "symbol": "GBCO", "name": "GB Corp", "industry": "Vehicles", "shares": 1.0967741935, "eps": 2.2142857143, "price": 31.0, "target": 38.14, "fpe": 13.82}, {"id": "s18", "symbol": "RAYA", "name": "Raya", "industry": "Tech", "shares": 4.0, "eps": 0.6151142355, "price": 7.0, "target": 11.0, "fpe": 16.78}, {"id": "s19", "symbol": "EGCH", "name": "Egyptian Chemicals", "industry": "Chemicals", "shares": 2.0769230769, "eps": 0.8666666667, "price": 13.0, "target": 16.0, "fpe": 12.61}, {"id": "s20", "symbol": "CCAP", "name": "QALA For Financials", "industry": "Finance", "shares": 3.7142857143, "eps": 0.0654205607, "price": 7.0, "target": null, "fpe": 18.14}, {"id": "s21", "symbol": "SCEM", "name": "Sinai Cement", "industry": "Cement", "shares": 0.2558139535, "eps": 12.2857142857, "price": 86.0, "target": 120.0, "fpe": 6.22}, {"id": "s22", "symbol": "ORWE", "name": "Oriental Weavers", "industry": "Home Furniture", "shares": 0.6666666667, "eps": 3.0100334448, "price": 27.0, "target": 36.35, "fpe": 13.82}, {"id": "s23", "symbol": "AMOC", "name": "Alexandria Mineral Oils", "industry": "Petroleum", "shares": 1.2857142857, "eps": 1.1666666667, "price": 14.0, "target": 12.0, "fpe": 11.75}, {"id": "s24", "symbol": "MASR", "name": "Madinet Masr", "industry": "Real Estate", "shares": 2.125, "eps": 1.3333333333, "price": 8.0, "target": 11.4, "fpe": 12.71}, {"id": "s25", "symbol": "TALM", "name": "Taaleem", "industry": "Educational", "shares": 0.7272727273, "eps": 0.88, "price": 22.0, "target": 29.0, "fpe": 13.82}, {"id": "s26", "symbol": "NIPH", "name": "EI- Nile", "industry": "Pharmaceuticals", "shares": 0.0507936508, "eps": 4.7727272727, "price": 315.0, "target": null, "fpe": 16.61}, {"id": "s27", "symbol": "KORA", "name": "Korra for Energy", "industry": "Electrical", "shares": 2.1428571429, "eps": null, "price": 7.0, "target": null, "fpe": 13.82}, {"id": "s28", "symbol": "ISPH", "name": "Ibnsina Pharma", "industry": "Pharmaceuticals", "shares": 1.0, "eps": 0.8571428571, "price": 12.0, "target": 17.26, "fpe": 16.61}, {"id": "s29", "symbol": "AMES", "name": "New Medical Center", "industry": "Medical", "shares": 0.2391304348, "eps": 0.4299065421, "price": 46.0, "target": null, "fpe": 13.82}, {"id": "s30", "symbol": "OIH", "name": "Orascom Investment", "industry": "Tech", "shares": 5.0, "eps": -0.1111111111, "price": 2.0, "target": null, "fpe": 16.78}, {"id": "s31", "symbol": "OLFI", "name": "Obour Land", "industry": "Food", "shares": 0.380952381, "eps": 1.9090909091, "price": 21.0, "target": 26.0, "fpe": 18.12}, {"id": "s32", "symbol": "MPCI", "name": "Memphis", "industry": "Pharmaceuticals", "shares": 0.0231213873, "eps": 23.0666666667, "price": 346.0, "target": null, "fpe": 16.61}, {"id": "s33", "symbol": "BONY", "name": "Bonyan", "industry": "Real Estate", "shares": 1.9093078759, "eps": 1.0826873385, "price": 4.19, "target": 6.27, "fpe": 12.71}, {"id": "s34", "symbol": "AXPH", "name": "Alexandria Pharma", "industry": "Pharmaceuticals", "shares": 0.0046791444, "eps": 99.7333333333, "price": 1496.0, "target": null, "fpe": 16.61}, {"id": "s35", "symbol": "AMER", "name": "Amer Group", "industry": "Real Estate", "shares": 1.0, "eps": 0.3333333333, "price": 5.0, "target": null, "fpe": 12.71}, {"id": "s36", "symbol": "LUTS", "name": "Lotus", "industry": "Food", "shares": 1.3333333333, "eps": null, "price": 0.855, "target": null, "fpe": 18.12}];
 const LS = 'egx_portfolio_static_v1';
 function migrate(a){ return a.map(s=>{ if(s.shares!==undefined) return s; const o={...s}; o.shares=(s.cap!=null&&s.price)?s.cap/s.price:null; o.eps=(s.pe&&s.price)?s.price/s.pe:null; delete o.cap; delete o.pe; return o; }); }
 function load(){ try{ const v = JSON.parse(localStorage.getItem(LS)); if(Array.isArray(v)) return migrate(v); }catch(e){} return JSON.parse(JSON.stringify(SEED)); }
@@ -76,11 +76,11 @@ let pendingDel = null, delTimer = null, resetPending = false, resetTimer = null;
 function say(t){ const m=document.getElementById('msg'); m.textContent=t; setTimeout(()=>{ if(m.textContent===t) m.textContent=''; },4000); }
 
 const COLS = [
-  {k:'symbol',l:'الرمز',t:'str',w:'7%'},{k:'name',l:'الاسم',t:'str',w:'14%'},{k:'industry',l:'القطاع',t:'str',w:'10%'},
-  {k:'cap',l:'القيمة السوقية',t:'num',w:'7%'},{k:'weight',l:'الوزن %',t:'num',w:'6%'},{k:'myWeight',l:'وزنى',t:'num',w:'5.5%'},
-  {k:'price',l:'السعر',t:'num',w:'6.5%'},{k:'pe',l:'PE',t:'num',w:'5.5%'},{k:'eps',l:'EPS',t:'num',w:'6%'},
-  {k:'target',l:'القيمة المتوقعة',t:'num',w:'7%'},{k:'upside',l:'الارتفاع %',t:'num',w:'6.5%'},
-  {k:'cfv',l:'قيمة تقريبية',t:'num',w:'7%'},{k:'cupside',l:'ارتفاع تقريبى %',t:'num',w:'7.5%'},{k:'del',l:'',t:'none',w:'3.5%'}
+  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'14%'},{k:'industry',l:'Sector',t:'str',w:'10%'},
+  {k:'cap',l:'Market cap (EGP bn)',t:'num',w:'8.5%'},{k:'weight',l:'Weight %',t:'num',w:'6.5%'},
+  {k:'price',l:'Price',t:'num',w:'7%'},{k:'pe',l:'PE',t:'num',w:'5.5%'},{k:'eps',l:'EPS',t:'num',w:'6%'},
+  {k:'target',l:'Target value',t:'num',w:'8%'},{k:'upside',l:'Upside %',t:'num',w:'7%'},
+  {k:'cfv',l:'Approx. value',t:'num',w:'8%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'8.5%'},{k:'del',l:'',t:'none',w:'3.5%'}
 ];
 
 const FPE=Object.fromEntries(SEED.map(s=>[s.symbol,s.fpe])), FPE_DEFAULT=13.82;
@@ -100,7 +100,7 @@ function enrich(){
       weight: (tot>0 && r.cap!=null) ? +((r.cap/tot)*100).toFixed(2) : null};
   });
 }
-const fmt=(n,s='')=> n==null||isNaN(n)?'—':n.toLocaleString('en-US',{maximumFractionDigits:2})+s;
+const fmt=(n,s='')=> n==null||isNaN(n)?'—':n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+s;
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 
 function head(){
@@ -122,32 +122,32 @@ function render(){
     x=x==null?-Infinity:x; y=y==null?-Infinity:y;
     return sortDir==='asc'?x-y:y-x;
   });
-  const tot=rows.reduce((s,r)=>s+(r.cap||0),0), myTot=stocks.reduce((s,r)=>s+(r.myWeight||0),0);
-  document.getElementById('totals').textContent=`${stocks.length} سهم — إجمالى القيمة السوقية: ${fmt(tot)} — مجموع وزنى: ${fmt(myTot)}`;
-  const num=(r,f)=>`<td><input type="number" step="any" class="ci" data-f="${f}" value="${r[f]==null?'':+Number(r[f]).toFixed(4)}"></td>`;
+  const tot=rows.reduce((s,r)=>s+(r.cap||0),0);
+  document.getElementById('totals').textContent=`${stocks.length} stocks — Total market cap: ${fmt(tot)} bn EGP`;
+  const num=(r,f)=>`<td><input type="number" step="any" class="ci" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(2)}"></td>`;
   document.getElementById('rows').innerHTML=rows.map(r=>{
     const u=r.upside==null?'sub':(r.upside>=0?'up':'down');
     return `<tr data-id="${r.id}">
       <td><input class="ci t" data-f="symbol" value="${esc(r.symbol)}"></td>
-      <td><input class="ci t" data-f="name" value="${esc(r.name)}" title="${esc(r.aname)}"></td>
+      <td><input class="ci t" data-f="name" value="${esc(r.name)}"></td>
       <td><input class="ci t" data-f="industry" value="${esc(r.industry)}"></td>
       ${num(r,'cap')}
       <td><b>${fmt(r.weight,'%')}</b></td>
-      ${num(r,'myWeight')}${num(r,'price')}${num(r,'pe')}
+      ${num(r,'price')}${num(r,'pe')}
       ${num(r,'eps')}
       ${num(r,'target')}
       <td class="${u}"><b>${fmt(r.upside,'%')}</b></td>
       <td>${fmt(r.cfv)}</td>
       <td class="${r.cupside==null?'sub':(r.cupside>=0?'up':'down')}"><b>${fmt(r.cupside,'%')}</b></td>
-      <td>${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">تأكيد؟</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
+      <td>${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">Confirm?</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
   }).join('');
   document.querySelectorAll('[data-f]').forEach(i=>i.onchange=e=>{
     const s=stocks.find(x=>x.id===e.target.closest('tr').dataset.id), f=e.target.dataset.f;
     if(!s) return;
-    if(['cap','myWeight','price','pe','eps','target'].includes(f)){
+    if(['cap','price','pe','eps','target'].includes(f)){
       const v=parseFloat(e.target.value), val=isNaN(v)?null:v;
-      if(f==='cap'){ if(val==null) s.shares=null; else if(s.price) s.shares=val/s.price; else say('أدخل السعر الأول'); }
-      else if(f==='pe'){ if(val==null) s.eps=null; else if(val!==0 && s.price) s.eps=s.price/val; else say('أدخل السعر الأول'); }
+      if(f==='cap'){ if(val==null) s.shares=null; else if(s.price) s.shares=val/s.price; else say('Enter the price first'); }
+      else if(f==='pe'){ if(val==null) s.eps=null; else if(val!==0 && s.price) s.eps=s.price/val; else say('Enter the price first'); }
       else s[f]=val;
     } else s[f]=e.target.value;
     persist(); render();
@@ -160,7 +160,7 @@ function render(){
 }
 
 document.getElementById('addRow').onclick=()=>{
-  stocks.push({id:'s'+(nextId++),symbol:'NEW',name:'',aname:'',industry:'',shares:null,eps:null,price:null,target:null,myWeight:null});
+  stocks.push({id:'s'+(nextId++),symbol:'NEW',name:'',aname:'',industry:'',shares:null,eps:null,price:null,target:null});
   persist(); render();
 };
 document.getElementById('saveFile').onclick=()=>{
@@ -176,13 +176,13 @@ document.getElementById('loadFile').onchange=e=>{
   r.onload=ev=>{ try{
     const d=JSON.parse(ev.target.result); if(!Array.isArray(d)) throw 0;
     stocks=migrate(d); nextId=Math.max(0,...stocks.map(s=>parseInt(String(s.id||'s0').slice(1))||0))+1; persist(); render();
-  }catch(_){ say('الملف مش بصيغة صحيحة'); } };
+  }catch(_){ say('Invalid file format'); } };
   r.readAsText(f);
 };
 document.getElementById('resetBtn').onclick=e=>{
   const b=e.currentTarget;
-  if(!resetPending){ resetPending=true; b.textContent='تأكيد الاسترجاع؟'; resetTimer=setTimeout(()=>{ resetPending=false; b.textContent='↺ استرجاع الأصلى'; },3000); return; }
-  clearTimeout(resetTimer); resetPending=false; b.textContent='↺ استرجاع الأصلى';
+  if(!resetPending){ resetPending=true; b.textContent='Confirm reset?'; resetTimer=setTimeout(()=>{ resetPending=false; b.textContent='↺ Reset to original'; },3000); return; }
+  clearTimeout(resetTimer); resetPending=false; b.textContent='↺ Reset to original';
   stocks=JSON.parse(JSON.stringify(SEED)); persist(); render();
 };
 async function fetchLatest(){
@@ -192,9 +192,9 @@ async function fetchLatest(){
     const j=await r.json(), by={};
     (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null) by[s.symbol]=s; });
     let n=0; stocks.forEach(s=>{ const l=by[s.symbol]; if(l){ s.price=l.price; n++; } });
-    if(n){ persist(); render(); st.textContent='آخر تحديث: '+new Date(j.updated_at).toLocaleString('ar-EG',{dateStyle:'short',timeStyle:'short'})+' ('+n+' سهم، متأخرة ~15 دقيقة)'; }
-    else st.textContent='لسه مفيش أسعار محدثة';
-  }catch(e){ st.textContent='تعذر قراءة الأسعار المحدثة'; }
+    if(n){ persist(); render(); st.textContent='Last update: '+new Date(j.updated_at).toLocaleString('en-GB',{dateStyle:'short',timeStyle:'short'})+' ('+n+' stocks, ~15 min delayed)'; }
+    else st.textContent='No updated prices yet';
+  }catch(e){ st.textContent='Could not read updated prices'; }
 }
 document.getElementById('refreshBtn').onclick=fetchLatest;
 head(); render(); fetchLatest();
