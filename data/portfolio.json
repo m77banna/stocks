@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-08T20:46:06.902Z",
+  "saved_at": "2026-10-08T20:46:46.590Z",
   "stocks": [
     {
       "id": "s0",
@@ -407,16 +407,6 @@
       "target": null,
       "fpe": 18.12,
       "pe": null
-    },
-    {
-      "id": "s37",
-      "symbol": "COMI",
-      "name": "Commercial International Bank - Egypt (CIB) S.A.E.",
-      "industry": "Finance",
-      "shares": 3.4051343762535096,
-      "pe": 5.99,
-      "price": 124.65,
-      "target": null
     }
   ]
 }
