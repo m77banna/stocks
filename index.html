@@ -94,7 +94,7 @@ window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.re
 
 const COLS = [
   {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'16%'},{k:'industry',l:'Sector',t:'str',w:'11%'},
-  {k:'cap',l:'Market cap (EGP bn)',t:'num',w:'9.5%'},
+  {k:'cap',l:'Market cap',t:'num',w:'9.5%'},
   {k:'price',l:'Price',t:'num',w:'8%'},{k:'pe',l:'PE',t:'num',w:'6.5%'},
   {k:'target',l:'Target value',t:'num',w:'8.5%'},{k:'upside',l:'Upside %',t:'num',w:'8%'},
   {k:'cfv',l:'Approx. value',t:'num',w:'8.5%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'9.5%'},{k:'del',l:'',t:'none',w:'7%'}
@@ -114,7 +114,7 @@ function enrich(){
       cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null};
   });
 }
-const fmt=(n,s='')=> n==null||isNaN(n)?'—':n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+s;
+const fmt=(n,s='')=> n==null||isNaN(n)?'—':n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})+s;
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 
 function head(){
@@ -137,8 +137,8 @@ function render(){
     return sortDir==='asc'?x-y:y-x;
   });
   const tot=rows.reduce((s,r)=>s+(r.cap||0),0);
-  document.getElementById('totals').textContent=`${stocks.length} stocks — Total market cap: ${fmt(tot)} bn EGP`;
-  const num=(r,f)=>`<td><input type="number" step="any" class="ci" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(2)}"></td>`;
+  document.getElementById('totals').textContent=`${stocks.length} stocks — Total market cap: ${fmt(tot)}`;
+  const num=(r,f)=>`<td><input type="number" step="any" class="ci" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(1)}"></td>`;
   document.getElementById('rows').innerHTML=rows.map(r=>{
     const u=r.upside==null?'sub':(r.upside>=0?'up':'down');
     return `<tr data-id="${r.id}">
