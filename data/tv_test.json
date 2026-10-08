@@ -1,0 +1,587 @@
+{
+  "ran_at": "2026-10-08T14:50:10.600085+00:00",
+  "attempts": [
+    {
+      "columns": [
+        "close",
+        "change",
+        "volume",
+        "market_cap_basic",
+        "price_earnings_ttm",
+        "earnings_per_share_basic_ttm",
+        "update_mode"
+      ],
+      "http": 200,
+      "body_head": ""
+    }
+  ],
+  "columns": [
+    "close",
+    "change",
+    "volume",
+    "market_cap_basic",
+    "price_earnings_ttm",
+    "earnings_per_share_basic_ttm",
+    "update_mode"
+  ],
+  "missing": [],
+  "comparison": [
+    {
+      "symbol": "ETEL",
+      "tv_price": 148,
+      "yahoo_price": 148.0,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "SWDY",
+      "tv_price": 116,
+      "yahoo_price": 116.0,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "TMGH",
+      "tv_price": 87.89,
+      "yahoo_price": 87.89,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "EGAL",
+      "tv_price": 339.4,
+      "yahoo_price": 339.4,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "MFPC",
+      "tv_price": 46.5,
+      "yahoo_price": 46.5,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "ABUK",
+      "tv_price": 90,
+      "yahoo_price": 90.0,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "ALCN",
+      "tv_price": 33.55,
+      "yahoo_price": 33.55,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "ORAS",
+      "tv_price": 877.02,
+      "yahoo_price": 71.05,
+      "diff_pct": 1134.37
+    },
+    {
+      "symbol": "EFIH",
+      "tv_price": 25.23,
+      "yahoo_price": 25.23,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "ADIB",
+      "tv_price": 47.8,
+      "yahoo_price": 47.8,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "FWRY",
+      "tv_price": 19.06,
+      "yahoo_price": 19.06,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "ORHD",
+      "tv_price": 12,
+      "yahoo_price": 12.0,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "VLMRA",
+      "tv_price": 28.62,
+      "yahoo_price": null,
+      "diff_pct": null
+    },
+    {
+      "symbol": "EFID",
+      "tv_price": 19.07,
+      "yahoo_price": 19.07,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "JUFO",
+      "tv_price": 25,
+      "yahoo_price": 25.0,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "PHDC",
+      "tv_price": 12.93,
+      "yahoo_price": 12.93,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "OCDI",
+      "tv_price": 27.32,
+      "yahoo_price": 27.32,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "GBCO",
+      "tv_price": 31.01,
+      "yahoo_price": 31.01,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "RAYA",
+      "tv_price": 6.6,
+      "yahoo_price": 6.6,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "EGCH",
+      "tv_price": 13.36,
+      "yahoo_price": 13.36,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "CCAP",
+      "tv_price": 6.62,
+      "yahoo_price": 6.62,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "SCEM",
+      "tv_price": 85.59,
+      "yahoo_price": 85.59,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "ORWE",
+      "tv_price": 27.14,
+      "yahoo_price": 27.14,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "AMOC",
+      "tv_price": 14.48,
+      "yahoo_price": 14.48,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "MASR",
+      "tv_price": 7.86,
+      "yahoo_price": 7.86,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "TALM",
+      "tv_price": 21.71,
+      "yahoo_price": 21.71,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "NIPH",
+      "tv_price": 315.5,
+      "yahoo_price": 315.5,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "KORA",
+      "tv_price": 6.5,
+      "yahoo_price": null,
+      "diff_pct": null
+    },
+    {
+      "symbol": "ISPH",
+      "tv_price": 11.7,
+      "yahoo_price": 11.7,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "AMES",
+      "tv_price": 46.35,
+      "yahoo_price": 46.35,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "OIH",
+      "tv_price": 1.88,
+      "yahoo_price": 1.88,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "OLFI",
+      "tv_price": 21.09,
+      "yahoo_price": 21.09,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "MPCI",
+      "tv_price": 346.01,
+      "yahoo_price": 346.01,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "BONY",
+      "tv_price": 4.36,
+      "yahoo_price": null,
+      "diff_pct": null
+    },
+    {
+      "symbol": "AXPH",
+      "tv_price": 1493,
+      "yahoo_price": 1495.64,
+      "diff_pct": -0.18
+    },
+    {
+      "symbol": "AMER",
+      "tv_price": 5.03,
+      "yahoo_price": 5.03,
+      "diff_pct": 0.0
+    },
+    {
+      "symbol": "LUTS",
+      "tv_price": 0.915,
+      "yahoo_price": 0.92,
+      "diff_pct": -0.54
+    }
+  ],
+  "results": {
+    "ETEL": {
+      "close": 148,
+      "change": -1.2543368027755508,
+      "volume": 851694,
+      "market_cap_basic": 252646604980,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "SWDY": {
+      "close": 116,
+      "change": -1.694915254237288,
+      "volume": 438226,
+      "market_cap_basic": 248165262695,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "TMGH": {
+      "close": 87.89,
+      "change": -0.5656748500961647,
+      "volume": 1232863,
+      "market_cap_basic": 181110861980,
+      "price_earnings_ttm": 11.726640782398697,
+      "earnings_per_share_basic_ttm": 7.4949,
+      "update_mode": "delayed_streaming_900"
+    },
+    "EGAL": {
+      "close": 339.4,
+      "change": -1.1677004164118832,
+      "volume": 309904,
+      "market_cap_basic": 140002497482,
+      "price_earnings_ttm": 13.037499135699084,
+      "earnings_per_share_basic_ttm": 26.0326,
+      "update_mode": "delayed_streaming_900"
+    },
+    "MFPC": {
+      "close": 46.5,
+      "change": 1.3071895424836633,
+      "volume": 576608,
+      "market_cap_basic": 133368516356.99998,
+      "price_earnings_ttm": 8.669711941829028,
+      "earnings_per_share_basic_ttm": 5.3635,
+      "update_mode": "delayed_streaming_900"
+    },
+    "ABUK": {
+      "close": 90,
+      "change": 3.998151143979655,
+      "volume": 1052897,
+      "market_cap_basic": 113568815918,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "ALCN": {
+      "close": 33.55,
+      "change": -2.7536231884058053,
+      "volume": 605156,
+      "market_cap_basic": 99962452073,
+      "price_earnings_ttm": 16.72482552342971,
+      "earnings_per_share_basic_ttm": 2.006,
+      "update_mode": "delayed_streaming_900"
+    },
+    "ORAS": {
+      "close": 877.02,
+      "change": 4.036821314606338,
+      "volume": 729229,
+      "market_cap_basic": 104395876683.64493,
+      "price_earnings_ttm": 8.492695161942596,
+      "earnings_per_share_basic_ttm": 103.2675709273183,
+      "update_mode": "delayed_streaming_900"
+    },
+    "EFIH": {
+      "close": 25.23,
+      "change": 1.77490923759581,
+      "volume": 4778640,
+      "market_cap_basic": 87464000466,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "ADIB": {
+      "close": 47.8,
+      "change": -0.6443566826023743,
+      "volume": 1525188,
+      "market_cap_basic": 71699998856,
+      "price_earnings_ttm": 4.631693184240615,
+      "earnings_per_share_basic_ttm": 10.3202,
+      "update_mode": "delayed_streaming_900"
+    },
+    "FWRY": {
+      "close": 19.06,
+      "change": 1.8162393162393158,
+      "volume": 17635537,
+      "market_cap_basic": 64928330246,
+      "price_earnings_ttm": 19.96438671834084,
+      "earnings_per_share_basic_ttm": 0.9547,
+      "update_mode": "delayed_streaming_900"
+    },
+    "ORHD": {
+      "close": 12,
+      "change": -0.2415742555944626,
+      "volume": 7851596,
+      "market_cap_basic": 43801567383,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": 1.4677,
+      "update_mode": "delayed_streaming_900"
+    },
+    "VLMRA": {
+      "close": 28.62,
+      "change": -1.4802065404475033,
+      "volume": 1970728,
+      "market_cap_basic": 29590356577.5401,
+      "price_earnings_ttm": 5.494182012847967,
+      "earnings_per_share_basic_ttm": 5.209146681539319,
+      "update_mode": "delayed_streaming_900"
+    },
+    "EFID": {
+      "close": 19.07,
+      "change": 0.3684210526315805,
+      "volume": 798257,
+      "market_cap_basic": 39942836004,
+      "price_earnings_ttm": 12.74903061906672,
+      "earnings_per_share_basic_ttm": 1.4958,
+      "update_mode": "delayed_streaming_900"
+    },
+    "JUFO": {
+      "close": 25,
+      "change": -0.7936507936507908,
+      "volume": 731558,
+      "market_cap_basic": 36773638916,
+      "price_earnings_ttm": 18.372896303373263,
+      "earnings_per_share_basic_ttm": 1.3607,
+      "update_mode": "delayed_streaming_900"
+    },
+    "PHDC": {
+      "close": 12.93,
+      "change": 0.23255813953487878,
+      "volume": 5810586,
+      "market_cap_basic": 36978692858,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "OCDI": {
+      "close": 27.32,
+      "change": 0.44117647058823894,
+      "volume": 543704,
+      "market_cap_basic": 35223500188,
+      "price_earnings_ttm": 8.771028637472712,
+      "earnings_per_share_basic_ttm": 3.1148,
+      "update_mode": "delayed_streaming_900"
+    },
+    "GBCO": {
+      "close": 31.01,
+      "change": -2.422907488986783,
+      "volume": 3395072,
+      "market_cap_basic": 33661355248,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "RAYA": {
+      "close": 6.6,
+      "change": 1.538461538461533,
+      "volume": 1398934,
+      "market_cap_basic": 28256565412,
+      "price_earnings_ttm": 11.591148577449946,
+      "earnings_per_share_basic_ttm": 0.5694,
+      "update_mode": "delayed_streaming_900"
+    },
+    "EGCH": {
+      "close": 13.36,
+      "change": 0.6782215523737744,
+      "volume": 2196237,
+      "market_cap_basic": 26540694484,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "CCAP": {
+      "close": 6.62,
+      "change": 1.0687022900763403,
+      "volume": 51695592,
+      "market_cap_basic": 21293048616,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "SCEM": {
+      "close": 85.59,
+      "change": -0.3028538147932335,
+      "volume": 445597,
+      "market_cap_basic": 22322938308,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "ORWE": {
+      "close": 27.14,
+      "change": 0.5185185185185206,
+      "volume": 403483,
+      "market_cap_basic": 18051010054,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "AMOC": {
+      "close": 14.48,
+      "change": 1.1879804332634516,
+      "volume": 17390295,
+      "market_cap_basic": 18700919409,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "MASR": {
+      "close": 7.86,
+      "change": 3.28515111695138,
+      "volume": 7734086,
+      "market_cap_basic": 16781100285,
+      "price_earnings_ttm": 5.465924895688457,
+      "earnings_per_share_basic_ttm": 1.438,
+      "update_mode": "delayed_streaming_900"
+    },
+    "TALM": {
+      "close": 21.71,
+      "change": -0.5497022446174872,
+      "volume": 823560,
+      "market_cap_basic": 15935946298,
+      "price_earnings_ttm": 25.981330780277645,
+      "earnings_per_share_basic_ttm": 0.8356,
+      "update_mode": "delayed_streaming_900"
+    },
+    "NIPH": {
+      "close": 315.5,
+      "change": -0.18033979814597817,
+      "volume": 120409,
+      "market_cap_basic": 15775000000,
+      "price_earnings_ttm": 50.680288500152606,
+      "earnings_per_share_basic_ttm": 6.2253,
+      "update_mode": "delayed_streaming_900"
+    },
+    "KORA": {
+      "close": 6.5,
+      "change": 6.035889070146821,
+      "volume": 58323176,
+      "market_cap_basic": null,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "ISPH": {
+      "close": 11.7,
+      "change": 0,
+      "volume": 1872122,
+      "market_cap_basic": 13103999786,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": 0.8862,
+      "update_mode": "delayed_streaming_900"
+    },
+    "AMES": {
+      "close": 46.35,
+      "change": -2.2976391231028592,
+      "volume": 1110041,
+      "market_cap_basic": 11336356265,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "OIH": {
+      "close": 1.88,
+      "change": 0.5347593582887586,
+      "volume": 12201416,
+      "market_cap_basic": 9861897983,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "OLFI": {
+      "close": 21.09,
+      "change": 0.04743833017078541,
+      "volume": 518130,
+      "market_cap_basic": 8436000061.000001,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "MPCI": {
+      "close": 346.01,
+      "change": 0.29275362318840314,
+      "volume": 201595,
+      "market_cap_basic": 7871727722,
+      "price_earnings_ttm": 15.188134283807985,
+      "earnings_per_share_basic_ttm": 22.7816,
+      "update_mode": "delayed_streaming_900"
+    },
+    "BONY": {
+      "close": 4.36,
+      "change": 6.08272506082725,
+      "volume": 44616239,
+      "market_cap_basic": 8174317936,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "AXPH": {
+      "close": 1493,
+      "change": 0.06702412868632708,
+      "volume": 2599,
+      "market_cap_basic": 7478200073,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "AMER": {
+      "close": 5.03,
+      "change": 0.1992031872510095,
+      "volume": 9044637,
+      "market_cap_basic": 4541032858,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    },
+    "LUTS": {
+      "close": 0.915,
+      "change": -0.5434782608695656,
+      "volume": 48548366,
+      "market_cap_basic": null,
+      "price_earnings_ttm": null,
+      "earnings_per_share_basic_ttm": null,
+      "update_mode": "delayed_streaming_900"
+    }
+  }
+}
