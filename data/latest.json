@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T19:53:09.378998+00:00",
+  "updated_at": "2026-10-08T19:57:27.960719+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -379,6 +379,10 @@
       "sector": "Finance",
       "pe": 5.99,
       "eps": 21.156
+    },
+    {
+      "symbol": "ZZZZ",
+      "error": "no_data"
     }
   ]
 }
