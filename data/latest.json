@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T20:15:51.618768+00:00",
+  "updated_at": "2026-10-08T20:39:46.156629+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -19,8 +19,7 @@
       "cap_bn": 248.17,
       "name": "El Sewedy Electric Company",
       "sector": "Producer Manufacturing",
-      "pe": 15.23,
-      "eps": 7.618
+      "pe": 15.23
     },
     {
       "symbol": "TMGH",
@@ -30,8 +29,7 @@
       "cap_bn": 181.11,
       "name": "Talaat Moustafa Group Holding",
       "sector": "Finance",
-      "pe": 11.73,
-      "eps": 7.495
+      "pe": 11.73
     },
     {
       "symbol": "EGAL",
@@ -41,8 +39,7 @@
       "cap_bn": 140.0,
       "name": "Egypt Aluminum",
       "sector": "Non-Energy Minerals",
-      "pe": 13.04,
-      "eps": 26.033
+      "pe": 13.04
     },
     {
       "symbol": "MFPC",
@@ -52,8 +49,7 @@
       "cap_bn": 133.37,
       "name": "Misr Fertilizers Production Company MOPCO",
       "sector": "Process Industries",
-      "pe": 8.67,
-      "eps": 5.364
+      "pe": 8.67
     },
     {
       "symbol": "ABUK",
@@ -72,8 +68,7 @@
       "cap_bn": 99.96,
       "name": "Alexandria Containers & Goods",
       "sector": "Transportation",
-      "pe": 16.72,
-      "eps": 2.006
+      "pe": 16.72
     },
     {
       "symbol": "ORAS",
@@ -83,8 +78,7 @@
       "cap_bn": 104.4,
       "name": "Orascom Construction Plc",
       "sector": "Industrial Services",
-      "pe": 8.49,
-      "eps": 103.268
+      "pe": 8.49
     },
     {
       "symbol": "EFIH",
@@ -103,8 +97,7 @@
       "cap_bn": 71.7,
       "name": "Abu Dhabi Islamic Bank-Egypt",
       "sector": "Finance",
-      "pe": 4.63,
-      "eps": 10.32
+      "pe": 4.63
     },
     {
       "symbol": "FWRY",
@@ -114,8 +107,7 @@
       "cap_bn": 64.93,
       "name": "Fawry For Banking Technology And Electronic Payment",
       "sector": "Technology Services",
-      "pe": 19.96,
-      "eps": 0.955
+      "pe": 19.96
     },
     {
       "symbol": "ORHD",
@@ -124,8 +116,7 @@
       "volume": 7851596,
       "cap_bn": 43.8,
       "name": "Orascom Development Egypt (S.A.E)",
-      "sector": "Consumer Durables",
-      "eps": 1.468
+      "sector": "Consumer Durables"
     },
     {
       "symbol": "VLMRA",
@@ -135,8 +126,7 @@
       "cap_bn": 29.59,
       "name": "Valmore Holding",
       "sector": "Finance",
-      "pe": 5.49,
-      "eps": 5.209
+      "pe": 5.49
     },
     {
       "symbol": "EFID",
@@ -146,8 +136,7 @@
       "cap_bn": 39.94,
       "name": "Edita Food Industries SAE",
       "sector": "Consumer Non-Durables",
-      "pe": 12.75,
-      "eps": 1.496
+      "pe": 12.75
     },
     {
       "symbol": "JUFO",
@@ -157,8 +146,7 @@
       "cap_bn": 36.77,
       "name": "Juhayna Food Industries",
       "sector": "Consumer Non-Durables",
-      "pe": 18.37,
-      "eps": 1.361
+      "pe": 18.37
     },
     {
       "symbol": "PHDC",
@@ -177,8 +165,7 @@
       "cap_bn": 35.22,
       "name": "Six of October Development & Investment (SODIC)",
       "sector": "Finance",
-      "pe": 8.77,
-      "eps": 3.115
+      "pe": 8.77
     },
     {
       "symbol": "GBCO",
@@ -197,8 +184,7 @@
       "cap_bn": 28.26,
       "name": "Raya Holding for Financial Investments SAE",
       "sector": "Technology Services",
-      "pe": 11.59,
-      "eps": 0.569
+      "pe": 11.59
     },
     {
       "symbol": "EGCH",
@@ -253,8 +239,7 @@
       "cap_bn": 16.78,
       "name": "Madinet Masr for Housing & Development",
       "sector": "Finance",
-      "pe": 5.47,
-      "eps": 1.438
+      "pe": 5.47
     },
     {
       "symbol": "TALM",
@@ -264,8 +249,7 @@
       "cap_bn": 15.94,
       "name": "Taaleem Management Services S.A.E",
       "sector": "Consumer Services",
-      "pe": 25.98,
-      "eps": 0.836
+      "pe": 25.98
     },
     {
       "symbol": "NIPH",
@@ -275,8 +259,7 @@
       "cap_bn": 15.78,
       "name": "El-Nile Co. for Pharmaceuticals & Chemical Industries",
       "sector": "Health Technology",
-      "pe": 50.68,
-      "eps": 6.225
+      "pe": 50.68
     },
     {
       "symbol": "KORA",
@@ -293,8 +276,7 @@
       "volume": 1872122,
       "cap_bn": 13.1,
       "name": "Ibnsina Pharma",
-      "sector": "Distribution Services",
-      "eps": 0.886
+      "sector": "Distribution Services"
     },
     {
       "symbol": "AMES",
@@ -331,8 +313,7 @@
       "cap_bn": 7.87,
       "name": "Memphis Pharmaceutical & Chemical Industries",
       "sector": "Health Technology",
-      "pe": 15.19,
-      "eps": 22.782
+      "pe": 15.19
     },
     {
       "symbol": "BONY",
@@ -377,8 +358,7 @@
       "cap_bn": 424.45,
       "name": "Commercial International Bank - Egypt (CIB) S.A.E.",
       "sector": "Finance",
-      "pe": 5.99,
-      "eps": 21.156
+      "pe": 5.99
     }
   ]
 }
