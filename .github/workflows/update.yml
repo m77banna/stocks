@@ -2,13 +2,14 @@ name: Update EGX prices
 
 on:
   schedule:
-    # 18:23 UTC, Sun-Thu: a few hours after EGX closes (~14:30 Cairo)
-    - cron: "23 18 * * 0-4"
-    # 06:23 UTC daily: catch-up run
-    - cron: "23 6 * * *"
+    # Every 30 min during the EGX session (Sun-Thu). Window is wide enough
+    # to cover both Cairo summer and winter time.
+    - cron: "*/30 6-12 * * 0-4"
+    # One final run after the close
+    - cron: "45 13 * * 0-4"
   push:
     paths:
-      - "scraper/**"
+      - "scraper/fetch_egx.py"
       - "data/tickers.json"
       - ".github/workflows/update.yml"
   workflow_dispatch: {}

@@ -189,10 +189,10 @@ async function fetchLatest(){
   const st=document.getElementById('upd');
   try{
     const r=await fetch('data/latest.json?_='+Date.now()); if(!r.ok) throw 0;
-    const j=await r.json(), by={}; let day='';
-    (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null){ by[s.symbol]=s; if(s.session_date>day) day=s.session_date; } });
+    const j=await r.json(), by={};
+    (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null) by[s.symbol]=s; });
     let n=0; stocks.forEach(s=>{ const l=by[s.symbol]; if(l){ s.price=l.price; n++; } });
-    if(n){ persist(); render(); st.textContent='أسعار جلسة '+day+' ('+n+' سهم)'; }
+    if(n){ persist(); render(); st.textContent='آخر تحديث: '+new Date(j.updated_at).toLocaleString('ar-EG',{dateStyle:'short',timeStyle:'short'})+' ('+n+' سهم، متأخرة ~15 دقيقة)'; }
     else st.textContent='لسه مفيش أسعار محدثة';
   }catch(e){ st.textContent='تعذر قراءة الأسعار المحدثة'; }
 }
