@@ -22,7 +22,7 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
 }
 COLUMN_SETS = [
-    ["close", "change", "volume", "market_cap_basic", "description", "sector", "price_earnings_ttm", "earnings_per_share_basic_ttm"],
+    ["close", "change", "volume", "market_cap_basic", "description", "sector", "price_earnings_ttm"],
     ["close", "change", "volume", "market_cap_basic", "description", "sector"],
     ["close", "change", "volume", "market_cap_basic"],
     ["close", "change", "volume"],
@@ -68,8 +68,6 @@ def main():
             item["sector"] = r["sector"]
         if r.get("price_earnings_ttm") is not None:
             item["pe"] = round(float(r["price_earnings_ttm"]), 2)
-        if r.get("earnings_per_share_basic_ttm") is not None:
-            item["eps"] = round(float(r["earnings_per_share_basic_ttm"]), 3)
         stocks.append(item)
     out = {
         "updated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),

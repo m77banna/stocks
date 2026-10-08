@@ -102,13 +102,12 @@ const COLS = [
 const FPE_DEFAULT=13.82;
 function enrich(){
   const rows = stocks.map(r=>({...r,
-    cap: (r.shares!=null && r.price!=null) ? r.shares*r.price : null,
-    pe: (r.eps && r.price!=null) ? r.price/r.eps : null
+    cap: (r.shares!=null && r.price!=null) ? r.shares*r.price : null
   }));
   return rows.map(r=>{
     const fpe = r.fpe ?? FPE_DEFAULT;
-    const ok = r.pe!=null && r.pe>=3 && r.pe<=50 && r.eps>0 && r.price>0;
-    const cfv = ok ? +(r.price*Math.min(Math.max(((r.price+r.eps*fpe)/2)/r.price,0.6),1.6)).toFixed(2) : null;
+    const ok = r.pe!=null && r.pe>=3 && r.pe<=50 && r.price>0;
+    const cfv = ok ? +(r.price*Math.min(Math.max((1+fpe/r.pe)/2,0.6),1.6)).toFixed(2) : null;
     return {...r, cfv,
       upside: (r.target!=null && r.price) ? +(((r.target-r.price)/r.price)*100).toFixed(2) : null,
       cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null};
@@ -146,7 +145,7 @@ function render(){
       <td class="tx" title="${esc(r.name)}">${esc(r.name)}</td>
       <td class="tx" title="${esc(r.industry)}">${esc(r.industry)}</td>
       <td class="n">${fmt(r.cap)}</td>
-      <td class="n">${fmt(r.price)}</td><td class="n">${fmt(r.pe)}</td>
+      <td class="n">${fmt(r.price)}</td>${num(r,'pe')}
       ${num(r,'target')}
       <td class="${u}"><b>${fmt(r.upside,'%')}</b></td>
       <td>${fmt(r.cfv)}</td>
@@ -156,7 +155,7 @@ function render(){
   document.querySelectorAll('[data-f]').forEach(i=>i.onchange=e=>{
     const s=stocks.find(x=>x.id===e.target.closest('tr').dataset.id), f=e.target.dataset.f;
     if(!s) return;
-    if(['eps','target'].includes(f)){ const v=parseFloat(e.target.value); s[f]=isNaN(v)?null:v; }
+    if(['pe','target'].includes(f)){ const v=parseFloat(e.target.value); s[f]=isNaN(v)?null:v; }
     else s[f]=e.target.value;
     markDirty(); render();
   });
@@ -185,7 +184,7 @@ function fillNew(s,e){
   if(!s.name && e.name) s.name=e.name;
   if(!s.industry && e.sector) s.industry=e.sector;
   if(s.shares==null && e.cap_bn && e.price) s.shares=e.cap_bn/e.price;
-  if(s.eps==null){ if(e.eps!=null) s.eps=e.eps; else if(e.pe>0 && e.price) s.eps=e.price/e.pe; }
+  if(s.pe==null && e.pe!=null) s.pe=e.pe;
 }
 async function addTicker(tok,sym){
   const H={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
@@ -213,7 +212,7 @@ async function addStock(){
   if(stocks.some(s=>s.symbol===sym)){ say(sym+' is already in the list'); return; }
   const tok=getTok();
   if(!tok){ document.getElementById('settings').style.display='flex'; say('Add a GitHub token in ⚙ to look up new tickers'); return; }
-  const s={id:'s'+(nextId++),symbol:sym,name:'',industry:'',shares:null,eps:null,price:null,target:null};
+  const s={id:'s'+(nextId++),symbol:sym,name:'',industry:'',shares:null,pe:null,price:null,target:null};
   stocks.push(s); inp.value=''; markDirty(); render();
   say('Looking up '+sym+'… (about a minute)', true);
   try{ await addTicker(tok,sym); }catch(e){ say('Could not register '+sym+': '+e.message); return; }
@@ -277,6 +276,7 @@ async function loadData(){
     catch(e){ say('Could not load portfolio data'); return false; }
   }
   stocks=Array.isArray(data)?data:(data.stocks||[]);
+  stocks.forEach(s=>{ if(s.pe===undefined) s.pe=(s.eps&&s.price)?s.price/s.eps:null; delete s.eps; });
   nextId=Math.max(0,...stocks.map(s=>parseInt(String(s.id||'s0').slice(1))||0))+1;
   dirty=false; showDirty(); render();
   return true;

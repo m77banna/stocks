@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-08T20:16:26.552Z",
+  "saved_at": "2026-10-08T20:39:22.383750+00:00",
   "stocks": [
     {
       "id": "s0",
@@ -7,10 +7,10 @@
       "name": "Telecom Egypt",
       "industry": "Tech",
       "shares": 1.7027027027,
-      "eps": 14.8,
       "price": 148,
       "target": 135,
-      "fpe": 16.78
+      "fpe": 16.78,
+      "pe": 10.0
     },
     {
       "id": "s1",
@@ -18,10 +18,10 @@
       "name": "El Sewedy Electric",
       "industry": "Industries",
       "shares": 2.1379310345,
-      "eps": 7.7333333333,
       "price": 116,
       "target": 104,
-      "fpe": 13.82
+      "fpe": 13.82,
+      "pe": 15.23
     },
     {
       "id": "s2",
@@ -29,10 +29,10 @@
       "name": "Talaat Moustafa",
       "industry": "Real Estate",
       "shares": 2.0568181818,
-      "eps": 7.1895424837,
       "price": 87.89,
       "target": 142,
-      "fpe": 12.71
+      "fpe": 12.71,
+      "pe": 11.73
     },
     {
       "id": "s3",
@@ -40,10 +40,10 @@
       "name": "Egypt Aluminum",
       "industry": "Metals",
       "shares": 0.412979351,
-      "eps": 37.6666666667,
       "price": 339.4,
       "target": 399,
-      "fpe": 9.51
+      "fpe": 9.51,
+      "pe": 13.04
     },
     {
       "id": "s4",
@@ -51,10 +51,10 @@
       "name": "Misr Fertilizer",
       "industry": "Chemicals",
       "shares": 2.829787234,
-      "eps": 5.3652968037,
       "price": 46.5,
       "target": 47,
-      "fpe": 12.61
+      "fpe": 12.61,
+      "pe": 8.67
     },
     {
       "id": "s5",
@@ -62,10 +62,10 @@
       "name": "Abu Qir Fertilizers",
       "industry": "Chemicals",
       "shares": 1.2555555556,
-      "eps": 6.9230769231,
       "price": 90,
       "target": 89,
-      "fpe": 12.61
+      "fpe": 12.61,
+      "pe": 13.0
     },
     {
       "id": "s6",
@@ -73,10 +73,10 @@
       "name": "Alexandria Container",
       "industry": "Transportation",
       "shares": 2.9411764706,
-      "eps": 2.4372759857,
       "price": 33.55,
       "target": 28.55,
-      "fpe": 13.82
+      "fpe": 13.82,
+      "pe": 16.72
     },
     {
       "id": "s7",
@@ -84,10 +84,10 @@
       "name": "Orascom Construction",
       "industry": "Real Estate",
       "shares": 0.1071835804,
-      "eps": 105.1558752998,
       "price": 877.02,
       "target": 679,
-      "fpe": 12.71
+      "fpe": 12.71,
+      "pe": 8.49
     },
     {
       "id": "s8",
@@ -95,10 +95,10 @@
       "name": "e-finance",
       "industry": "Tech",
       "shares": 3.44,
-      "eps": 0.7142857143,
       "price": 25.23,
       "target": 28.1,
-      "fpe": 16.78
+      "fpe": 16.78,
+      "pe": 35.0
     },
     {
       "id": "s9",
@@ -106,10 +106,10 @@
       "name": "Abu Dhabi Islamic Bank",
       "industry": "Banks",
       "shares": 1.4791666667,
-      "eps": 8.9887640449,
       "price": 47.8,
       "target": 59.72,
-      "fpe": 6
+      "fpe": 6,
+      "pe": 4.63
     },
     {
       "id": "s10",
@@ -117,10 +117,10 @@
       "name": "Fawry",
       "industry": "Tech",
       "shares": 3.3684210526,
-      "eps": 0.8260869565,
       "price": 19.06,
       "target": 26.68,
-      "fpe": 16.78
+      "fpe": 16.78,
+      "pe": 19.96
     },
     {
       "id": "s11",
@@ -128,10 +128,10 @@
       "name": "Orascom Development",
       "industry": "Hotels",
       "shares": 3.6666666667,
-      "eps": 1.5,
       "price": 12,
       "target": 17,
-      "fpe": 16.72
+      "fpe": 16.72,
+      "pe": 8.0
     },
     {
       "id": "s12",
@@ -139,10 +139,10 @@
       "name": "Valmore",
       "industry": "Petroleum",
       "shares": 1.4137931034,
-      "eps": 4,
       "price": 28.62,
       "target": 64,
-      "fpe": 11.75
+      "fpe": 11.75,
+      "pe": 5.49
     },
     {
       "id": "s13",
@@ -150,10 +150,10 @@
       "name": "Edita",
       "industry": "Food",
       "shares": 2.1052631579,
-      "eps": 1.4559386973,
       "price": 19.07,
       "target": 25,
-      "fpe": 18.12
+      "fpe": 18.12,
+      "pe": 12.75
     },
     {
       "id": "s14",
@@ -161,10 +161,10 @@
       "name": "Juhayna",
       "industry": "Food",
       "shares": 1.48,
-      "eps": 1.5625,
       "price": 25,
       "target": 29,
-      "fpe": 18.12
+      "fpe": 18.12,
+      "pe": 18.37
     },
     {
       "id": "s15",
@@ -172,10 +172,10 @@
       "name": "Palm Hills",
       "industry": "Real Estate",
       "shares": 2.8461538462,
-      "eps": 1.4444444444,
       "price": 12.93,
       "target": 17.93,
-      "fpe": 12.71
+      "fpe": 12.71,
+      "pe": 9.0
     },
     {
       "id": "s16",
@@ -183,10 +183,10 @@
       "name": "Sixth of October - SODIC",
       "industry": "Real Estate",
       "shares": 1.2962962963,
-      "eps": 3.0033370412,
       "price": 27.32,
       "target": 44,
-      "fpe": 12.71
+      "fpe": 12.71,
+      "pe": 8.77
     },
     {
       "id": "s17",
@@ -194,10 +194,10 @@
       "name": "GB Corp",
       "industry": "Vehicles",
       "shares": 1.0967741935,
-      "eps": 2.2142857143,
       "price": 31.01,
       "target": 38.14,
-      "fpe": 13.82
+      "fpe": 13.82,
+      "pe": 14.0
     },
     {
       "id": "s18",
@@ -205,10 +205,10 @@
       "name": "Raya",
       "industry": "Tech",
       "shares": 4,
-      "eps": 0.6151142355,
       "price": 6.6,
       "target": 11,
-      "fpe": 16.78
+      "fpe": 16.78,
+      "pe": 11.59
     },
     {
       "id": "s19",
@@ -216,10 +216,10 @@
       "name": "Egyptian Chemicals",
       "industry": "Chemicals",
       "shares": 2.0769230769,
-      "eps": 0.8666666667,
       "price": 13.36,
       "target": 16,
-      "fpe": 12.61
+      "fpe": 12.61,
+      "pe": 15.0
     },
     {
       "id": "s20",
@@ -227,10 +227,10 @@
       "name": "QALA For Financials",
       "industry": "Finance",
       "shares": 3.7142857143,
-      "eps": 0.0654205607,
       "price": 6.62,
       "target": null,
-      "fpe": 18.14
+      "fpe": 18.14,
+      "pe": 107.0
     },
     {
       "id": "s21",
@@ -238,10 +238,10 @@
       "name": "Sinai Cement",
       "industry": "Cement",
       "shares": 0.2558139535,
-      "eps": 12.2857142857,
       "price": 85.59,
       "target": 120,
-      "fpe": 6.22
+      "fpe": 6.22,
+      "pe": 7.0
     },
     {
       "id": "s22",
@@ -249,10 +249,10 @@
       "name": "Oriental Weavers",
       "industry": "Home Furniture",
       "shares": 0.6666666667,
-      "eps": 3.0100334448,
       "price": 27.14,
       "target": 36.35,
-      "fpe": 13.82
+      "fpe": 13.82,
+      "pe": 8.97
     },
     {
       "id": "s23",
@@ -260,10 +260,10 @@
       "name": "Alexandria Mineral Oils",
       "industry": "Petroleum",
       "shares": 1.2857142857,
-      "eps": 1.1666666667,
       "price": 14.48,
       "target": 12,
-      "fpe": 11.75
+      "fpe": 11.75,
+      "pe": 12.0
     },
     {
       "id": "s24",
@@ -271,10 +271,10 @@
       "name": "Madinet Masr",
       "industry": "Real Estate",
       "shares": 2.125,
-      "eps": 1.3333333333,
       "price": 7.86,
       "target": 11.4,
-      "fpe": 12.71
+      "fpe": 12.71,
+      "pe": 5.47
     },
     {
       "id": "s25",
@@ -282,10 +282,10 @@
       "name": "Taaleem",
       "industry": "Educational",
       "shares": 0.7272727273,
-      "eps": 0.88,
       "price": 21.71,
       "target": 29,
-      "fpe": 13.82
+      "fpe": 13.82,
+      "pe": 25.98
     },
     {
       "id": "s26",
@@ -293,10 +293,10 @@
       "name": "EI- Nile",
       "industry": "Pharmaceuticals",
       "shares": 0.0507936508,
-      "eps": 4.7727272727,
       "price": 315.5,
       "target": null,
-      "fpe": 16.61
+      "fpe": 16.61,
+      "pe": 50.68
     },
     {
       "id": "s27",
@@ -304,10 +304,10 @@
       "name": "Korra for Energy",
       "industry": "Electrical",
       "shares": 2.1428571429,
-      "eps": null,
       "price": 6.5,
       "target": null,
-      "fpe": 13.82
+      "fpe": 13.82,
+      "pe": null
     },
     {
       "id": "s28",
@@ -315,10 +315,10 @@
       "name": "Ibnsina Pharma",
       "industry": "Pharmaceuticals",
       "shares": 1,
-      "eps": 0.8571428571,
       "price": 11.7,
       "target": 17.26,
-      "fpe": 16.61
+      "fpe": 16.61,
+      "pe": 14.0
     },
     {
       "id": "s29",
@@ -326,10 +326,10 @@
       "name": "New Medical Center",
       "industry": "Medical",
       "shares": 0.2391304348,
-      "eps": 0.4299065421,
       "price": 46.35,
       "target": null,
-      "fpe": 13.82
+      "fpe": 13.82,
+      "pe": 107.0
     },
     {
       "id": "s30",
@@ -337,10 +337,10 @@
       "name": "Orascom Investment",
       "industry": "Tech",
       "shares": 5,
-      "eps": -0.1111111111,
       "price": 1.88,
       "target": null,
-      "fpe": 16.78
+      "fpe": 16.78,
+      "pe": -18.0
     },
     {
       "id": "s31",
@@ -348,10 +348,10 @@
       "name": "Obour Land",
       "industry": "Food",
       "shares": 0.380952381,
-      "eps": 1.9090909091,
       "price": 21.09,
       "target": 26,
-      "fpe": 18.12
+      "fpe": 18.12,
+      "pe": 11.0
     },
     {
       "id": "s32",
@@ -359,10 +359,10 @@
       "name": "Memphis",
       "industry": "Pharmaceuticals",
       "shares": 0.0231213873,
-      "eps": 23.0666666667,
       "price": 346.01,
       "target": null,
-      "fpe": 16.61
+      "fpe": 16.61,
+      "pe": 15.19
     },
     {
       "id": "s33",
@@ -370,10 +370,10 @@
       "name": "Bonyan",
       "industry": "Real Estate",
       "shares": 1.9093078759,
-      "eps": 1.0826873385,
       "price": 4.36,
       "target": 6.27,
-      "fpe": 12.71
+      "fpe": 12.71,
+      "pe": 3.87
     },
     {
       "id": "s34",
@@ -381,10 +381,10 @@
       "name": "Alexandria Pharma",
       "industry": "Pharmaceuticals",
       "shares": 0.0046791444,
-      "eps": 99.7333333333,
       "price": 1493,
       "target": null,
-      "fpe": 16.61
+      "fpe": 16.61,
+      "pe": 15.0
     },
     {
       "id": "s35",
@@ -392,10 +392,10 @@
       "name": "Amer Group",
       "industry": "Real Estate",
       "shares": 1,
-      "eps": 0.3333333333,
       "price": 5.03,
       "target": null,
-      "fpe": 12.71
+      "fpe": 12.71,
+      "pe": 15.0
     },
     {
       "id": "s36",
@@ -403,10 +403,10 @@
       "name": "Lotus",
       "industry": "Food",
       "shares": 1.3333333333,
-      "eps": null,
       "price": 0.915,
       "target": null,
-      "fpe": 18.12
+      "fpe": 18.12,
+      "pe": null
     }
   ]
 }
