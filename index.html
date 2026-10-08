@@ -46,6 +46,7 @@
 <body>
 <div class="wrap">
   <div class="card bar">
+    <input id="newSym" placeholder="Ticker, e.g. COMI" maxlength="12" autocomplete="off" style="width:150px;padding:4px 8px;text-transform:uppercase">
     <button class="primary" id="addRow">+ Add stock</button>
     <button id="saveBtn">💾 Save</button>
     <button id="refreshBtn">↻ Refresh prices</button>
@@ -76,7 +77,7 @@
 <script>
 const OWNER='m77banna', REPO='stocks', BRANCH='main', PATH='data/portfolio.json';
 const API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
-const TK='egx_gh_token';
+const TK='egx_gh_token', POLL_MS=10000;
 const getTok=()=>{ try{ return localStorage.getItem(TK)||''; }catch(e){ return ''; } };
 const setTok=v=>{ try{ if(v) localStorage.setItem(TK,v); else localStorage.removeItem(TK); }catch(e){} };
 
@@ -172,10 +173,75 @@ function render(){
   });
 }
 
-document.getElementById('addRow').onclick=()=>{
-  stocks.push({id:'s'+(nextId++),symbol:'NEW',name:'',industry:'',shares:null,eps:null,price:null,target:null});
-  markDirty(); render();
-};
+const TICKERS_API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/tickers.json`;
+const LATEST_API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/latest.json`;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+async function getLatest(){
+  const tok=getTok();
+  if(tok){ try{
+    const r=await fetch(LATEST_API+'?ref='+BRANCH,{headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github.raw'},cache:'no-store'});
+    if(r.ok) return await r.json();
+  }catch(e){} }
+  const r=await fetch('data/latest.json?_='+Date.now()); if(!r.ok) throw new Error('latest.json '+r.status);
+  return r.json();
+}
+function fillNew(s,e){
+  s.price=e.price;
+  if(!s.name && e.name) s.name=e.name;
+  if(!s.industry && e.sector) s.industry=e.sector;
+  if(s.shares==null && e.cap_bn && e.price) s.shares=e.cap_bn/e.price;
+  if(s.eps==null){ if(e.eps!=null) s.eps=e.eps; else if(e.pe>0 && e.price) s.eps=e.price/e.pe; }
+}
+async function addTicker(tok,sym){
+  const H={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
+  for(let a=0;a<2;a++){
+    const r=await fetch(TICKERS_API+'?ref='+BRANCH,{headers:H,cache:'no-store'});
+    if(r.status===401||r.status===403) throw new Error('token rejected');
+    if(!r.ok) throw new Error('GitHub '+r.status);
+    const j=await r.json();
+    const arr=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))));
+    if(arr.some(t=>t.symbol===sym)) return;
+    arr.push({symbol:sym,name:''});
+    const p=await fetch(TICKERS_API,{method:'PUT',headers:{...H,'Content-Type':'application/json'},
+      body:JSON.stringify({message:'Add ticker '+sym,content:b64(JSON.stringify(arr,null,2)+'\n'),sha:j.sha,branch:BRANCH})});
+    if(p.ok) return;
+    if(p.status===401||p.status===403) throw new Error('token rejected');
+    if(p.status!==409&&p.status!==422) throw new Error('GitHub '+p.status);
+  }
+  throw new Error('conflict, try again');
+}
+async function addStock(){
+  const inp=document.getElementById('newSym');
+  const sym=inp.value.trim().toUpperCase().replace(/^EGX:/,'').replace(/\.CA$/,'');
+  if(!sym){
+    stocks.push({id:'s'+(nextId++),symbol:'NEW',name:'',industry:'',shares:null,eps:null,price:null,target:null});
+    markDirty(); render(); return;
+  }
+  if(!/^[A-Z0-9]{2,12}$/.test(sym)){ say('Enter a valid ticker, e.g. COMI'); return; }
+  if(stocks.some(s=>s.symbol===sym)){ say(sym+' is already in the list'); return; }
+  const tok=getTok();
+  if(!tok){ document.getElementById('settings').style.display='flex'; say('Add a GitHub token in ⚙ to look up new tickers'); return; }
+  const s={id:'s'+(nextId++),symbol:sym,name:'',industry:'',shares:null,eps:null,price:null,target:null};
+  stocks.push(s); inp.value=''; markDirty(); render();
+  say('Looking up '+sym+'… (about a minute)', true);
+  try{ await addTicker(tok,sym); }catch(e){ say('Could not register '+sym+': '+e.message); return; }
+  for(let i=0;i<24;i++){
+    await sleep(POLL_MS);
+    try{
+      const j=await getLatest(), e=(j.stocks||[]).find(x=>x.symbol===sym);
+      if(e){
+        if(e.error){ say('No data found for '+sym+' — fill it in manually or remove it'); return; }
+        const cur=stocks.find(x=>x.id===s.id); if(!cur) return;
+        fillNew(cur,e); markDirty(); render();
+        say(sym+' loaded — add the rest and press Save', true); return;
+      }
+    }catch(e){}
+  }
+  say('Still waiting for '+sym+' — press ↻ Refresh prices in a minute');
+}
+document.getElementById('addRow').onclick=addStock;
+document.getElementById('newSym').addEventListener('keydown',e=>{ if(e.key==='Enter') addStock(); });
 
 const b64=s=>btoa(unescape(encodeURIComponent(s)));
 async function getSha(tok){
@@ -227,10 +293,11 @@ async function loadData(){
 async function fetchLatest(){
   const st=document.getElementById('upd');
   try{
-    const r=await fetch('data/latest.json?_='+Date.now()); if(!r.ok) throw 0;
-    const j=await r.json(), by={};
+    const j=await getLatest(), by={};
     (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null) by[s.symbol]=s; });
-    let n=0; stocks.forEach(s=>{ const l=by[s.symbol]; if(l){ s.price=l.price; n++; } });
+    let n=0, filled=0;
+    stocks.forEach(s=>{ const l=by[s.symbol]; if(!l) return; if(!s.name){ fillNew(s,l); filled++; } else s.price=l.price; n++; });
+    if(filled) markDirty();
     if(n){ render(); st.textContent='Last update: '+new Date(j.updated_at).toLocaleString('en-GB',{dateStyle:'short',timeStyle:'short'})+' ('+n+' stocks, ~15 min delayed)'; }
     else st.textContent='No updated prices yet';
   }catch(e){ st.textContent='Could not read updated prices'; }
