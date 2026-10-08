@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-08T19:45:13.619Z",
+  "saved_at": "2026-10-08T20:15:51.264Z",
   "stocks": [
     {
       "id": "s0",
@@ -407,6 +407,16 @@
       "price": 0.855,
       "target": null,
       "fpe": 18.12
+    },
+    {
+      "id": "s37",
+      "symbol": "COMI",
+      "name": "",
+      "industry": "",
+      "shares": null,
+      "eps": null,
+      "price": null,
+      "target": null
     }
   ]
 }
