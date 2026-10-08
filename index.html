@@ -37,6 +37,7 @@
   tr:hover td{background:rgba(37,99,235,0.06);}
   .ci{width:100%;box-sizing:border-box;text-align:center;padding:4px 2px;font-size:13px;}
   .ci.t{text-align:left;}
+  td.n{text-align:center;}
   .up{color:var(--up)}.down{color:var(--down)}.sub{color:var(--sub)}
   .del{color:var(--down);border:none;background:none;}
   h1{font-size:18px;margin:0 0 2px;}
@@ -142,12 +143,12 @@ function render(){
   document.getElementById('rows').innerHTML=rows.map(r=>{
     const u=r.upside==null?'sub':(r.upside>=0?'up':'down');
     return `<tr data-id="${r.id}">
-      <td><input class="ci t" data-f="symbol" value="${esc(r.symbol)}"></td>
+      <td class="n"><b>${esc(r.symbol)}</b></td>
       <td><input class="ci t" data-f="name" value="${esc(r.name)}"></td>
       <td><input class="ci t" data-f="industry" value="${esc(r.industry)}"></td>
-      ${num(r,'cap')}
+      <td class="n">${fmt(r.cap)}</td>
       <td><b>${fmt(r.weight,'%')}</b></td>
-      ${num(r,'price')}${num(r,'pe')}
+      <td class="n">${fmt(r.price)}</td><td class="n">${fmt(r.pe)}</td>
       ${num(r,'eps')}
       ${num(r,'target')}
       <td class="${u}"><b>${fmt(r.upside,'%')}</b></td>
@@ -158,12 +159,8 @@ function render(){
   document.querySelectorAll('[data-f]').forEach(i=>i.onchange=e=>{
     const s=stocks.find(x=>x.id===e.target.closest('tr').dataset.id), f=e.target.dataset.f;
     if(!s) return;
-    if(['cap','price','pe','eps','target'].includes(f)){
-      const v=parseFloat(e.target.value), val=isNaN(v)?null:v;
-      if(f==='cap'){ if(val==null) s.shares=null; else if(s.price) s.shares=val/s.price; else say('Enter the price first'); }
-      else if(f==='pe'){ if(val==null) s.eps=null; else if(val!==0 && s.price) s.eps=s.price/val; else say('Enter the price first'); }
-      else s[f]=val;
-    } else s[f]=e.target.value;
+    if(['eps','target'].includes(f)){ const v=parseFloat(e.target.value); s[f]=isNaN(v)?null:v; }
+    else s[f]=e.target.value;
     markDirty(); render();
   });
   document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{
@@ -214,10 +211,7 @@ async function addTicker(tok,sym){
 async function addStock(){
   const inp=document.getElementById('newSym');
   const sym=inp.value.trim().toUpperCase().replace(/^EGX:/,'').replace(/\.CA$/,'');
-  if(!sym){
-    stocks.push({id:'s'+(nextId++),symbol:'NEW',name:'',industry:'',shares:null,eps:null,price:null,target:null});
-    markDirty(); render(); return;
-  }
+  if(!sym){ say('Enter a ticker first, e.g. COMI'); return; }
   if(!/^[A-Z0-9]{2,12}$/.test(sym)){ say('Enter a valid ticker, e.g. COMI'); return; }
   if(stocks.some(s=>s.symbol===sym)){ say(sym+' is already in the list'); return; }
   const tok=getTok();
@@ -231,7 +225,7 @@ async function addStock(){
     try{
       const j=await getLatest(), e=(j.stocks||[]).find(x=>x.symbol===sym);
       if(e){
-        if(e.error){ say('No data found for '+sym+' — fill it in manually or remove it'); return; }
+        if(e.error){ say('No data found for '+sym+' — remove it with ✕'); return; }
         const cur=stocks.find(x=>x.id===s.id); if(!cur) return;
         fillNew(cur,e); markDirty(); render();
         say(sym+' loaded — add the rest and press Save', true); return;
@@ -296,7 +290,7 @@ async function fetchLatest(){
     const j=await getLatest(), by={};
     (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null) by[s.symbol]=s; });
     let n=0, filled=0;
-    stocks.forEach(s=>{ const l=by[s.symbol]; if(!l) return; if(!s.name){ fillNew(s,l); filled++; } else s.price=l.price; n++; });
+    stocks.forEach(s=>{ const l=by[s.symbol]; if(!l) return; if(!s.name){ fillNew(s,l); filled++; } else s.price=l.price; if(l.cap_bn && l.price) s.shares=l.cap_bn/l.price; n++; });
     if(filled) markDirty();
     if(n){ render(); st.textContent='Last update: '+new Date(j.updated_at).toLocaleString('en-GB',{dateStyle:'short',timeStyle:'short'})+' ('+n+' stocks, ~15 min delayed)'; }
     else st.textContent='No updated prices yet';
