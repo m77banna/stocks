@@ -50,6 +50,16 @@
       "rating": "positive",
       "date": "2026-10-09",
       "note": "H1-26: net profit +21% to EGP 7.5bn, total income +25% to EGP 29.1bn; Q1 profit +20.5%. Caution: EPS fell to 4.98 from 7.43 (probably more shares after a capital increase, worth checking); bank earnings depend on rates and inflation."
+    },
+    "FWRY": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "H1-26: revenue +39% to EGP 5.2bn, net profit +29% to EGP 1.6bn (31% margin), transaction value +52%, growth accelerated in Q2, neobanking and a medical platform planned for 2027. Caution: profit is growing slower than revenue; competition in payments."
+    },
+    "ORHD": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "Q1-26: net profit -16% to EGP 1.72bn on flat revenue; FY25 profit +79% to EGP 5.5bn with a large deferred-revenue backlog. Caution: reports for H1-26 conflicted, so I could not confirm the consolidated result; hospitality is exposed to regional tension."
     }
   }
 }
