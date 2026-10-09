@@ -80,6 +80,16 @@
       "rating": "neutral",
       "date": "2026-10-09",
       "note": "H1-26: revenue +25% to EGP 6.0bn but net profit -36% to EGP 834m (Q1 -69%; Q2 looks stronger by my arithmetic). Large land bank, EGP 48bn 2025 sales and a $2.3bn MIDAR deal; majority-owned by Aldar/ADQ. Caution: profit is lumpy and below last year's."
+    },
+    "GBCO": {
+      "rating": "negative",
+      "date": "2026-10-09",
+      "note": "H1-26: revenue +35% to EGP 48bn but net profit -24.5% to EGP 1.26bn (2.6% margin); Q1 -30% and Q2 -21% on higher finance costs, provisions, FX losses and pressure in regional auto. New CBE securitization rules may raise GB Capital's funding costs. Strength: strong Egyptian car demand."
+    },
+    "VLMRA": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "H1-26: revenue +13% to $392m, Q2 revenue +25%; reported profit -22% only because H1-25 had $44.8m one-offs (underlying +47%; top-5 subsidiaries +37%). Fertilizer revenue +31% on higher urea prices; UK Endolys project starts Q4-26. Caution: depends on urea prices and gas; holding company itself posted a standalone loss."
     }
   }
 }
