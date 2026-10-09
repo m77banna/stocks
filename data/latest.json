@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T20:39:46.156629+00:00",
+  "updated_at": "2026-10-09T18:33:43.470533+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -9,7 +9,8 @@
       "volume": 851694,
       "cap_bn": 252.65,
       "name": "Telecom Egypt",
-      "sector": "Communications"
+      "sector": "Communications",
+      "tech": 0.264
     },
     {
       "symbol": "SWDY",
@@ -19,7 +20,8 @@
       "cap_bn": 248.17,
       "name": "El Sewedy Electric Company",
       "sector": "Producer Manufacturing",
-      "pe": 15.23
+      "pe": 15.23,
+      "tech": -0.158
     },
     {
       "symbol": "TMGH",
@@ -29,7 +31,8 @@
       "cap_bn": 181.11,
       "name": "Talaat Moustafa Group Holding",
       "sector": "Finance",
-      "pe": 11.73
+      "pe": 11.73,
+      "tech": -0.512
     },
     {
       "symbol": "EGAL",
@@ -39,7 +42,8 @@
       "cap_bn": 140.0,
       "name": "Egypt Aluminum",
       "sector": "Non-Energy Minerals",
-      "pe": 13.04
+      "pe": 13.04,
+      "tech": -0.2
     },
     {
       "symbol": "MFPC",
@@ -49,7 +53,8 @@
       "cap_bn": 133.37,
       "name": "Misr Fertilizers Production Company MOPCO",
       "sector": "Process Industries",
-      "pe": 8.67
+      "pe": 8.67,
+      "tech": 0.312
     },
     {
       "symbol": "ABUK",
@@ -58,7 +63,8 @@
       "volume": 1052897,
       "cap_bn": 113.57,
       "name": "Abou Kir Fertilizers & Chemical Industries Co.",
-      "sector": "Process Industries"
+      "sector": "Process Industries",
+      "tech": 0.445
     },
     {
       "symbol": "ALCN",
@@ -68,17 +74,19 @@
       "cap_bn": 99.96,
       "name": "Alexandria Containers & Goods",
       "sector": "Transportation",
-      "pe": 16.72
+      "pe": 16.72,
+      "tech": 0.267
     },
     {
       "symbol": "ORAS",
       "price": 877.02,
       "change_pct": 4.04,
       "volume": 729229,
-      "cap_bn": 104.4,
+      "cap_bn": 104.45,
       "name": "Orascom Construction Plc",
       "sector": "Industrial Services",
-      "pe": 8.49
+      "pe": 8.49,
+      "tech": 0.648
     },
     {
       "symbol": "EFIH",
@@ -87,7 +95,8 @@
       "volume": 4778640,
       "cap_bn": 87.46,
       "name": "e-finance for Digital and Financial Investments S.A.E.",
-      "sector": "Technology Services"
+      "sector": "Technology Services",
+      "tech": 0.558
     },
     {
       "symbol": "ADIB",
@@ -97,7 +106,8 @@
       "cap_bn": 71.7,
       "name": "Abu Dhabi Islamic Bank-Egypt",
       "sector": "Finance",
-      "pe": 4.63
+      "pe": 4.63,
+      "tech": -0.333
     },
     {
       "symbol": "FWRY",
@@ -107,7 +117,8 @@
       "cap_bn": 64.93,
       "name": "Fawry For Banking Technology And Electronic Payment",
       "sector": "Technology Services",
-      "pe": 19.96
+      "pe": 19.96,
+      "tech": 0.491
     },
     {
       "symbol": "ORHD",
@@ -116,17 +127,19 @@
       "volume": 7851596,
       "cap_bn": 43.8,
       "name": "Orascom Development Egypt (S.A.E)",
-      "sector": "Consumer Durables"
+      "sector": "Consumer Durables",
+      "tech": -0.312
     },
     {
       "symbol": "VLMRA",
       "price": 28.62,
       "change_pct": -1.48,
       "volume": 1970728,
-      "cap_bn": 29.59,
+      "cap_bn": 29.61,
       "name": "Valmore Holding",
       "sector": "Finance",
-      "pe": 5.49
+      "pe": 5.49,
+      "tech": -0.512
     },
     {
       "symbol": "EFID",
@@ -136,7 +149,8 @@
       "cap_bn": 39.94,
       "name": "Edita Food Industries SAE",
       "sector": "Consumer Non-Durables",
-      "pe": 12.75
+      "pe": 12.75,
+      "tech": -0.445
     },
     {
       "symbol": "JUFO",
@@ -146,7 +160,8 @@
       "cap_bn": 36.77,
       "name": "Juhayna Food Industries",
       "sector": "Consumer Non-Durables",
-      "pe": 18.37
+      "pe": 16.47,
+      "tech": -0.424
     },
     {
       "symbol": "PHDC",
@@ -155,7 +170,8 @@
       "volume": 5810586,
       "cap_bn": 36.98,
       "name": "Palm Hills Development Co.",
-      "sector": "Finance"
+      "sector": "Finance",
+      "tech": -0.288
     },
     {
       "symbol": "OCDI",
@@ -165,7 +181,8 @@
       "cap_bn": 35.22,
       "name": "Six of October Development & Investment (SODIC)",
       "sector": "Finance",
-      "pe": 8.77
+      "pe": 8.77,
+      "tech": -0.2
     },
     {
       "symbol": "GBCO",
@@ -174,7 +191,8 @@
       "volume": 3395072,
       "cap_bn": 33.66,
       "name": "GB Corp",
-      "sector": "Distribution Services"
+      "sector": "Distribution Services",
+      "tech": 0.267
     },
     {
       "symbol": "RAYA",
@@ -184,7 +202,8 @@
       "cap_bn": 28.26,
       "name": "Raya Holding for Financial Investments SAE",
       "sector": "Technology Services",
-      "pe": 11.59
+      "pe": 11.59,
+      "tech": -0.312
     },
     {
       "symbol": "EGCH",
@@ -193,7 +212,8 @@
       "volume": 2196237,
       "cap_bn": 26.54,
       "name": "Egyptian Chemical Industries",
-      "sector": "Process Industries"
+      "sector": "Process Industries",
+      "tech": -0.221
     },
     {
       "symbol": "CCAP",
@@ -202,7 +222,8 @@
       "volume": 51695592,
       "cap_bn": 21.29,
       "name": "QALA For Financial Investments",
-      "sector": "Finance"
+      "sector": "Finance",
+      "tech": 0.067
     },
     {
       "symbol": "SCEM",
@@ -211,7 +232,8 @@
       "volume": 445597,
       "cap_bn": 22.32,
       "name": "Sinai Cement Co.",
-      "sector": "Non-Energy Minerals"
+      "sector": "Non-Energy Minerals",
+      "tech": -0.021
     },
     {
       "symbol": "ORWE",
@@ -220,7 +242,8 @@
       "volume": 403483,
       "cap_bn": 18.05,
       "name": "Oriental Weavers Carpet",
-      "sector": "Consumer Durables"
+      "sector": "Consumer Durables",
+      "tech": 0.0
     },
     {
       "symbol": "AMOC",
@@ -229,7 +252,8 @@
       "volume": 17390295,
       "cap_bn": 18.7,
       "name": "Alexandria Mineral Oils Co.",
-      "sector": "Energy Minerals"
+      "sector": "Energy Minerals",
+      "tech": 0.421
     },
     {
       "symbol": "MASR",
@@ -239,7 +263,8 @@
       "cap_bn": 16.78,
       "name": "Madinet Masr for Housing & Development",
       "sector": "Finance",
-      "pe": 5.47
+      "pe": 5.47,
+      "tech": 0.467
     },
     {
       "symbol": "TALM",
@@ -249,7 +274,8 @@
       "cap_bn": 15.94,
       "name": "Taaleem Management Services S.A.E",
       "sector": "Consumer Services",
-      "pe": 25.98
+      "pe": 25.98,
+      "tech": 0.333
     },
     {
       "symbol": "NIPH",
@@ -259,7 +285,8 @@
       "cap_bn": 15.78,
       "name": "El-Nile Co. for Pharmaceuticals & Chemical Industries",
       "sector": "Health Technology",
-      "pe": 50.68
+      "pe": 50.68,
+      "tech": -0.133
     },
     {
       "symbol": "KORA",
@@ -267,7 +294,8 @@
       "change_pct": 6.04,
       "volume": 58323176,
       "name": "KORRA",
-      "sector": "Utilities"
+      "sector": "Utilities",
+      "tech": 0.273
     },
     {
       "symbol": "ISPH",
@@ -276,7 +304,8 @@
       "volume": 1872122,
       "cap_bn": 13.1,
       "name": "Ibnsina Pharma",
-      "sector": "Distribution Services"
+      "sector": "Distribution Services",
+      "tech": -0.333
     },
     {
       "symbol": "AMES",
@@ -285,7 +314,8 @@
       "volume": 1110041,
       "cap_bn": 11.34,
       "name": "Alexandria New Medical Center Co.",
-      "sector": "Health Services"
+      "sector": "Health Services",
+      "tech": -0.376
     },
     {
       "symbol": "OIH",
@@ -294,7 +324,8 @@
       "volume": 12201416,
       "cap_bn": 9.86,
       "name": "Orascom Investment Holding SAE",
-      "sector": "Communications"
+      "sector": "Communications",
+      "tech": -0.224
     },
     {
       "symbol": "OLFI",
@@ -303,7 +334,8 @@
       "volume": 518130,
       "cap_bn": 8.44,
       "name": "Obour Land for Food Industries",
-      "sector": "Consumer Non-Durables"
+      "sector": "Consumer Non-Durables",
+      "tech": -0.309
     },
     {
       "symbol": "MPCI",
@@ -313,7 +345,8 @@
       "cap_bn": 7.87,
       "name": "Memphis Pharmaceutical & Chemical Industries",
       "sector": "Health Technology",
-      "pe": 15.19
+      "pe": 15.19,
+      "tech": -0.2
     },
     {
       "symbol": "BONY",
@@ -322,7 +355,8 @@
       "volume": 44616239,
       "cap_bn": 8.17,
       "name": "Bonyan for Development and Trade",
-      "sector": "Finance"
+      "sector": "Finance",
+      "tech": 0.291
     },
     {
       "symbol": "AXPH",
@@ -331,7 +365,8 @@
       "volume": 2599,
       "cap_bn": 7.48,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
-      "sector": "Health Technology"
+      "sector": "Health Technology",
+      "tech": -0.2
     },
     {
       "symbol": "AMER",
@@ -340,7 +375,8 @@
       "volume": 9044637,
       "cap_bn": 4.54,
       "name": "Amer Group Holding",
-      "sector": "Finance"
+      "sector": "Finance",
+      "tech": 0.358
     },
     {
       "symbol": "LUTS",
@@ -348,7 +384,8 @@
       "change_pct": -0.54,
       "volume": 48548366,
       "name": "Lotus For Agricultural Investments And Development",
-      "sector": "Finance"
+      "sector": "Finance",
+      "tech": 0.267
     },
     {
       "symbol": "COMI",
@@ -358,7 +395,8 @@
       "cap_bn": 424.45,
       "name": "Commercial International Bank - Egypt (CIB) S.A.E.",
       "sector": "Finance",
-      "pe": 5.99
+      "pe": 5.99,
+      "tech": -0.558
     }
   ]
 }
