@@ -90,6 +90,16 @@
       "rating": "positive",
       "date": "2026-10-09",
       "note": "H1-26: revenue +13% to $392m, Q2 revenue +25%; reported profit -22% only because H1-25 had $44.8m one-offs (underlying +47%; top-5 subsidiaries +37%). Fertilizer revenue +31% on higher urea prices; UK Endolys project starts Q4-26. Caution: depends on urea prices and gas; holding company itself posted a standalone loss."
+    },
+    "RAYA": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "H1-26: revenue +22% to EGP 33.8bn (Aman +38%, RCX +29%) but net profit -17% to EGP 739m on a thin margin; Q2 profit fell sharply (about -32% by my arithmetic). FY25 revenue +41%. Caution: profit is not following revenue; I did not find the cause."
+    },
+    "EGCH": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "FY25/26 (to June): net profit +82% to EGP 1.79bn, revenue +31%. Caution: quarters are very uneven (9M profit was only EGP 531m, so Q4 alone was ~EGP 1.26bn, likely FX-driven), the FY26/27 budget targets lower profit (EGP 1.5bn), and EGP 6.8bn of debt is being restructured."
     }
   }
 }
