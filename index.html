@@ -23,16 +23,17 @@
     --up:#22c55e; --down:#f87171; --accent:#60a5fa;
   }
   html{scroll-padding-top:env(safe-area-inset-top,0px);}
-  body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,'Segoe UI',Arial,sans-serif;font-size:13.5px;}
-  .wrap{padding:12px;}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;}
-  .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px;margin-bottom:8px;}
+  html,body{height:100%;}
+  body{margin:0;overflow:hidden;background:var(--bg);color:var(--text);font-family:Tahoma,'Segoe UI',Arial,sans-serif;font-size:13.5px;}
+  .wrap{padding:0;height:100%;display:flex;flex-direction:column;}
+  .card{background:var(--card);border-bottom:1px solid var(--border);}
+  .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 12px;flex:0 0 auto;}
   button,.btn{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:4px 10px;cursor:pointer;font:inherit;}
   button.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
-  .scroll{overflow-x:auto;}
-  table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:1250px;}
-  th{color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
+  .scroll{flex:1 1 auto;min-height:0;overflow:auto;}
+  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1250px;}
+  th{position:sticky;top:0;z-index:2;background:var(--card);color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
   .ci{width:100%;box-sizing:border-box;text-align:left;padding:4px 6px;font-size:13px;}
@@ -114,7 +115,7 @@ function enrich(){
       cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null};
   });
 }
-const fmt=(n,s='')=> n==null||isNaN(n)?'—':n.toLocaleString('en-US',{minimumFractionDigits:1,maximumFractionDigits:1})+s;
+const fmt=(n,s='',d=0)=> n==null||isNaN(n)?'—':n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})+s;
 const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 
 function head(){
@@ -138,7 +139,7 @@ function render(){
   });
   const tot=rows.reduce((s,r)=>s+(r.cap||0),0);
   document.getElementById('totals').textContent=`${stocks.length} stocks — Total market cap: ${fmt(tot)}`;
-  const num=(r,f)=>`<td><input type="number" step="any" class="ci" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(1)}"></td>`;
+  const num=(r,f)=>`<td><input type="number" step="any" class="ci" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(0)}"></td>`;
   document.getElementById('rows').innerHTML=rows.map(r=>{
     const u=r.upside==null?'sub':(r.upside>=0?'up':'down');
     return `<tr data-id="${r.id}">
@@ -146,7 +147,7 @@ function render(){
       <td class="tx" title="${esc(r.name)}">${esc(r.name)}</td>
       <td class="tx" title="${esc(r.industry)}">${esc(r.industry)}</td>
       <td class="n">${fmt(r.cap)}</td>
-      <td class="n">${fmt(r.price)}</td>${num(r,'pe')}
+      <td class="n">${fmt(r.price,'',1)}</td>${num(r,'pe')}
       ${num(r,'target')}
       <td class="${u}"><b>${fmt(r.upside,'%')}</b></td>
       <td>${fmt(r.cfv)}</td>
