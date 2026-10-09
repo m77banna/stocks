@@ -86,6 +86,12 @@ const getTok=()=>{ try{ return localStorage.getItem(TK)||''; }catch(e){ return '
 const setTok=v=>{ try{ if(v) localStorage.setItem(TK,v); else localStorage.removeItem(TK); }catch(e){} };
 
 let stocks = [], nextId = 1, dirty = false, outlook = {}, techMap = {};
+function pctCell(v){
+  if(v==null||isNaN(v)) return '<td class="sub">—</td>';
+  const a=Math.abs(v), shown=fmt(a,'%');
+  if(Math.round(a)===0) return `<td class="sub"><b>● ${shown}</b></td>`;
+  return v>0 ? `<td class="up"><b>▲ ${shown}</b></td>` : `<td class="down"><b>▼ ${shown}</b></td>`;
+}
 function techLabel(v){ if(v==null) return null; if(v>0.5) return {t:'▲▲ Strong buy',c:'up'}; if(v>0.1) return {t:'▲ Buy',c:'up'}; if(v>=-0.1) return {t:'● Neutral',c:'sub'}; if(v>=-0.5) return {t:'▼ Sell',c:'down'}; return {t:'▼▼ Strong sell',c:'down'}; }
 const OL={positive:{v:3,t:'▲ Positive',c:'up'},neutral:{v:2,t:'● Neutral',c:'sub'},negative:{v:1,t:'▼ Negative',c:'down'}};
 let sortKey = 'cap', sortDir = 'desc';
@@ -154,9 +160,9 @@ function render(){
       <td class="n">${fmt(r.cap)}</td>
       <td class="n">${fmt(r.price,'',1)}</td>${num(r,'pe')}
       ${num(r,'target')}
-      <td class="${u}"><b>${fmt(r.upside,'%')}</b></td>
+      ${pctCell(r.upside)}
       <td>${fmt(r.cfv)}</td>
-      <td class="${r.cupside==null?'sub':(r.cupside>=0?'up':'down')}"><b>${fmt(r.cupside,'%')}</b></td>
+      ${pctCell(r.cupside)}
       ${r.o&&OL[r.o.rating]?`<td class="${OL[r.o.rating].c}" title="${esc(r.o.note+' (reviewed '+r.o.date+')')}"><b>${OL[r.o.rating].t}</b></td>`:'<td class="sub">—</td>'}
       ${(()=>{ const t=techLabel(r.tv); return t?`<td class="${t.c}" title="TradingView technical rating (moving averages + oscillators): ${r.tv.toFixed(2)}"><b>${t.t}</b></td>`:'<td class="sub">—</td>'; })()}
       <td class="act">${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">Delete?</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
