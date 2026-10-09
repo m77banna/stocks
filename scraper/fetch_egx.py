@@ -39,6 +39,20 @@ def fetch(tickers):
     return None, None
 
 
+def fetch_technical(tickers):
+    """TradingView technical rating (-1..1). Separate request so a failure never affects prices."""
+    try:
+        body = {"symbols": {"tickers": ["EGX:" + t["symbol"] for t in tickers], "query": {"types": []}}, "columns": ["Recommend.All"]}
+        r = requests.post(URL, json=body, headers=HEADERS, timeout=30)
+        if r.status_code != 200:
+            print(f"[warn] technical rating: HTTP {r.status_code}")
+            return {}
+        return {row["s"].split(":", 1)[1]: row["d"][0] for row in r.json().get("data", []) if row["d"][0] is not None}
+    except Exception as e:  # noqa: BLE001
+        print(f"[warn] technical rating failed: {e}")
+        return {}
+
+
 def main():
     tickers = json.loads(TICKERS_FILE.read_text(encoding="utf-8"))
     cols, data = fetch(tickers)
@@ -49,6 +63,7 @@ def main():
     for row in data:
         sym = row["s"].split(":", 1)[1]
         rows[sym] = dict(zip(cols, row["d"]))
+    tech = fetch_technical(tickers)
     stocks = []
     for t in tickers:
         r = rows.get(t["symbol"])
@@ -68,6 +83,8 @@ def main():
             item["sector"] = r["sector"]
         if r.get("price_earnings_ttm") is not None:
             item["pe"] = round(float(r["price_earnings_ttm"]), 2)
+        if t["symbol"] in tech:
+            item["tech"] = round(float(tech[t["symbol"]]), 3)
         stocks.append(item)
     out = {
         "updated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),

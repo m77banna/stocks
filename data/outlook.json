@@ -10,6 +10,36 @@
       "rating": "neutral",
       "date": "2026-10-09",
       "note": "H1-26: revenue +32%, ~$6.5bn project backlog. Caution: net profit grew only 14% and margin is narrowing; price is above the analyst targets found."
+    },
+    "TMGH": {
+      "rating": "positive",
+      "note": "2Q-26: net profit +21% to EGP 4.5bn, revenue +14%; H1 net +23%, strong contracted sales. Caution: property demand is sensitive to rates, inflation and cash collection.",
+      "date": "2026-10-09"
+    },
+    "EGAL": {
+      "rating": "positive",
+      "note": "FY25/26: net profit +52% to EGP 15.5bn, revenue +23%. Caution: cyclical, depends on aluminium prices and energy costs.",
+      "date": "2026-10-09"
+    },
+    "MFPC": {
+      "rating": "positive",
+      "note": "H1-26: net profit +70% to EGP 9.9bn, revenue +52%, ~80% exports, stable gas supply. Caution: gas supply and urea price swings.",
+      "date": "2026-10-09"
+    },
+    "ABUK": {
+      "rating": "positive",
+      "note": "H1-26: net profit EGP 10.0bn on EGP 23.5bn revenue, plants at full capacity, capacity upgrade done. Caution: depends on gas supply and urea prices.",
+      "date": "2026-10-09"
+    },
+    "ORAS": {
+      "rating": "positive",
+      "note": "H1-26: revenue +52%, net profit +90%, backlog $10.9bn (+14%), new awards +42%, data-center work. Caution: Q2 operating cash outflow; thin construction margins.",
+      "date": "2026-10-09"
+    },
+    "ALCN": {
+      "rating": "neutral",
+      "note": "H1-26: net profit +18% to EGP 3.8bn but revenue only +3%; AD Ports tender offer is a possible catalyst. Caution: profit growth is not coming from revenue growth.",
+      "date": "2026-10-09"
     }
   }
 }
