@@ -32,7 +32,7 @@
   button.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
   .scroll{flex:1 1 auto;min-height:0;overflow:auto;}
-  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1250px;}
+  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1350px;}
   th{position:sticky;top:0;z-index:2;background:var(--card);color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
@@ -85,7 +85,8 @@ const TK='egx_gh_token', POLL_MS=10000;
 const getTok=()=>{ try{ return localStorage.getItem(TK)||''; }catch(e){ return ''; } };
 const setTok=v=>{ try{ if(v) localStorage.setItem(TK,v); else localStorage.removeItem(TK); }catch(e){} };
 
-let stocks = [], nextId = 1, dirty = false;
+let stocks = [], nextId = 1, dirty = false, outlook = {};
+const OL={positive:{v:3,t:'▲ Positive',c:'up'},neutral:{v:2,t:'● Neutral',c:'sub'},negative:{v:1,t:'▼ Negative',c:'down'}};
 let sortKey = 'cap', sortDir = 'desc';
 let pendingDel = null, delTimer = null;
 function say(t, ok){ const m=document.getElementById('msg'); m.textContent=t; m.className=ok?'up':'down'; setTimeout(()=>{ if(m.textContent===t) m.textContent=''; },5000); }
@@ -94,11 +95,12 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'16%'},{k:'industry',l:'Sector',t:'str',w:'11%'},
-  {k:'cap',l:'Market cap',t:'num',w:'9.5%'},
-  {k:'price',l:'Price',t:'num',w:'8%'},{k:'pe',l:'PE',t:'num',w:'6.5%'},
-  {k:'target',l:'Target value',t:'num',w:'8.5%'},{k:'upside',l:'Upside %',t:'num',w:'8%'},
-  {k:'cfv',l:'Approx. value',t:'num',w:'8.5%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'9.5%'},{k:'del',l:'',t:'none',w:'7%'}
+  {k:'symbol',l:'Symbol',t:'str',w:'7%'},{k:'name',l:'Name',t:'str',w:'14%'},{k:'industry',l:'Sector',t:'str',w:'10%'},
+  {k:'cap',l:'Market cap',t:'num',w:'9%'},
+  {k:'price',l:'Price',t:'num',w:'7.5%'},{k:'pe',l:'PE',t:'num',w:'6%'},
+  {k:'target',l:'Target value',t:'num',w:'8%'},{k:'upside',l:'Upside %',t:'num',w:'7%'},
+  {k:'cfv',l:'Approx. value',t:'num',w:'8%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'9%'},
+  {k:'olv',l:'Outlook',t:'num',w:'9%'},{k:'del',l:'',t:'none',w:'5.5%'}
 ];
 
 const FPE_DEFAULT=13.82;
@@ -110,7 +112,8 @@ function enrich(){
     const fpe = r.fpe ?? FPE_DEFAULT;
     const ok = r.pe!=null && r.pe>=3 && r.pe<=50 && r.price>0;
     const cfv = ok ? +(r.price*Math.min(Math.max((1+fpe/r.pe)/2,0.6),1.6)).toFixed(2) : null;
-    return {...r, cfv,
+    const o=outlook[r.symbol]||null, olv=o&&OL[o.rating]?OL[o.rating].v:null;
+    return {...r, cfv, olv, o,
       upside: (r.target!=null && r.price) ? +(((r.target-r.price)/r.price)*100).toFixed(2) : null,
       cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null};
   });
@@ -152,6 +155,7 @@ function render(){
       <td class="${u}"><b>${fmt(r.upside,'%')}</b></td>
       <td>${fmt(r.cfv)}</td>
       <td class="${r.cupside==null?'sub':(r.cupside>=0?'up':'down')}"><b>${fmt(r.cupside,'%')}</b></td>
+      ${r.o&&OL[r.o.rating]?`<td class="${OL[r.o.rating].c}" title="${esc(r.o.note+' (reviewed '+r.o.date+')')}"><b>${OL[r.o.rating].t}</b></td>`:'<td class="sub">—</td>'}
       <td class="act">${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">Delete?</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
   }).join('');
   document.querySelectorAll('[data-f]').forEach(i=>i.onchange=e=>{
@@ -172,6 +176,15 @@ const TICKERS_API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/t
 const LATEST_API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/latest.json`;
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
+async function getRepoJson(path){
+  const tok=getTok();
+  if(tok){ try{
+    const r=await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`,{headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github.raw'},cache:'no-store'});
+    if(r.ok) return await r.json();
+  }catch(e){} }
+  const r=await fetch(path+'?_='+Date.now()); if(!r.ok) throw new Error(path+' '+r.status);
+  return r.json();
+}
 async function getLatest(){
   const tok=getTok();
   if(tok){ try{
@@ -280,6 +293,7 @@ async function loadData(){
   stocks=Array.isArray(data)?data:(data.stocks||[]);
   stocks.forEach(s=>{ if(s.pe===undefined) s.pe=(s.eps&&s.price)?s.price/s.eps:null; delete s.eps; });
   nextId=Math.max(0,...stocks.map(s=>parseInt(String(s.id||'s0').slice(1))||0))+1;
+  try{ outlook=(await getRepoJson('data/outlook.json')).stocks||{}; }catch(e){ outlook={}; }
   dirty=false; showDirty(); render();
   return true;
 }

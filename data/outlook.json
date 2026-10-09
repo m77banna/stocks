@@ -1,0 +1,15 @@
+{
+  "as_of": "2026-10-09",
+  "stocks": {
+    "ETEL": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "H1-26: revenue +17%, net profit +47%, tariff increases approved, 5G rollout. Caution: profit swings with FX; price is above the analyst targets found."
+    },
+    "SWDY": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "H1-26: revenue +32%, ~$6.5bn project backlog. Caution: net profit grew only 14% and margin is narrowing; price is above the analyst targets found."
+    }
+  }
+}
