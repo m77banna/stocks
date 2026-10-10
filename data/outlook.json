@@ -130,6 +130,16 @@
       "rating": "neutral",
       "date": "2026-10-09",
       "note": "9M to May-26: revenue +34% to EGP 2.4bn but net profit flat at EGP 828m (-0.1%); interest expense has jumped (expansion funded by debt) and net margin fell from ~34% to ~25%. Caution: profit is not following revenue; check debt levels and tuition-pricing power."
+    },
+    "NIPH": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "FY25/26 (to June): net profit +110% to EGP 264m on revenue +66% to EGP 2.1bn; the business turned sharply upward since Q1. Caution: very high valuation (roughly 60x annual profit by my calculation), very volatile price (about 15% average weekly move) and rising interest costs."
+    },
+    "KORA": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "Listed only in June-26 (IPO at EGP 2.97; 11% float). 2025: revenue EGP 7.9bn, net profit EGP 554m; EGP 12.5bn of contracts in 2026 and a 42.8bn pipeline; expanding to Saudi, Iraq, Africa. Caution: Q1-26 profit grew just 7%, I found no H1-26 results, and there is little trading history."
     }
   }
 }
