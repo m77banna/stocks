@@ -100,6 +100,16 @@
       "rating": "neutral",
       "date": "2026-10-09",
       "note": "FY25/26 (to June): net profit +82% to EGP 1.79bn, revenue +31%. Caution: quarters are very uneven (9M profit was only EGP 531m, so Q4 alone was ~EGP 1.26bn, likely FX-driven), the FY26/27 budget targets lower profit (EGP 1.5bn), and EGP 6.8bn of debt is being restructured."
+    },
+    "SCEM": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "H1-26: net profit +103% to EGP 1.56bn (EPS 5.99 vs 2.08), revenue +18% to EGP 4.7bn; majority-owned by Vicat. Caution: cement faces oversupply and fuel-cost pressure, and the very high Q1 net margin (~52%) suggests some non-operating gains."
+    },
+    "CCAP": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "H1-26: back to profit (EGP 200m vs -EGP 1.3bn loss), Q2 profit EGP 2.0bn; revenue +52% to EGP 94.7bn, EBITDA +403%, interest costs -22%; raising its stake in the ERC refinery to 27% (closing Dec-26). Caution: the turnaround rests almost entirely on one refinery (ERC); refining margins are volatile, debt is large and the rest of the portfolio is flat (cement profit -61%)."
     }
   }
 }
