@@ -170,6 +170,21 @@
       "rating": "neutral",
       "date": "2026-10-09",
       "note": "FY25/26 (to June): net profit -4% to EGP 484m on revenue +13% to EGP 1.7bn; quarterly net margin has slipped from ~35% to ~24%; FY26/27 budget targets ~EGP 496m. Strengths: net cash and high dividend (EGP 12.5/share). Caution: growth stalled after two huge years while the stock trades near 7x book value."
+    },
+    "AXPH": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "FY25/26 (to June): net profit +35% to EGP 528m on sales +15% to EGP 3.2bn (H2 profit about +46%); FY26/27 budget targets EGP 690m profit. Caution: the share price has been extremely volatile (repeated 10% trading halts in Aug-26), so a lot of good news may already be in the price."
+    },
+    "AMER": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "H1-26: net profit +192% to EGP 63m (EPS 0.06) on revenue +8.5% to EGP 624m; 2025 profit +139% to EGP 144m. Caution: very small profits, and almost all of H1 came in Q1 (Q2 about EGP 4m, down ~75% by my arithmetic); the parent company alone is barely profitable."
+    },
+    "LUTS": {
+      "rating": "negative",
+      "date": "2026-10-09",
+      "note": "H1-26: sales -30% to EGP 61.5m; net profit EGP 4.2m (+165% but from a near-zero base). 2025: profit -72% to EGP 8.1m and revenue -25%. Caution: a major shareholder cut his stake from 42% to 37% in July-26; tiny company with no analyst coverage."
     }
   }
 }
