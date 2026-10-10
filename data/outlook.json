@@ -150,6 +150,16 @@
       "rating": "neutral",
       "date": "2026-10-09",
       "note": "2025 revenue +32% to EGP 468m; Q1-26 revenue +12% and standalone profit +15% to only ~EGP 10m. Caution: a tiny profit base against a very high valuation (price-to-book near 60x, roughly 100x earnings), the main shareholder (LimeVest) sold shares in Sept-26, and I found no H1-26 results."
+    },
+    "OIH": {
+      "rating": "negative",
+      "date": "2026-10-09",
+      "note": "2025: consolidated net loss widened ~19% to EGP 534m (fifth straight year of losses) even as revenue quadrupled to EGP 1.4bn after buying a Pyramids-area restaurant/hospitality business; finance costs +89% and finance income -68%. Caution: I found no 2026 results; the company is not covered by analysts."
+    },
+    "OLFI": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "H1-26: sales +19.5% to EGP 6.0bn but net profit only +5.7% to EGP 409m (net margin down to ~6.8% from ~7.7%), after a weak 2025 (9M profit -8%). Caution: profit is not following sales; dairy input costs and pricing power."
     }
   }
 }
