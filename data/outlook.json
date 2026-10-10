@@ -140,6 +140,16 @@
       "rating": "neutral",
       "date": "2026-10-09",
       "note": "Listed only in June-26 (IPO at EGP 2.97; 11% float). 2025: revenue EGP 7.9bn, net profit EGP 554m; EGP 12.5bn of contracts in 2026 and a 42.8bn pipeline; expanding to Saudi, Iraq, Africa. Caution: Q1-26 profit grew just 7%, I found no H1-26 results, and there is little trading history."
+    },
+    "ISPH": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "H1-26: net profit +31.5% to EGP 511m on sales +18% to EGP 41.5bn; FY25 profit +55%. Caution: growth is slowing (Q1 +41%, Q2 about +23% by my arithmetic), net margin is very thin (~1.2%) and the business is sensitive to interest rates and working capital."
+    },
+    "AMES": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "2025 revenue +32% to EGP 468m; Q1-26 revenue +12% and standalone profit +15% to only ~EGP 10m. Caution: a tiny profit base against a very high valuation (price-to-book near 60x, roughly 100x earnings), the main shareholder (LimeVest) sold shares in Sept-26, and I found no H1-26 results."
     }
   }
 }
