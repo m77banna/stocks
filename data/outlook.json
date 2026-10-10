@@ -120,6 +120,16 @@
       "rating": "positive",
       "date": "2026-10-09",
       "note": "H1-26: net profit +83% to EGP 1.91bn on sales +10.6% to EGP 13.9bn; Q2 profit nearly doubled to EGP 1.1bn and net cash replaced net debt. Caution: part of the jump is one-offs (about EGP 300m capital gains; adjusted profit +64%) and faster export-subsidy collections; Egyptian household demand is weak."
+    },
+    "MASR": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "H1-26: new sales +19% to EGP 28.4bn, deliveries up 130%, cash collections +38%, backlog EGP 104.6bn, now net cash. Caution: revenue only +7% to EGP 5.1bn and Q1 profit fell 14% (margin 25% vs 31%); H1 net profit about EGP 1.0bn; market demand has cooled after two exceptional years."
+    },
+    "TALM": {
+      "rating": "neutral",
+      "date": "2026-10-09",
+      "note": "9M to May-26: revenue +34% to EGP 2.4bn but net profit flat at EGP 828m (-0.1%); interest expense has jumped (expansion funded by debt) and net margin fell from ~34% to ~25%. Caution: profit is not following revenue; check debt levels and tuition-pricing power."
     }
   }
 }
