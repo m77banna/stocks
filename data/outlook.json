@@ -57,9 +57,9 @@
       "note": "H1-26: revenue +39% to EGP 5.2bn, net profit +29% to EGP 1.6bn (31% margin), transaction value +52%, growth accelerated in Q2, neobanking and a medical platform planned for 2027. Caution: profit is growing slower than revenue; competition in payments."
     },
     "ORHD": {
-      "rating": "neutral",
+      "rating": "positive",
       "date": "2026-10-09",
-      "note": "Q1-26: net profit -16% to EGP 1.72bn on flat revenue; FY25 profit +79% to EGP 5.5bn with a large deferred-revenue backlog. Caution: reports for H1-26 conflicted, so I could not confirm the consolidated result; hospitality is exposed to regional tension."
+      "note": "H1-26: net profit +4.5% to EGP 3.17bn (Q2 +26% to EGP 1.33bn), revenue +28.5% to EGP 14.8bn; excluding land sales profit +57.5%. Large deferred-revenue backlog. Caution: Q1 profit fell 16%, land-sale timing distorts quarters, and hospitality is exposed to regional tension."
     },
     "EFID": {
       "rating": "positive",
@@ -110,6 +110,16 @@
       "rating": "positive",
       "date": "2026-10-09",
       "note": "H1-26: back to profit (EGP 200m vs -EGP 1.3bn loss), Q2 profit EGP 2.0bn; revenue +52% to EGP 94.7bn, EBITDA +403%, interest costs -22%; raising its stake in the ERC refinery to 27% (closing Dec-26). Caution: the turnaround rests almost entirely on one refinery (ERC); refining margins are volatile, debt is large and the rest of the portfolio is flat (cement profit -61%)."
+    },
+    "AMOC": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "H1-26: net profit +114% to EGP 1.88bn (EPS 1.46 vs 0.68), sales +35% to EGP 26.2bn, operating cash flow turned positive; revised 2026 profit budget to EGP 2.1bn (double the original). Caution: refining margins are volatile and net margins are historically thin (2-5%), so the Q2 jump may not repeat."
+    },
+    "ORWE": {
+      "rating": "positive",
+      "date": "2026-10-09",
+      "note": "H1-26: net profit +83% to EGP 1.91bn on sales +10.6% to EGP 13.9bn; Q2 profit nearly doubled to EGP 1.1bn and net cash replaced net debt. Caution: part of the jump is one-offs (about EGP 300m capital gains; adjusted profit +64%) and faster export-subsidy collections; Egyptian household demand is weak."
     }
   }
 }
