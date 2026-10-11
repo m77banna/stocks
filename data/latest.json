@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-11T12:45:20.284212+00:00",
+  "updated_at": "2026-10-11T13:54:56.835262+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -154,13 +154,13 @@
     },
     {
       "symbol": "JUFO",
-      "price": 25.07,
-      "change_pct": 0.28,
+      "price": 25.0,
+      "change_pct": 0.0,
       "volume": 922206,
       "cap_bn": 36.77,
       "name": "Juhayna Food Industries",
       "sector": "Consumer Non-Durables",
-      "pe": 16.52,
+      "pe": 16.47,
       "tech": -0.379
     },
     {
@@ -360,13 +360,13 @@
     },
     {
       "symbol": "AXPH",
-      "price": 1488.27,
-      "change_pct": -0.32,
+      "price": 1499.67,
+      "change_pct": 0.45,
       "volume": 3625,
       "cap_bn": 7.48,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
       "sector": "Health Technology",
-      "tech": -0.291
+      "tech": -0.133
     },
     {
       "symbol": "AMER",
