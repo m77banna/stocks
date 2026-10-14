@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T14:04:21.136833+00:00",
+  "updated_at": "2026-10-14T06:15:22.141562+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -42,7 +42,7 @@
       "cap_bn": 134.68,
       "name": "Egypt Aluminum",
       "sector": "Non-Energy Minerals",
-      "pe": 12.1,
+      "pe": 8.39,
       "tech": -0.424
     },
     {
@@ -82,7 +82,7 @@
       "price": 881.0,
       "change_pct": 3.64,
       "volume": 459507,
-      "cap_bn": 101.44,
+      "cap_bn": 101.45,
       "name": "Orascom Construction Plc",
       "sector": "Industrial Services",
       "pe": 8.53,
