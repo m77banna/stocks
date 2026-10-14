@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T12:18:14.254221+00:00",
+  "updated_at": "2026-10-14T13:06:21.837372+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -175,14 +175,14 @@
     },
     {
       "symbol": "OCDI",
-      "price": 25.15,
-      "change_pct": 0.6,
+      "price": 25.09,
+      "change_pct": 0.36,
       "volume": 1121534,
       "cap_bn": 32.23,
       "name": "Six of October Development & Investment (SODIC)",
       "sector": "Finance",
-      "pe": 8.07,
-      "tech": -0.312
+      "pe": 8.06,
+      "tech": -0.267
     },
     {
       "symbol": "GBCO",
