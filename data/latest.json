@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T14:10:30.952234+00:00",
+  "updated_at": "2026-10-15T06:16:28.779556+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -291,11 +291,11 @@
     {
       "symbol": "KORA",
       "price": 2.92,
-      "change_pct": -36.8,
+      "change_pct": 110.98,
       "volume": 238572006,
       "name": "KORRA",
       "sector": "Utilities",
-      "tech": -0.636
+      "tech": 0.364
     },
     {
       "symbol": "ISPH",
