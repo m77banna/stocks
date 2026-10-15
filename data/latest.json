@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T12:16:29.409804+00:00",
+  "updated_at": "2026-10-15T13:10:01.478204+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -360,13 +360,13 @@
     },
     {
       "symbol": "AXPH",
-      "price": 1371.51,
-      "change_pct": -2.61,
+      "price": 1365.91,
+      "change_pct": -3.01,
       "volume": 2350,
       "cap_bn": 7.04,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
       "sector": "Health Technology",
-      "tech": -0.179
+      "tech": -0.245
     },
     {
       "symbol": "AMER",
