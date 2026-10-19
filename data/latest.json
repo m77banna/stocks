@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T14:03:06.745322+00:00",
+  "updated_at": "2026-10-19T06:19:01.140179+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -82,7 +82,7 @@
       "price": 856.2,
       "change_pct": -4.34,
       "volume": 170208,
-      "cap_bn": 106.6,
+      "cap_bn": 106.66,
       "name": "Orascom Construction Plc",
       "sector": "Industrial Services",
       "pe": 8.29,
@@ -135,7 +135,7 @@
       "price": 26.68,
       "change_pct": -2.98,
       "volume": 781917,
-      "cap_bn": 29.52,
+      "cap_bn": 29.54,
       "name": "Valmore Holding",
       "sector": "Finance",
       "pe": 5.12,
