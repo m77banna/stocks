@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T12:16:43.142230+00:00",
+  "updated_at": "2026-10-20T13:10:17.306149+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -196,13 +196,13 @@
     },
     {
       "symbol": "RAYA",
-      "price": 5.87,
-      "change_pct": 0.69,
+      "price": 5.9,
+      "change_pct": 1.2,
       "volume": 1410527,
       "cap_bn": 24.96,
       "name": "Raya Holding for Financial Investments SAE",
       "sector": "Technology Services",
-      "pe": 10.31,
+      "pe": 10.36,
       "tech": -0.445
     },
     {
@@ -293,7 +293,7 @@
       "symbol": "KORA",
       "price": 2.27,
       "change_pct": -17.15,
-      "volume": 312021191,
+      "volume": 312021190,
       "name": "KORRA",
       "sector": "Utilities",
       "tech": -0.545
@@ -361,13 +361,13 @@
     },
     {
       "symbol": "AXPH",
-      "price": 1315.97,
-      "change_pct": 0.76,
+      "price": 1311.01,
+      "change_pct": 0.38,
       "volume": 1858,
       "cap_bn": 6.46,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
       "sector": "Health Technology",
-      "tech": -0.267
+      "tech": -0.221
     },
     {
       "symbol": "AMER",
