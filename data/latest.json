@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-21T12:21:59.846976+00:00",
+  "updated_at": "2026-10-21T13:11:57.938828+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -293,7 +293,7 @@
       "symbol": "KORA",
       "price": 2.06,
       "change_pct": -9.25,
-      "volume": 724018929,
+      "volume": 724018930,
       "name": "KORRA",
       "sector": "Utilities",
       "tech": -0.545
