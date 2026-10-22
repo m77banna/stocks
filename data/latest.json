@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T13:12:16.936803+00:00",
+  "updated_at": "2026-10-22T14:17:38.210496+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -293,7 +293,7 @@
       "symbol": "KORA",
       "price": 2.01,
       "change_pct": -2.43,
-      "volume": 411557436,
+      "volume": 411557440,
       "name": "KORRA",
       "sector": "Utilities",
       "tech": -0.545
@@ -361,8 +361,8 @@
     },
     {
       "symbol": "AXPH",
-      "price": 1258.26,
-      "change_pct": -3.44,
+      "price": 1260.0,
+      "change_pct": -3.31,
       "volume": 2523,
       "cap_bn": 6.52,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
