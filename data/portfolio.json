@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-24T16:44:34.909Z",
+  "saved_at": "2026-10-24T21:01:36.847933+00:00",
   "stocks": [
     {
       "id": "s0",
@@ -263,7 +263,7 @@
       "price": 2.01,
       "target": null,
       "fpe": 13.82,
-      "pe": null
+      "pe": 7.8
     },
     {
       "id": "s28",
@@ -362,7 +362,7 @@
       "price": 0.635,
       "target": null,
       "fpe": 18.12,
-      "pe": null
+      "pe": 78.8
     },
     {
       "id": "s37",
@@ -370,7 +370,7 @@
       "name": "Cairo Poultry Co.",
       "industry": "Process Industries",
       "shares": 1.789855072463768,
-      "pe": null,
+      "pe": 6.9,
       "price": 9.66,
       "target": null
     }
