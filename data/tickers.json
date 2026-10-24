@@ -90,18 +90,6 @@
     "aname": "جهينة"
   },
   {
-    "symbol": "PHDC",
-    "yahoo": "PHDC.CA",
-    "name": "Palm Hills",
-    "aname": "بالم هيلز"
-  },
-  {
-    "symbol": "OCDI",
-    "yahoo": "OCDI.CA",
-    "name": "Sixth of October - SODIC",
-    "aname": "سوديك"
-  },
-  {
     "symbol": "GBCO",
     "yahoo": "GBCO.CA",
     "name": "GB Corp",
@@ -118,18 +106,6 @@
     "yahoo": "EGCH.CA",
     "name": "Egyptian Chemicals",
     "aname": "كيما"
-  },
-  {
-    "symbol": "CCAP",
-    "yahoo": "CCAP.CA",
-    "name": "QALA For Financials",
-    "aname": "القلعة"
-  },
-  {
-    "symbol": "SCEM",
-    "yahoo": "SCEM.CA",
-    "name": "Sinai Cement",
-    "aname": "أسمنت سيناء"
   },
   {
     "symbol": "ORWE",
@@ -220,10 +196,6 @@
     "yahoo": "LUTS.CA",
     "name": "Lotus",
     "aname": "لوتس"
-  },
-  {
-    "symbol": "COMI",
-    "name": ""
   },
   {
     "symbol": "POUL",
