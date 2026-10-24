@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-24T16:04:22.744Z",
+  "saved_at": "2026-10-24T16:05:22.288Z",
   "stocks": [
     {
       "id": "s0",
@@ -407,6 +407,16 @@
       "target": null,
       "fpe": 18.12,
       "pe": null
+    },
+    {
+      "id": "s37",
+      "symbol": "POUL",
+      "name": "",
+      "industry": "",
+      "shares": null,
+      "pe": null,
+      "price": null,
+      "target": null
     }
   ]
 }
