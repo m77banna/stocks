@@ -1,0 +1,36 @@
+name: Dividend data test
+
+on:
+  push:
+    paths:
+      - "scraper/div_test.py"
+      - ".github/workflows/div_test.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests yfinance
+      - run: python scraper/div_test.py
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/div_test.json
+          git diff --cached --quiet && echo "No changes" || git commit -m "Dividend test result"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            sleep 3
+          done
