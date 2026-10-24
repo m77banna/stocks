@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T16:15:06.806332+00:00",
+  "updated_at": "2026-10-24T21:08:46.946393+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -16,6 +16,10 @@
       "target_lo": 103.0,
       "target_hi": 167.5,
       "target_n": 4,
+      "div_amt": 1.5,
+      "div_date": "2026-04-28",
+      "div_pay": "2026-04-30",
+      "div_yield": 1.12,
       "tech": -0.203
     },
     {
@@ -32,6 +36,10 @@
       "target_lo": 80.0,
       "target_hi": 141.2,
       "target_n": 3,
+      "div_amt": 1.85,
+      "div_date": "2026-06-02",
+      "div_pay": "2026-06-04",
+      "div_yield": 1.73,
       "tech": -0.448
     },
     {
@@ -48,6 +56,10 @@
       "target_lo": 130.0,
       "target_hi": 130.0,
       "target_n": 1,
+      "div_amt": 0.3,
+      "div_date": "2026-05-19",
+      "div_pay": "2026-07-30",
+      "div_yield": 0.34,
       "tech": -0.245
     },
     {
@@ -64,6 +76,10 @@
       "target_lo": 290.0,
       "target_hi": 508.0,
       "target_n": 2,
+      "div_amt": 8.0,
+      "div_date": "2025-10-14",
+      "div_pay": "2025-10-16",
+      "div_yield": 2.66,
       "tech": -0.312
     },
     {
@@ -80,6 +96,10 @@
       "target_lo": 43.0,
       "target_hi": 59.3,
       "target_n": 2,
+      "div_amt": 3.939,
+      "div_date": "2026-05-04",
+      "div_pay": "2026-09-30",
+      "div_yield": 8.69,
       "tech": 0.088
     },
     {
@@ -96,6 +116,10 @@
       "target_lo": 102.2,
       "target_hi": 102.2,
       "target_n": 1,
+      "div_amt": 2.3,
+      "div_date": "2026-04-20",
+      "div_pay": "2026-06-24",
+      "div_yield": 8.93,
       "tech": 0.355
     },
     {
@@ -112,6 +136,10 @@
       "target_lo": 23.5,
       "target_hi": 33.6,
       "target_n": 2,
+      "div_amt": 0.991,
+      "div_date": "2026-05-12",
+      "div_pay": "2026-05-14",
+      "div_yield": 9.05,
       "tech": 0.045
     },
     {
@@ -128,6 +156,10 @@
       "target_lo": 470.0,
       "target_hi": 996.0,
       "target_n": 2,
+      "div_amt": 12.232,
+      "div_date": "2025-08-07",
+      "div_pay": "2025-08-13",
+      "div_yield": 3.12,
       "tech": -0.158
     },
     {
@@ -144,6 +176,10 @@
       "target_lo": 25.8,
       "target_hi": 30.69,
       "target_n": 3,
+      "div_amt": 0.119,
+      "div_date": "2026-06-25",
+      "div_pay": "2026-06-29",
+      "div_yield": 1.4,
       "tech": -0.648
     },
     {
@@ -192,6 +228,10 @@
       "target_lo": 16.88,
       "target_hi": 17.96,
       "target_n": 2,
+      "div_amt": 0.384,
+      "div_date": "2025-09-23",
+      "div_pay": "2025-09-25",
+      "div_yield": 1.21,
       "tech": -0.603
     },
     {
@@ -208,6 +248,10 @@
       "target_lo": 53.07,
       "target_hi": 85.48,
       "target_n": 3,
+      "div_amt": 2.365,
+      "div_date": "2026-04-27",
+      "div_pay": "2026-04-29",
+      "div_yield": 7.01,
       "tech": -0.648
     },
     {
@@ -224,6 +268,10 @@
       "target_lo": 17.0,
       "target_hi": 30.93,
       "target_n": 4,
+      "div_amt": 0.864,
+      "div_date": "2026-05-12",
+      "div_pay": "2026-05-14",
+      "div_yield": 3.16,
       "tech": -0.558
     },
     {
@@ -240,6 +288,10 @@
       "target_lo": 28.0,
       "target_hi": 30.5,
       "target_n": 4,
+      "div_amt": 0.4,
+      "div_date": "2026-05-12",
+      "div_pay": "2026-05-14",
+      "div_yield": 2.18,
       "tech": -0.648
     },
     {
@@ -256,6 +308,10 @@
       "target_lo": 22.6,
       "target_hi": 22.6,
       "target_n": 1,
+      "div_amt": 0.35,
+      "div_date": "2026-04-27",
+      "div_pay": "2026-07-29",
+      "div_yield": 1.42,
       "tech": -0.603
     },
     {
@@ -268,6 +324,10 @@
       "sector": "Technology Services",
       "pe": 9.87,
       "pe_src": "ttm",
+      "div_amt": 0.04,
+      "div_date": "2025-07-08",
+      "div_pay": "2025-07-10",
+      "div_yield": 0.71,
       "tech": -0.603
     },
     {
@@ -300,6 +360,10 @@
       "target_lo": 33.5,
       "target_hi": 39.2,
       "target_n": 2,
+      "div_amt": 1.5,
+      "div_date": "2026-05-18",
+      "div_pay": "2027-02-24",
+      "div_yield": 5.96,
       "tech": -0.358
     },
     {
@@ -316,6 +380,10 @@
       "target_lo": 12.3,
       "target_hi": 14.0,
       "target_n": 2,
+      "div_amt": 0.4,
+      "div_date": "2026-04-20",
+      "div_pay": "2026-10-15",
+      "div_yield": 8.88,
       "tech": 0.109
     },
     {
@@ -332,6 +400,10 @@
       "target_lo": 11.09,
       "target_hi": 11.09,
       "target_n": 1,
+      "div_amt": 0.15,
+      "div_date": "2026-05-20",
+      "div_pay": "2026-05-24",
+      "div_yield": 2.25,
       "tech": -0.536
     },
     {
@@ -356,6 +428,10 @@
       "sector": "Health Technology",
       "pe": 42.81,
       "pe_src": "ttm",
+      "div_amt": 2.0,
+      "div_date": "2025-10-29",
+      "div_pay": "2025-11-02",
+      "div_yield": 0.75,
       "tech": -0.47
     },
     {
@@ -381,6 +457,10 @@
       "target_lo": 14.5,
       "target_hi": 18.0,
       "target_n": 2,
+      "div_amt": 0.13,
+      "div_date": "2026-10-12",
+      "div_pay": "2026-10-14",
+      "div_yield": 1.59,
       "tech": -0.558
     },
     {
@@ -415,6 +495,10 @@
       "target_lo": 21.0,
       "target_hi": 37.4,
       "target_n": 4,
+      "div_amt": 1.75,
+      "div_date": "2026-03-24",
+      "div_pay": "2026-09-24",
+      "div_yield": 8.86,
       "tech": -0.536
     },
     {
@@ -427,6 +511,10 @@
       "sector": "Health Technology",
       "pe": 13.09,
       "pe_src": "ttm",
+      "div_amt": 13.187,
+      "div_date": "2025-10-27",
+      "div_pay": "2025-10-29",
+      "div_yield": 4.42,
       "tech": -0.403
     },
     {
@@ -453,6 +541,10 @@
       "cap_bn": 6.29,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
       "sector": "Health Technology",
+      "div_amt": 62.95,
+      "div_date": "2025-11-04",
+      "div_pay": "2025-11-06",
+      "div_yield": 5.0,
       "tech": -0.424
     },
     {
@@ -486,6 +578,10 @@
       "target_lo": 9.49,
       "target_hi": 9.49,
       "target_n": 1,
+      "div_amt": 0.33,
+      "div_date": "2026-04-27",
+      "div_pay": "2026-04-29",
+      "div_yield": 0.93,
       "tech": -0.379
     }
   ]
