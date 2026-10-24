@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T16:12:08.032566+00:00",
+  "updated_at": "2026-10-24T16:15:06.806332+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -10,6 +10,12 @@
       "cap_bn": 228.58,
       "name": "Telecom Egypt",
       "sector": "Communications",
+      "pe": 11.22,
+      "pe_src": "eps_fy",
+      "target": 131.88,
+      "target_lo": 103.0,
+      "target_hi": 167.5,
+      "target_n": 4,
       "tech": -0.203
     },
     {
@@ -21,6 +27,11 @@
       "name": "El Sewedy Electric Company",
       "sector": "Producer Manufacturing",
       "pe": 14.04,
+      "pe_src": "ttm",
+      "target": 116.4,
+      "target_lo": 80.0,
+      "target_hi": 141.2,
+      "target_n": 3,
       "tech": -0.448
     },
     {
@@ -32,6 +43,11 @@
       "name": "Talaat Moustafa Group Holding",
       "sector": "Finance",
       "pe": 11.61,
+      "pe_src": "ttm",
+      "target": 130.0,
+      "target_lo": 130.0,
+      "target_hi": 130.0,
+      "target_n": 1,
       "tech": -0.245
     },
     {
@@ -43,6 +59,11 @@
       "name": "Egypt Aluminum",
       "sector": "Non-Energy Minerals",
       "pe": 8.02,
+      "pe_src": "ttm",
+      "target": 399.0,
+      "target_lo": 290.0,
+      "target_hi": 508.0,
+      "target_n": 2,
       "tech": -0.312
     },
     {
@@ -54,6 +75,11 @@
       "name": "Misr Fertilizers Production Company MOPCO",
       "sector": "Process Industries",
       "pe": 8.45,
+      "pe_src": "ttm",
+      "target": 51.15,
+      "target_lo": 43.0,
+      "target_hi": 59.3,
+      "target_n": 2,
       "tech": 0.088
     },
     {
@@ -65,6 +91,11 @@
       "name": "Abou Kir Fertilizers & Chemical Industries Co.",
       "sector": "Process Industries",
       "pe": 7.71,
+      "pe_src": "ttm",
+      "target": 102.2,
+      "target_lo": 102.2,
+      "target_hi": 102.2,
+      "target_n": 1,
       "tech": 0.355
     },
     {
@@ -76,6 +107,11 @@
       "name": "Alexandria Containers & Goods",
       "sector": "Transportation",
       "pe": 15.15,
+      "pe_src": "ttm",
+      "target": 28.55,
+      "target_lo": 23.5,
+      "target_hi": 33.6,
+      "target_n": 2,
       "tech": 0.045
     },
     {
@@ -87,6 +123,11 @@
       "name": "Orascom Construction Plc",
       "sector": "Industrial Services",
       "pe": 8.13,
+      "pe_src": "ttm",
+      "target": 733.0,
+      "target_lo": 470.0,
+      "target_hi": 996.0,
+      "target_n": 2,
       "tech": -0.158
     },
     {
@@ -97,6 +138,12 @@
       "cap_bn": 72.8,
       "name": "e-finance for Digital and Financial Investments S.A.E.",
       "sector": "Technology Services",
+      "pe": 37.47,
+      "pe_src": "eps_fy",
+      "target": 28.16,
+      "target_lo": 25.8,
+      "target_hi": 30.69,
+      "target_n": 3,
       "tech": -0.648
     },
     {
@@ -108,6 +155,11 @@
       "name": "Abu Dhabi Islamic Bank-Egypt",
       "sector": "Finance",
       "pe": 4.36,
+      "pe_src": "ttm",
+      "target": 54.64,
+      "target_lo": 46.6,
+      "target_hi": 62.68,
+      "target_n": 2,
       "tech": -0.424
     },
     {
@@ -119,6 +171,11 @@
       "name": "Fawry For Banking Technology And Electronic Payment",
       "sector": "Technology Services",
       "pe": 18.64,
+      "pe_src": "ttm",
+      "target": 26.25,
+      "target_lo": 22.5,
+      "target_hi": 30.0,
+      "target_n": 2,
       "tech": -0.648
     },
     {
@@ -129,6 +186,12 @@
       "cap_bn": 35.77,
       "name": "Orascom Development Egypt (S.A.E)",
       "sector": "Consumer Durables",
+      "pe": 6.68,
+      "pe_src": "eps_ttm",
+      "target": 17.42,
+      "target_lo": 16.88,
+      "target_hi": 17.96,
+      "target_n": 2,
       "tech": -0.603
     },
     {
@@ -140,6 +203,11 @@
       "name": "Valmore Holding",
       "sector": "Finance",
       "pe": 5.13,
+      "pe_src": "ttm",
+      "target": 64.88,
+      "target_lo": 53.07,
+      "target_hi": 85.48,
+      "target_n": 3,
       "tech": -0.648
     },
     {
@@ -151,6 +219,11 @@
       "name": "Edita Food Industries SAE",
       "sector": "Consumer Non-Durables",
       "pe": 12.17,
+      "pe_src": "ttm",
+      "target": 25.07,
+      "target_lo": 17.0,
+      "target_hi": 30.93,
+      "target_n": 4,
       "tech": -0.558
     },
     {
@@ -162,6 +235,11 @@
       "name": "Juhayna Food Industries",
       "sector": "Consumer Non-Durables",
       "pe": 15.45,
+      "pe_src": "ttm",
+      "target": 29.65,
+      "target_lo": 28.0,
+      "target_hi": 30.5,
+      "target_n": 4,
       "tech": -0.648
     },
     {
@@ -172,6 +250,12 @@
       "cap_bn": 26.7,
       "name": "GB Corp",
       "sector": "Distribution Services",
+      "pe": 9.33,
+      "pe_src": "eps_fy",
+      "target": 22.6,
+      "target_lo": 22.6,
+      "target_hi": 22.6,
+      "target_n": 1,
       "tech": -0.603
     },
     {
@@ -183,6 +267,7 @@
       "name": "Raya Holding for Financial Investments SAE",
       "sector": "Technology Services",
       "pe": 9.87,
+      "pe_src": "ttm",
       "tech": -0.603
     },
     {
@@ -193,6 +278,12 @@
       "cap_bn": 22.45,
       "name": "Egyptian Chemical Industries",
       "sector": "Process Industries",
+      "pe": 12.51,
+      "pe_src": "eps_fy",
+      "target": 15.5,
+      "target_lo": 15.5,
+      "target_hi": 15.5,
+      "target_n": 1,
       "tech": -0.603
     },
     {
@@ -203,6 +294,12 @@
       "cap_bn": 16.73,
       "name": "Oriental Weavers Carpet",
       "sector": "Consumer Durables",
+      "pe": 7.64,
+      "pe_src": "eps_fy",
+      "target": 36.35,
+      "target_lo": 33.5,
+      "target_hi": 39.2,
+      "target_n": 2,
       "tech": -0.358
     },
     {
@@ -213,6 +310,12 @@
       "cap_bn": 17.45,
       "name": "Alexandria Mineral Oils Co.",
       "sector": "Energy Minerals",
+      "pe": 13.13,
+      "pe_src": "eps_fy",
+      "target": 13.15,
+      "target_lo": 12.3,
+      "target_hi": 14.0,
+      "target_n": 2,
       "tech": 0.109
     },
     {
@@ -224,6 +327,11 @@
       "name": "Madinet Masr for Housing & Development",
       "sector": "Finance",
       "pe": 4.64,
+      "pe_src": "ttm",
+      "target": 11.09,
+      "target_lo": 11.09,
+      "target_hi": 11.09,
+      "target_n": 1,
       "tech": -0.536
     },
     {
@@ -235,6 +343,7 @@
       "name": "Taaleem Management Services S.A.E",
       "sector": "Consumer Services",
       "pe": 22.97,
+      "pe_src": "ttm",
       "tech": -0.27
     },
     {
@@ -246,6 +355,7 @@
       "name": "El-Nile Co. for Pharmaceuticals & Chemical Industries",
       "sector": "Health Technology",
       "pe": 42.81,
+      "pe_src": "ttm",
       "tech": -0.47
     },
     {
@@ -265,6 +375,12 @@
       "cap_bn": 11.28,
       "name": "Ibnsina Pharma",
       "sector": "Distribution Services",
+      "pe": 11.36,
+      "pe_src": "eps_ttm",
+      "target": 16.25,
+      "target_lo": 14.5,
+      "target_hi": 18.0,
+      "target_n": 2,
       "tech": -0.558
     },
     {
@@ -295,6 +411,10 @@
       "cap_bn": 7.9,
       "name": "Obour Land for Food Industries",
       "sector": "Consumer Non-Durables",
+      "target": 28.45,
+      "target_lo": 21.0,
+      "target_hi": 37.4,
+      "target_n": 4,
       "tech": -0.536
     },
     {
@@ -306,6 +426,7 @@
       "name": "Memphis Pharmaceutical & Chemical Industries",
       "sector": "Health Technology",
       "pe": 13.09,
+      "pe_src": "ttm",
       "tech": -0.403
     },
     {
@@ -316,6 +437,12 @@
       "cap_bn": 7.56,
       "name": "Bonyan for Development and Trade",
       "sector": "Finance",
+      "pe": 3.78,
+      "pe_src": "eps_fy",
+      "target": 5.93,
+      "target_lo": 5.23,
+      "target_hi": 6.64,
+      "target_n": 2,
       "tech": -0.558
     },
     {
@@ -355,6 +482,10 @@
       "cap_bn": 17.29,
       "name": "Cairo Poultry Co.",
       "sector": "Process Industries",
+      "target": 9.49,
+      "target_lo": 9.49,
+      "target_hi": 9.49,
+      "target_n": 1,
       "tech": -0.379
     }
   ]
