@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-24T16:05:22.288Z",
+  "saved_at": "2026-10-24T16:06:26.503Z",
   "stocks": [
     {
       "id": "s0",
@@ -167,17 +167,6 @@
       "pe": 18.37
     },
     {
-      "id": "s15",
-      "symbol": "PHDC",
-      "name": "Palm Hills Development Co.",
-      "industry": "Finance",
-      "shares": 3.019354838709677,
-      "price": 12.4,
-      "target": 17.93,
-      "fpe": 12.71,
-      "pe": 9
-    },
-    {
       "id": "s16",
       "symbol": "OCDI",
       "name": "Six of October Development & Investment (SODIC)",
@@ -231,17 +220,6 @@
       "target": null,
       "fpe": 18.14,
       "pe": 107
-    },
-    {
-      "id": "s21",
-      "symbol": "SCEM",
-      "name": "Sinai Cement Co.",
-      "industry": "Non-Energy Minerals",
-      "shares": 0.26644581164221487,
-      "price": 84.52,
-      "target": 120,
-      "fpe": 6.22,
-      "pe": 7
     },
     {
       "id": "s22",
@@ -411,11 +389,11 @@
     {
       "id": "s37",
       "symbol": "POUL",
-      "name": "",
-      "industry": "",
-      "shares": null,
+      "name": "Cairo Poultry Co.",
+      "industry": "Process Industries",
+      "shares": 1.789855072463768,
       "pe": null,
-      "price": null,
+      "price": 9.66,
       "target": null
     }
   ]
