@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T16:05:30.417975+00:00",
+  "updated_at": "2026-10-24T16:12:08.032566+00:00",
   "source": "TradingView (delayed ~15 min)",
   "stocks": [
     {
@@ -165,27 +165,6 @@
       "tech": -0.648
     },
     {
-      "symbol": "PHDC",
-      "price": 12.4,
-      "change_pct": -5.27,
-      "volume": 7741170,
-      "cap_bn": 35.46,
-      "name": "Palm Hills Development Co.",
-      "sector": "Finance",
-      "tech": -0.379
-    },
-    {
-      "symbol": "OCDI",
-      "price": 24.53,
-      "change_pct": -6.45,
-      "volume": 1915038,
-      "cap_bn": 31.63,
-      "name": "Six of October Development & Investment (SODIC)",
-      "sector": "Finance",
-      "pe": 7.88,
-      "tech": -0.491
-    },
-    {
       "symbol": "GBCO",
       "price": 24.6,
       "change_pct": -6.75,
@@ -215,27 +194,6 @@
       "name": "Egyptian Chemical Industries",
       "sector": "Process Industries",
       "tech": -0.603
-    },
-    {
-      "symbol": "CCAP",
-      "price": 6.33,
-      "change_pct": 0.96,
-      "volume": 91951425,
-      "cap_bn": 20.36,
-      "name": "QALA For Financial Investments",
-      "sector": "Finance",
-      "tech": 0.021
-    },
-    {
-      "symbol": "SCEM",
-      "price": 84.52,
-      "change_pct": -2.1,
-      "volume": 289604,
-      "cap_bn": 22.04,
-      "name": "Sinai Cement Co.",
-      "sector": "Non-Energy Minerals",
-      "pe": 7.14,
-      "tech": -0.291
     },
     {
       "symbol": "ORWE",
@@ -388,17 +346,6 @@
       "name": "Lotus For Agricultural Investments And Development",
       "sector": "Finance",
       "tech": -0.403
-    },
-    {
-      "symbol": "COMI",
-      "price": 125.15,
-      "change_pct": -2.98,
-      "volume": 5110068,
-      "cap_bn": 426.15,
-      "name": "Commercial International Bank - Egypt (CIB) S.A.E.",
-      "sector": "Finance",
-      "pe": 6.02,
-      "tech": -0.445
     },
     {
       "symbol": "POUL",
