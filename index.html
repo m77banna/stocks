@@ -32,7 +32,7 @@
   button.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
   .scroll{flex:1 1 auto;min-height:0;overflow:auto;}
-  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1450px;}
+  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1650px;}
   th{position:sticky;top:0;z-index:2;background:var(--card);color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
@@ -86,7 +86,7 @@ const TK='egx_gh_token', POLL_MS=10000;
 const getTok=()=>{ try{ return localStorage.getItem(TK)||''; }catch(e){ return ''; } };
 const setTok=v=>{ try{ if(v) localStorage.setItem(TK,v); else localStorage.removeItem(TK); }catch(e){} };
 
-let stocks = [], nextId = 1, dirty = false, outlook = {}, techMap = {}, liveMap = {};
+let stocks = [], nextId = 1, dirty = false, outlook = {}, techMap = {}, liveMap = {}, divExtra = {};
 const PE_TIP={ttm:'TradingView trailing P/E (last 12 months)',eps_ttm:'Price ÷ last-12-month EPS (TradingView)',eps_fy:'Price ÷ last fiscal-year EPS (TradingView) — may be dated'};
 function manCell(r,f,tip){ return `<td><input type="number" step="any" class="ci man" title="${tip}" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(0)}"></td>`; }
 function peCell(r){
@@ -99,6 +99,14 @@ function targetCell(r){
     return `<td class="n" title="${esc('Analyst average'+(r.L.target_n?` (${r.L.target_n} analysts)`:'')+rng+' — TradingView')}">${fmt(r.target)}</td>`;
   }
   return manCell(r,'target','Manual value — no analyst target found for this stock');
+}
+function divCells(r){
+  const d=r.dv;
+  if(!d) return '<td class="sub" title="No dividend record found">—</td><td class="sub">—</td>';
+  const dt=new Date(d.date+'T00:00:00Z'), old=(Date.now()-dt.getTime())>3*365*864e5;
+  const txt=dt.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric',timeZone:'UTC'});
+  const tip=esc('Ex-dividend date'+(d.pay?'; paid '+d.pay:'')+(d.yld!=null?'; yield '+d.yld+'%':'')+' — '+d.src);
+  return `<td class="${old?'sub':''}" title="${tip}">${txt}</td><td title="${tip}">${fmt(d.amt,'',2)}</td>`;
 }
 function pctCell(v){
   if(v==null||isNaN(v)) return '<td class="sub">—</td>';
@@ -116,12 +124,13 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'6.5%'},{k:'name',l:'Name',t:'str',w:'12.5%'},{k:'industry',l:'Sector',t:'str',w:'9%'},
-  {k:'cap',l:'Market cap',t:'num',w:'8%'},
-  {k:'price',l:'Price',t:'num',w:'7%'},{k:'pe',l:'PE',t:'num',w:'5.5%'},
-  {k:'target',l:'Target value',t:'num',w:'7.5%'},{k:'upside',l:'Upside %',t:'num',w:'6.5%'},
-  {k:'cfv',l:'Approx. value',t:'num',w:'7.5%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'8.5%'},
-  {k:'olv',l:'Outlook',t:'num',w:'8.5%'},{k:'tv',l:'Technical',t:'num',w:'8.5%'},{k:'del',l:'',t:'none',w:'5.5%'}
+  {k:'symbol',l:'Symbol',t:'str',w:'5.5%'},{k:'name',l:'Name',t:'str',w:'10%'},{k:'industry',l:'Sector',t:'str',w:'7.5%'},
+  {k:'cap',l:'Market cap',t:'num',w:'7%'},
+  {k:'price',l:'Price',t:'num',w:'6%'},{k:'pe',l:'PE',t:'num',w:'4.5%'},
+  {k:'target',l:'Target value',t:'num',w:'6.5%'},{k:'upside',l:'Upside %',t:'num',w:'5.5%'},
+  {k:'cfv',l:'Approx. value',t:'num',w:'6.5%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'7.5%'},
+  {k:'olv',l:'Outlook',t:'num',w:'7.5%'},{k:'tv',l:'Technical',t:'num',w:'7.5%'},
+  {k:'divd',l:'Last dividend',t:'num',w:'7.5%'},{k:'diva',l:'Dividend / share',t:'num',w:'6%'},{k:'del',l:'',t:'none',w:'5%'}
 ];
 
 const FPE_DEFAULT=13.82;
@@ -138,7 +147,8 @@ function enrich(){
     const cfv = ok ? +(r.price*Math.min(Math.max((1+fpe/pe)/2,0.6),1.6)).toFixed(2) : null;
     const tv=techMap[r.symbol]!=null?techMap[r.symbol]:null;
     const o=outlook[r.symbol]||null, olv=o&&OL[o.rating]?OL[o.rating].v:null;
-    return {...r, pe, target, peAuto, tgAuto, L, cfv, olv, o, tv,
+    const dv = L.div_date ? {date:L.div_date,pay:L.div_pay,amt:L.div_amt,yld:L.div_yield,src:'TradingView'} : (divExtra[r.symbol] ? {date:divExtra[r.symbol].date,amt:divExtra[r.symbol].amount,src:divExtra[r.symbol].src} : null);
+    return {...r, pe, target, peAuto, tgAuto, L, cfv, olv, o, tv, dv, divd: dv?Date.parse(dv.date):null, diva: dv?dv.amt:null,
       upside: (target!=null && r.price) ? +(((target-r.price)/r.price)*100).toFixed(2) : null,
       cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null};
   });
@@ -182,6 +192,7 @@ function render(){
       ${pctCell(r.cupside)}
       ${r.o&&OL[r.o.rating]?`<td class="${OL[r.o.rating].c}" title="${esc(r.o.note+' (reviewed '+r.o.date+')')}"><b>${OL[r.o.rating].t}</b></td>`:'<td class="sub">—</td>'}
       ${(()=>{ const t=techLabel(r.tv); return t?`<td class="${t.c}" title="TradingView technical rating (moving averages + oscillators): ${r.tv.toFixed(2)}"><b>${t.t}</b></td>`:'<td class="sub">—</td>'; })()}
+      ${divCells(r)}
       <td class="act">${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">Delete?</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
   }).join('');
   document.querySelectorAll('[data-f]').forEach(i=>i.onchange=e=>{
@@ -332,6 +343,7 @@ async function loadData(){
   stocks.forEach(s=>{ if(s.pe===undefined) s.pe=(s.eps&&s.price)?s.price/s.eps:null; delete s.eps; });
   nextId=Math.max(0,...stocks.map(s=>parseInt(String(s.id||'s0').slice(1))||0))+1;
   try{ outlook=(await getRepoJson('data/outlook.json')).stocks||{}; }catch(e){ outlook={}; }
+  try{ divExtra=(await getRepoJson('data/div_extra.json')).stocks||{}; }catch(e){ divExtra={}; }
   dirty=false; showDirty(); render();
   return true;
 }

@@ -1,0 +1,31 @@
+{
+  "as_of": "2026-10-24",
+  "note": "Fallback for stocks TradingView has no dividend record for",
+  "stocks": {
+    "ADIB": {
+      "date": "2002-04-09",
+      "amount": 0.265,
+      "src": "Yahoo Finance"
+    },
+    "EGCH": {
+      "date": "2009-11-17",
+      "amount": 0.11,
+      "src": "Yahoo Finance"
+    },
+    "AMES": {
+      "date": "2022-06-13",
+      "amount": 0.052,
+      "src": "Yahoo Finance"
+    },
+    "OIH": {
+      "date": "2017-06-20",
+      "amount": 0.1,
+      "src": "Yahoo Finance"
+    },
+    "AMER": {
+      "date": "2018-03-15",
+      "amount": 0.075,
+      "src": "Yahoo Finance"
+    }
+  }
+}

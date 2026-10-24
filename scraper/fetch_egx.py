@@ -42,7 +42,17 @@ def fetch(tickers):
 EXTRA_COLUMNS = [
     "earnings_per_share_basic_ttm", "earnings_per_share_diluted_fy", "price_target_average",
     "price_target_high", "price_target_low", "recommendation_total",
+    "dividend_ex_date_recent", "dividend_payment_date_recent", "dividend_amount_recent", "dividends_yield_current",
 ]
+
+
+def ts_to_date(v):
+    if v is None:
+        return None
+    try:
+        return datetime.datetime.fromtimestamp(float(v), datetime.timezone.utc).strftime("%Y-%m-%d")
+    except (ValueError, OSError, OverflowError):
+        return None
 
 
 def fetch_extra(tickers):
@@ -126,6 +136,13 @@ def main():
                 item["target_hi"] = round(float(ex["price_target_high"]), 2)
             if ex.get("recommendation_total"):
                 item["target_n"] = int(ex["recommendation_total"])
+        if ex.get("dividend_amount_recent") and ts_to_date(ex.get("dividend_ex_date_recent")):
+            item["div_amt"] = round(float(ex["dividend_amount_recent"]), 3)
+            item["div_date"] = ts_to_date(ex["dividend_ex_date_recent"])
+            if ts_to_date(ex.get("dividend_payment_date_recent")):
+                item["div_pay"] = ts_to_date(ex["dividend_payment_date_recent"])
+            if ex.get("dividends_yield_current") is not None:
+                item["div_yield"] = round(float(ex["dividends_yield_current"]), 2)
         if t["symbol"] in tech:
             item["tech"] = round(float(tech[t["symbol"]]), 3)
         stocks.append(item)
