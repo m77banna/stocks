@@ -1,0 +1,957 @@
+{
+ "ran_at": "2026-10-24T21:05:55.674080+00:00",
+ "tv": {
+  "dividend_ex_date_recent": {
+   "supported": true,
+   "coverage": 24,
+   "values": {
+    "ETEL": 1777377540,
+    "SWDY": 1780401540,
+    "TMGH": 1779191940,
+    "EGAL": 1760443140,
+    "MFPC": 1777895940,
+    "ABUK": 1776686340,
+    "ALCN": 1778587140,
+    "ORAS": 1754567940,
+    "EFIH": 1782388740,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": 1758628740,
+    "VLMRA": 1777291140,
+    "EFID": 1778587140,
+    "JUFO": 1778587140,
+    "GBCO": 1777291140,
+    "RAYA": 1751975940,
+    "EGCH": null,
+    "ORWE": 1779105540,
+    "AMOC": 1776686340,
+    "MASR": 1779278340,
+    "TALM": null,
+    "NIPH": 1761739140,
+    "KORA": null,
+    "ISPH": 1791806340,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": 1774353540,
+    "MPCI": 1761566340,
+    "BONY": null,
+    "AXPH": 1762257540,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": 1777291140
+   }
+  },
+  "dividend_ex_date_upcoming": {
+   "supported": true,
+   "coverage": 0,
+   "values": {
+    "ETEL": null,
+    "SWDY": null,
+    "TMGH": null,
+    "EGAL": null,
+    "MFPC": null,
+    "ABUK": null,
+    "ALCN": null,
+    "ORAS": null,
+    "EFIH": null,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": null,
+    "VLMRA": null,
+    "EFID": null,
+    "JUFO": null,
+    "GBCO": null,
+    "RAYA": null,
+    "EGCH": null,
+    "ORWE": null,
+    "AMOC": null,
+    "MASR": null,
+    "TALM": null,
+    "NIPH": null,
+    "KORA": null,
+    "ISPH": null,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": null,
+    "MPCI": null,
+    "BONY": null,
+    "AXPH": null,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": null
+   }
+  },
+  "dividend_payment_date_recent": {
+   "supported": true,
+   "coverage": 24,
+   "values": {
+    "ETEL": 1777550340,
+    "SWDY": 1780574340,
+    "TMGH": 1785412740,
+    "EGAL": 1760615940,
+    "MFPC": 1790769540,
+    "ABUK": 1782302340,
+    "ALCN": 1778759940,
+    "ORAS": 1755086340,
+    "EFIH": 1782734340,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": 1758801540,
+    "VLMRA": 1777463940,
+    "EFID": 1778759940,
+    "JUFO": 1778759940,
+    "GBCO": 1785326340,
+    "RAYA": 1752148740,
+    "EGCH": null,
+    "ORWE": 1803470340,
+    "AMOC": 1792065540,
+    "MASR": 1779623940,
+    "TALM": null,
+    "NIPH": 1762084740,
+    "KORA": null,
+    "ISPH": 1791979140,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": 1790251140,
+    "MPCI": 1761739140,
+    "BONY": null,
+    "AXPH": 1762430340,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": 1777463940
+   }
+  },
+  "dividend_payment_date_upcoming": {
+   "supported": true,
+   "coverage": 0,
+   "values": {
+    "ETEL": null,
+    "SWDY": null,
+    "TMGH": null,
+    "EGAL": null,
+    "MFPC": null,
+    "ABUK": null,
+    "ALCN": null,
+    "ORAS": null,
+    "EFIH": null,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": null,
+    "VLMRA": null,
+    "EFID": null,
+    "JUFO": null,
+    "GBCO": null,
+    "RAYA": null,
+    "EGCH": null,
+    "ORWE": null,
+    "AMOC": null,
+    "MASR": null,
+    "TALM": null,
+    "NIPH": null,
+    "KORA": null,
+    "ISPH": null,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": null,
+    "MPCI": null,
+    "BONY": null,
+    "AXPH": null,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": null
+   }
+  },
+  "dividend_amount_recent": {
+   "supported": true,
+   "coverage": 24,
+   "values": {
+    "ETEL": 1.5,
+    "SWDY": 1.85000002,
+    "TMGH": 0.300000012,
+    "EGAL": 8,
+    "MFPC": 3.93859994,
+    "ABUK": 2.29999995,
+    "ALCN": 0.991132021,
+    "ORAS": 12.2321253,
+    "EFIH": 0.119011998,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": 0.384346992,
+    "VLMRA": 2.36475015,
+    "EFID": 0.863918006,
+    "JUFO": 0.400000006,
+    "GBCO": 0.350000009,
+    "RAYA": 0.0399999991,
+    "EGCH": null,
+    "ORWE": 1.5,
+    "AMOC": 0.400000006,
+    "MASR": 0.150000006,
+    "TALM": null,
+    "NIPH": 2,
+    "KORA": null,
+    "ISPH": 0.130004004,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": 1.75,
+    "MPCI": 13.1870003,
+    "BONY": null,
+    "AXPH": 62.9500008,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": 0.330000013
+   }
+  },
+  "dividend_amount_upcoming": {
+   "supported": true,
+   "coverage": 0,
+   "values": {
+    "ETEL": null,
+    "SWDY": null,
+    "TMGH": null,
+    "EGAL": null,
+    "MFPC": null,
+    "ABUK": null,
+    "ALCN": null,
+    "ORAS": null,
+    "EFIH": null,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": null,
+    "VLMRA": null,
+    "EFID": null,
+    "JUFO": null,
+    "GBCO": null,
+    "RAYA": null,
+    "EGCH": null,
+    "ORWE": null,
+    "AMOC": null,
+    "MASR": null,
+    "TALM": null,
+    "NIPH": null,
+    "KORA": null,
+    "ISPH": null,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": null,
+    "MPCI": null,
+    "BONY": null,
+    "AXPH": null,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": null
+   }
+  },
+  "dividends_yield": {
+   "supported": true,
+   "coverage": 22,
+   "values": {
+    "ETEL": 1.1202389843166543,
+    "SWDY": 1.729942023564616,
+    "TMGH": 0.3448275862068966,
+    "EGAL": 2.655337227827934,
+    "MFPC": 8.692628558817038,
+    "ABUK": 4.95156081808396,
+    "ALCN": 6.04900823924321,
+    "ORAS": null,
+    "EFIH": 1.3963380952380953,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": 0,
+    "VLMRA": 9.30628272251309,
+    "EFID": 3.164527472527473,
+    "JUFO": 1.3646055437100215,
+    "GBCO": 1.4227642276422763,
+    "RAYA": null,
+    "EGCH": null,
+    "ORWE": 5.964214711729623,
+    "AMOC": 5.921539600296077,
+    "MASR": 2.2488755622188905,
+    "TALM": null,
+    "NIPH": 0,
+    "KORA": null,
+    "ISPH": 2.582005958291956,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": 8.856275303643724,
+    "MPCI": 4.421606759656652,
+    "BONY": null,
+    "AXPH": 5.006914310237947,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": 3.4161490683229814
+   }
+  },
+  "dividends_yield_current": {
+   "supported": true,
+   "coverage": 32,
+   "values": {
+    "ETEL": 1.12023898431665,
+    "SWDY": 1.72994202356462,
+    "TMGH": 0.344827586206897,
+    "EGAL": 2.65533722782793,
+    "MFPC": 8.69256234826749,
+    "ABUK": 8.93433799784715,
+    "ALCN": 9.04548367409216,
+    "ORAS": 3.12176311030741,
+    "EFIH": 1.3963380952381,
+    "ADIB": 0,
+    "FWRY": 0,
+    "ORHD": 1.21464285714286,
+    "VLMRA": 7.00934579439252,
+    "EFID": 3.16453846153846,
+    "JUFO": 2.18336886993603,
+    "GBCO": 1.42276422764228,
+    "RAYA": 0.711743772241993,
+    "EGCH": 0,
+    "ORWE": 5.96421471172962,
+    "AMOC": 8.88230940044412,
+    "MASR": 2.24887556221889,
+    "TALM": 0,
+    "NIPH": 0.750440884019361,
+    "KORA": null,
+    "ISPH": 1.5888778550149,
+    "AMES": 0,
+    "OIH": 0,
+    "OLFI": 8.85627530364372,
+    "MPCI": 4.42160675965665,
+    "BONY": 0,
+    "AXPH": 5.00294056872189,
+    "AMER": 0,
+    "LUTS": null,
+    "POUL": 0.926190476190476
+   }
+  },
+  "dividends_per_share_fq": {
+   "supported": true,
+   "coverage": 9,
+   "values": {
+    "ETEL": null,
+    "SWDY": null,
+    "TMGH": null,
+    "EGAL": null,
+    "MFPC": null,
+    "ABUK": 2.3,
+    "ALCN": null,
+    "ORAS": 0,
+    "EFIH": null,
+    "ADIB": null,
+    "FWRY": 0,
+    "ORHD": 0,
+    "VLMRA": null,
+    "EFID": null,
+    "JUFO": 0,
+    "GBCO": null,
+    "RAYA": 0,
+    "EGCH": null,
+    "ORWE": null,
+    "AMOC": null,
+    "MASR": null,
+    "TALM": 0,
+    "NIPH": null,
+    "KORA": null,
+    "ISPH": null,
+    "AMES": null,
+    "OIH": 0,
+    "OLFI": null,
+    "MPCI": null,
+    "BONY": null,
+    "AXPH": null,
+    "AMER": 0,
+    "LUTS": null,
+    "POUL": null
+   }
+  },
+  "dps_common_stock_prim_issue_fy": {
+   "supported": true,
+   "coverage": 25,
+   "values": {
+    "ETEL": 1.5,
+    "SWDY": 1.85,
+    "TMGH": 0.3,
+    "EGAL": null,
+    "MFPC": 3.9386,
+    "ABUK": 6,
+    "ALCN": 2.964205,
+    "ORAS": 0,
+    "EFIH": 0.293231,
+    "ADIB": 0,
+    "FWRY": 0,
+    "ORHD": 0,
+    "VLMRA": 2.188715953307393,
+    "EFID": 0.575946,
+    "JUFO": 0.512,
+    "GBCO": 0.35,
+    "RAYA": 0,
+    "EGCH": 0,
+    "ORWE": 1.5,
+    "AMOC": 1.2,
+    "MASR": 0.15,
+    "TALM": 0,
+    "NIPH": 2,
+    "KORA": null,
+    "ISPH": 0.260008,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": null,
+    "MPCI": 13.187,
+    "BONY": 0,
+    "AXPH": null,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": null
+   }
+  },
+  "dividend_payout_ratio_ttm": {
+   "supported": true,
+   "coverage": 19,
+   "values": {
+    "ETEL": null,
+    "SWDY": 0,
+    "TMGH": 0,
+    "EGAL": 0,
+    "MFPC": 0,
+    "ABUK": 68.84995686508728,
+    "ALCN": 0,
+    "ORAS": 0,
+    "EFIH": null,
+    "ADIB": 0,
+    "FWRY": 0,
+    "ORHD": 0,
+    "VLMRA": 0,
+    "EFID": 0,
+    "JUFO": 21.080368906455863,
+    "GBCO": null,
+    "RAYA": 0,
+    "EGCH": null,
+    "ORWE": null,
+    "AMOC": null,
+    "MASR": 0,
+    "TALM": 0,
+    "NIPH": 0,
+    "KORA": null,
+    "ISPH": 0,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": null,
+    "MPCI": 0,
+    "BONY": null,
+    "AXPH": null,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": null
+   }
+  },
+  "dividend_yield_recent": {
+   "supported": true,
+   "coverage": 0,
+   "values": {
+    "ETEL": null,
+    "SWDY": null,
+    "TMGH": null,
+    "EGAL": null,
+    "MFPC": null,
+    "ABUK": null,
+    "ALCN": null,
+    "ORAS": null,
+    "EFIH": null,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": null,
+    "VLMRA": null,
+    "EFID": null,
+    "JUFO": null,
+    "GBCO": null,
+    "RAYA": null,
+    "EGCH": null,
+    "ORWE": null,
+    "AMOC": null,
+    "MASR": null,
+    "TALM": null,
+    "NIPH": null,
+    "KORA": null,
+    "ISPH": null,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": null,
+    "MPCI": null,
+    "BONY": null,
+    "AXPH": null,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": null
+   }
+  },
+  "dividends_paid_fy": {
+   "supported": true,
+   "coverage": 0,
+   "values": {
+    "ETEL": null,
+    "SWDY": null,
+    "TMGH": null,
+    "EGAL": null,
+    "MFPC": null,
+    "ABUK": null,
+    "ALCN": null,
+    "ORAS": null,
+    "EFIH": null,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": null,
+    "VLMRA": null,
+    "EFID": null,
+    "JUFO": null,
+    "GBCO": null,
+    "RAYA": null,
+    "EGCH": null,
+    "ORWE": null,
+    "AMOC": null,
+    "MASR": null,
+    "TALM": null,
+    "NIPH": null,
+    "KORA": null,
+    "ISPH": null,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": null,
+    "MPCI": null,
+    "BONY": null,
+    "AXPH": null,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": null
+   }
+  },
+  "dividends_per_share_fy": {
+   "supported": true,
+   "coverage": 0,
+   "values": {
+    "ETEL": null,
+    "SWDY": null,
+    "TMGH": null,
+    "EGAL": null,
+    "MFPC": null,
+    "ABUK": null,
+    "ALCN": null,
+    "ORAS": null,
+    "EFIH": null,
+    "ADIB": null,
+    "FWRY": null,
+    "ORHD": null,
+    "VLMRA": null,
+    "EFID": null,
+    "JUFO": null,
+    "GBCO": null,
+    "RAYA": null,
+    "EGCH": null,
+    "ORWE": null,
+    "AMOC": null,
+    "MASR": null,
+    "TALM": null,
+    "NIPH": null,
+    "KORA": null,
+    "ISPH": null,
+    "AMES": null,
+    "OIH": null,
+    "OLFI": null,
+    "MPCI": null,
+    "BONY": null,
+    "AXPH": null,
+    "AMER": null,
+    "LUTS": null,
+    "POUL": null
+   }
+  }
+ },
+ "yahoo": {
+  "ETEL": [
+   {
+    "date": "2024-04-22",
+    "amount": 1.5
+   },
+   {
+    "date": "2025-04-22",
+    "amount": 1.5
+   },
+   {
+    "date": "2026-04-28",
+    "amount": 1.5
+   }
+  ],
+  "SWDY": [
+   {
+    "date": "2024-05-27",
+    "amount": 0.5
+   },
+   {
+    "date": "2025-05-13",
+    "amount": 1.0
+   },
+   {
+    "date": "2026-06-02",
+    "amount": 1.85
+   }
+  ],
+  "TMGH": [
+   {
+    "date": "2024-05-28",
+    "amount": 0.220006
+   },
+   {
+    "date": "2025-05-27",
+    "amount": 0.25
+   },
+   {
+    "date": "2026-05-19",
+    "amount": 0.3
+   }
+  ],
+  "EGAL": [
+   {
+    "date": "2023-11-21",
+    "amount": 6.5
+   },
+   {
+    "date": "2024-11-19",
+    "amount": 7.0
+   },
+   {
+    "date": "2025-10-14",
+    "amount": 8.0
+   }
+  ],
+  "MFPC": [
+   {
+    "date": "2024-08-27",
+    "amount": 2.718465
+   },
+   {
+    "date": "2025-05-05",
+    "amount": 2.537234
+   },
+   {
+    "date": "2026-05-04",
+    "amount": 3.9386
+   }
+  ],
+  "ABUK": [
+   {
+    "date": "2024-10-22",
+    "amount": 7.5
+   },
+   {
+    "date": "2025-10-22",
+    "amount": 6.0
+   },
+   {
+    "date": "2026-04-20",
+    "amount": 2.3
+   }
+  ],
+  "ALCN": [
+   {
+    "date": "2024-11-26",
+    "amount": 0.185419
+   },
+   {
+    "date": "2025-11-11",
+    "amount": 0.185419
+   },
+   {
+    "date": "2026-05-12",
+    "amount": 0.991132
+   }
+  ],
+  "ORAS": [
+   {
+    "date": "2024-08-15",
+    "amount": 11.05
+   },
+   {
+    "date": "2025-01-13",
+    "amount": 12.155
+   },
+   {
+    "date": "2025-08-07",
+    "amount": 13.8125
+   }
+  ],
+  "EFIH": [
+   {
+    "date": "2025-06-23",
+    "amount": 0.1145
+   },
+   {
+    "date": "2025-12-28",
+    "amount": 0.174219
+   },
+   {
+    "date": "2026-06-25",
+    "amount": 0.119012
+   }
+  ],
+  "ADIB": [
+   {
+    "date": "2002-04-09",
+    "amount": 0.264741
+   }
+  ],
+  "FWRY": null,
+  "ORHD": [
+   {
+    "date": "2010-09-15",
+    "amount": 0.232281
+   },
+   {
+    "date": "2018-05-31",
+    "amount": 0.061942
+   },
+   {
+    "date": "2025-09-23",
+    "amount": 0.118928
+   }
+  ],
+  "VLMRA": null,
+  "EFID": [
+   {
+    "date": "2024-11-26",
+    "amount": 0.190472
+   },
+   {
+    "date": "2025-04-28",
+    "amount": 0.380993
+   },
+   {
+    "date": "2026-05-12",
+    "amount": 0.575945
+   }
+  ],
+  "JUFO": [
+   {
+    "date": "2024-05-30",
+    "amount": 0.128
+   },
+   {
+    "date": "2025-09-08",
+    "amount": 0.192
+   },
+   {
+    "date": "2026-05-12",
+    "amount": 0.32
+   }
+  ],
+  "GBCO": [
+   {
+    "date": "2024-04-22",
+    "amount": 0.2
+   },
+   {
+    "date": "2025-04-28",
+    "amount": 0.35
+   },
+   {
+    "date": "2026-04-27",
+    "amount": 0.35
+   }
+  ],
+  "RAYA": [
+   {
+    "date": "2022-01-16",
+    "amount": 0.03
+   },
+   {
+    "date": "2023-01-11",
+    "amount": 0.0175
+   },
+   {
+    "date": "2025-07-07",
+    "amount": 0.04
+   }
+  ],
+  "EGCH": [
+   {
+    "date": "2007-11-07",
+    "amount": 0.076868
+   },
+   {
+    "date": "2008-11-11",
+    "amount": 0.098831
+   },
+   {
+    "date": "2009-11-17",
+    "amount": 0.109812
+   }
+  ],
+  "ORWE": [
+   {
+    "date": "2024-04-28",
+    "amount": 1.25
+   },
+   {
+    "date": "2025-04-28",
+    "amount": 1.6
+   },
+   {
+    "date": "2026-05-18",
+    "amount": 1.5
+   }
+  ],
+  "AMOC": [
+   {
+    "date": "2024-10-10",
+    "amount": 0.75
+   },
+   {
+    "date": "2025-10-13",
+    "amount": 0.8
+   },
+   {
+    "date": "2026-04-20",
+    "amount": 0.4
+   }
+  ],
+  "MASR": [
+   {
+    "date": "2024-05-28",
+    "amount": 0.192
+   },
+   {
+    "date": "2025-05-27",
+    "amount": 0.24
+   },
+   {
+    "date": "2026-05-20",
+    "amount": 0.15
+   }
+  ],
+  "TALM": null,
+  "NIPH": [
+   {
+    "date": "2023-11-19",
+    "amount": 1.32408
+   },
+   {
+    "date": "2024-11-19",
+    "amount": 2.469513
+   },
+   {
+    "date": "2025-10-29",
+    "amount": 2.0
+   }
+  ],
+  "KORA": null,
+  "ISPH": [
+   {
+    "date": "2025-10-13",
+    "amount": 0.16
+   },
+   {
+    "date": "2026-04-27",
+    "amount": 0.13
+   },
+   {
+    "date": "2026-10-12",
+    "amount": 0.130004
+   }
+  ],
+  "AMES": [
+   {
+    "date": "2015-06-23",
+    "amount": 0.011934
+   },
+   {
+    "date": "2019-07-29",
+    "amount": 0.01095
+   },
+   {
+    "date": "2022-06-13",
+    "amount": 0.051722
+   }
+  ],
+  "OIH": [
+   {
+    "date": "2012-07-17",
+    "amount": 1.05
+   },
+   {
+    "date": "2013-04-02",
+    "amount": 0.257
+   },
+   {
+    "date": "2017-06-20",
+    "amount": 0.1
+   }
+  ],
+  "OLFI": [
+   {
+    "date": "2024-05-07",
+    "amount": 0.95
+   },
+   {
+    "date": "2025-03-25",
+    "amount": 2.0
+   },
+   {
+    "date": "2026-03-24",
+    "amount": 1.75
+   }
+  ],
+  "MPCI": [
+   {
+    "date": "2023-11-07",
+    "amount": 0.663729
+   },
+   {
+    "date": "2024-11-13",
+    "amount": 4.0
+   },
+   {
+    "date": "2025-10-27",
+    "amount": 13.187
+   }
+  ],
+  "BONY": null,
+  "AXPH": [
+   {
+    "date": "2023-11-13",
+    "amount": 13.0
+   },
+   {
+    "date": "2024-11-18",
+    "amount": 30.0
+   },
+   {
+    "date": "2025-11-04",
+    "amount": 62.95
+   }
+  ],
+  "AMER": [
+   {
+    "date": "2015-01-04",
+    "amount": 0.102273
+   },
+   {
+    "date": "2016-06-07",
+    "amount": 0.05
+   },
+   {
+    "date": "2018-03-15",
+    "amount": 0.075
+   }
+  ],
+  "LUTS": null,
+  "POUL": [
+   {
+    "date": "2021-05-18",
+    "amount": 0.16
+   },
+   {
+    "date": "2024-10-22",
+    "amount": 0.847875
+   },
+   {
+    "date": "2026-04-27",
+    "amount": 0.33
+   }
+  ]
+ }
+}
