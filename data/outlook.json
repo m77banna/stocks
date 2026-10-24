@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-09",
+  "as_of": "2026-10-24",
   "stocks": {
     "ETEL": {
       "rating": "positive",
@@ -185,6 +185,11 @@
       "rating": "negative",
       "date": "2026-10-09",
       "note": "H1-26: sales -30% to EGP 61.5m; net profit EGP 4.2m (+165% but from a near-zero base). 2025: profit -72% to EGP 8.1m and revenue -25%. Caution: a major shareholder cut his stake from 42% to 37% in July-26; tiny company with no analyst coverage."
+    },
+    "POUL": {
+      "rating": "neutral",
+      "date": "2026-10-24",
+      "note": "H1-26: net profit -23% to EGP 1.27bn (Q1 -38%, Q2 about flat by my arithmetic, so the drop is slowing); Q1 revenue -5%. 2025 profit EGP 2.89bn; pays a small dividend (EGP 0.33). Caution: poultry prices are under pressure from feed costs, FX and imports. Note: the price fell from ~EGP 39 in June to ~EGP 10 while the share count rose about 3.7x, which looks like a split/bonus issue (my inference, please verify)."
     }
   }
 }
