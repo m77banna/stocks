@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-24T16:06:26.503Z",
+  "saved_at": "2026-10-24T16:07:08.712Z",
   "stocks": [
     {
       "id": "s0",
@@ -165,17 +165,6 @@
       "target": 29,
       "fpe": 18.12,
       "pe": 18.37
-    },
-    {
-      "id": "s16",
-      "symbol": "OCDI",
-      "name": "Six of October Development & Investment (SODIC)",
-      "industry": "Finance",
-      "shares": 1.3783122706889523,
-      "price": 24.53,
-      "target": 44,
-      "fpe": 12.71,
-      "pe": 8.77
     },
     {
       "id": "s17",
