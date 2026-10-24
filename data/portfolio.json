@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-10-24T16:07:08.712Z",
+  "saved_at": "2026-10-24T16:07:22.912Z",
   "stocks": [
     {
       "id": "s0",
@@ -198,17 +198,6 @@
       "target": 16,
       "fpe": 12.61,
       "pe": 15
-    },
-    {
-      "id": "s20",
-      "symbol": "CCAP",
-      "name": "QALA For Financial Investments",
-      "industry": "Finance",
-      "shares": 3.1864139020537126,
-      "price": 6.33,
-      "target": null,
-      "fpe": 18.14,
-      "pe": 107
     },
     {
       "id": "s22",
