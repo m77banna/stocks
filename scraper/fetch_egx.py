@@ -39,6 +39,37 @@ def fetch(tickers):
     return None, None
 
 
+EXTRA_COLUMNS = [
+    "earnings_per_share_basic_ttm", "earnings_per_share_diluted_fy", "price_target_average",
+    "price_target_high", "price_target_low", "recommendation_total",
+]
+
+
+def fetch_extra(tickers):
+    """Earnings and analyst-target fields, in a separate request so a failure never affects prices."""
+    try:
+        body = {"symbols": {"tickers": ["EGX:" + t["symbol"] for t in tickers], "query": {"types": []}}, "columns": EXTRA_COLUMNS}
+        r = requests.post(URL, json=body, headers=HEADERS, timeout=30)
+        if r.status_code != 200:
+            print(f"[warn] extra fields: HTTP {r.status_code}")
+            return {}
+        return {row["s"].split(":", 1)[1]: dict(zip(EXTRA_COLUMNS, row["d"])) for row in r.json().get("data", [])}
+    except Exception as e:  # noqa: BLE001
+        print(f"[warn] extra fields failed: {e}")
+        return {}
+
+
+def pick_pe(price, pe_ttm, eps_ttm, eps_fy):
+    """Best available P/E and where it came from."""
+    if pe_ttm is not None and pe_ttm > 0:
+        return float(pe_ttm), "ttm"
+    if eps_ttm is not None and eps_ttm > 0 and price:
+        return price / eps_ttm, "eps_ttm"
+    if eps_fy is not None and eps_fy > 0 and price:
+        return price / eps_fy, "eps_fy"
+    return None, None
+
+
 def fetch_technical(tickers):
     """TradingView technical rating (-1..1). Separate request so a failure never affects prices."""
     try:
@@ -64,6 +95,7 @@ def main():
         sym = row["s"].split(":", 1)[1]
         rows[sym] = dict(zip(cols, row["d"]))
     tech = fetch_technical(tickers)
+    extra = fetch_extra(tickers)
     stocks = []
     for t in tickers:
         r = rows.get(t["symbol"])
@@ -81,8 +113,19 @@ def main():
             item["name"] = r["description"]
         if r.get("sector"):
             item["sector"] = r["sector"]
-        if r.get("price_earnings_ttm") is not None:
-            item["pe"] = round(float(r["price_earnings_ttm"]), 2)
+        ex = extra.get(t["symbol"], {})
+        pe, pe_src = pick_pe(item["price"], r.get("price_earnings_ttm"), ex.get("earnings_per_share_basic_ttm"), ex.get("earnings_per_share_diluted_fy"))
+        if pe is not None:
+            item["pe"] = round(pe, 2)
+            item["pe_src"] = pe_src
+        if ex.get("price_target_average"):
+            item["target"] = round(float(ex["price_target_average"]), 2)
+            if ex.get("price_target_low"):
+                item["target_lo"] = round(float(ex["price_target_low"]), 2)
+            if ex.get("price_target_high"):
+                item["target_hi"] = round(float(ex["price_target_high"]), 2)
+            if ex.get("recommendation_total"):
+                item["target_n"] = int(ex["recommendation_total"])
         if t["symbol"] in tech:
             item["tech"] = round(float(tech[t["symbol"]]), 3)
         stocks.append(item)

@@ -38,6 +38,7 @@
   tr:hover td{background:rgba(37,99,235,0.06);}
   .ci{width:100%;box-sizing:border-box;text-align:left;padding:4px 6px;font-size:13px;}
   .ci.t{text-align:left;}
+  .ci.man{font-style:italic;border-style:dashed;}
   td.n{text-align:left;}
   td.tx{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .up{color:var(--up)}.down{color:var(--down)}.sub{color:var(--sub)}
@@ -85,7 +86,20 @@ const TK='egx_gh_token', POLL_MS=10000;
 const getTok=()=>{ try{ return localStorage.getItem(TK)||''; }catch(e){ return ''; } };
 const setTok=v=>{ try{ if(v) localStorage.setItem(TK,v); else localStorage.removeItem(TK); }catch(e){} };
 
-let stocks = [], nextId = 1, dirty = false, outlook = {}, techMap = {};
+let stocks = [], nextId = 1, dirty = false, outlook = {}, techMap = {}, liveMap = {};
+const PE_TIP={ttm:'TradingView trailing P/E (last 12 months)',eps_ttm:'Price ÷ last-12-month EPS (TradingView)',eps_fy:'Price ÷ last fiscal-year EPS (TradingView) — may be dated'};
+function manCell(r,f,tip){ return `<td><input type="number" step="any" class="ci man" title="${tip}" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(0)}"></td>`; }
+function peCell(r){
+  if(r.peAuto) return `<td class="n" title="${esc(PE_TIP[r.L.pe_src]||'TradingView')}">${fmt(r.pe)}</td>`;
+  return manCell(r,'pe','Manual value — no automatic P/E available for this stock');
+}
+function targetCell(r){
+  if(r.tgAuto){
+    const rng=(r.L.target_lo!=null&&r.L.target_hi!=null)?`; range ${fmt(r.L.target_lo)}–${fmt(r.L.target_hi)}`:'';
+    return `<td class="n" title="${esc('Analyst average'+(r.L.target_n?` (${r.L.target_n} analysts)`:'')+rng+' — TradingView')}">${fmt(r.target)}</td>`;
+  }
+  return manCell(r,'target','Manual value — no analyst target found for this stock');
+}
 function pctCell(v){
   if(v==null||isNaN(v)) return '<td class="sub">—</td>';
   const a=Math.abs(v), shown=fmt(a,'%');
@@ -117,12 +131,15 @@ function enrich(){
   }));
   return rows.map(r=>{
     const fpe = r.fpe ?? FPE_DEFAULT;
-    const ok = r.pe!=null && r.pe>=3 && r.pe<=50 && r.price>0;
-    const cfv = ok ? +(r.price*Math.min(Math.max((1+fpe/r.pe)/2,0.6),1.6)).toFixed(2) : null;
+    const L=liveMap[r.symbol]||{};
+    const peAuto=L.pe!=null, tgAuto=L.target!=null;
+    const pe=peAuto?L.pe:r.pe, target=tgAuto?L.target:r.target;
+    const ok = pe!=null && pe>=3 && pe<=50 && r.price>0;
+    const cfv = ok ? +(r.price*Math.min(Math.max((1+fpe/pe)/2,0.6),1.6)).toFixed(2) : null;
     const tv=techMap[r.symbol]!=null?techMap[r.symbol]:null;
     const o=outlook[r.symbol]||null, olv=o&&OL[o.rating]?OL[o.rating].v:null;
-    return {...r, cfv, olv, o, tv,
-      upside: (r.target!=null && r.price) ? +(((r.target-r.price)/r.price)*100).toFixed(2) : null,
+    return {...r, pe, target, peAuto, tgAuto, L, cfv, olv, o, tv,
+      upside: (target!=null && r.price) ? +(((target-r.price)/r.price)*100).toFixed(2) : null,
       cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null};
   });
 }
@@ -158,8 +175,8 @@ function render(){
       <td class="tx" title="${esc(r.name)}">${esc(r.name)}</td>
       <td class="tx" title="${esc(r.industry)}">${esc(r.industry)}</td>
       <td class="n">${fmt(r.cap)}</td>
-      <td class="n">${fmt(r.price,'',1)}</td>${num(r,'pe')}
-      ${num(r,'target')}
+      <td class="n">${fmt(r.price,'',1)}</td>${peCell(r)}
+      ${targetCell(r)}
       ${pctCell(r.upside)}
       <td>${fmt(r.cfv)}</td>
       ${pctCell(r.cupside)}
@@ -268,6 +285,17 @@ async function putFile(tok,content,sha){
   return fetch(API,{method:'PUT',headers:{Authorization:'Bearer '+tok,Accept:'application/vnd.github+json','Content-Type':'application/json'},
     body:JSON.stringify({message:'Update portfolio',content,branch:BRANCH,...(sha?{sha}:{})})});
 }
+async function syncTickers(tok){
+  const H={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
+  const r=await fetch(TICKERS_API+'?ref='+BRANCH,{headers:H,cache:'no-store'}); if(!r.ok) return;
+  const j=await r.json(), arr=JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,'')))));
+  const want=stocks.map(s=>s.symbol).filter(Boolean), have=arr.map(t=>t.symbol);
+  if(want.length===have.length && want.every(s=>have.includes(s))) return;
+  const by=Object.fromEntries(arr.map(t=>[t.symbol,t]));
+  const next=want.map(s=>by[s]||{symbol:s,name:''});
+  await fetch(TICKERS_API,{method:'PUT',headers:{...H,'Content-Type':'application/json'},
+    body:JSON.stringify({message:'Sync tickers with portfolio',content:b64(JSON.stringify(next,null,2)+'\n'),sha:j.sha,branch:BRANCH})});
+}
 async function save(){
   const tok=getTok();
   if(!tok){ document.getElementById('settings').style.display='flex'; say('Add a GitHub token in ⚙ to save'); return; }
@@ -278,6 +306,7 @@ async function save(){
     if(r.status===409||r.status===422) r=await putFile(tok,content,await getSha(tok));
     if(r.status===401||r.status===403) throw new Error('Token rejected — check it in ⚙');
     if(!r.ok) throw new Error('Save failed ('+r.status+')');
+    try{ await syncTickers(tok); }catch(e){}
     dirty=false; showDirty(); say('Saved ✓ '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}), true);
   }catch(e){ say(e.message||'Save failed'); }
   btn.disabled=false;
@@ -310,7 +339,7 @@ async function fetchLatest(){
   const st=document.getElementById('upd');
   try{
     const j=await getLatest(), by={};
-    (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null) by[s.symbol]=s; if(s.tech!=null) techMap[s.symbol]=s.tech; });
+    (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null){ by[s.symbol]=s; liveMap[s.symbol]=s; } if(s.tech!=null) techMap[s.symbol]=s.tech; });
     let n=0, filled=0;
     stocks.forEach(s=>{ const l=by[s.symbol]; if(!l) return; if(!s.name){ fillNew(s,l); filled++; } else s.price=l.price; if(l.name) s.name=l.name; if(l.sector) s.industry=l.sector; if(l.cap_bn && l.price) s.shares=l.cap_bn/l.price; n++; });
     if(filled) markDirty();
