@@ -1,9 +1,9 @@
 == preflight (OPTIONS) from https://m77banna.github.io
 HTTP/2 204 
-date: Sun, 25 Oct 2026 17:29:01 GMT
+date: Sun, 25 Oct 2026 17:30:19 GMT
 vary: Origin
 server: tv
-via: 192.108.254.161:443, 1.1 f626295496a28e38b44cc17cb3b2d176.cloudfront.net (CloudFront)
+via: 23.105.175.154:443, 1.1 1dfba6c05648522e13059c944a28466e.cloudfront.net (CloudFront)
 strict-transport-security: max-age=63072000; includeSubDomains; preload
 access-control-allow-origin: https://m77banna.github.io
 access-control-allow-headers: Referer,Accept
@@ -11,48 +11,69 @@ access-control-allow-methods: GET, POST
 access-control-allow-credentials: true
 access-control-max-age: 86400
 x-cache: Miss from cloudfront
-x-amz-cf-pop: ORD58-P15
-x-amz-cf-id: XCDqREYBh-CdkDqc-9HnCMT15s-3K-GOSdb3cnSvJ4nuR2_D1F0gfA==
+x-amz-cf-pop: IAD55-P3
+x-amz-cf-id: 2Ql0WWtASL1Qm5GJOAMmhYDFkY5d8gribDXtZCJ5tsMMmI8gN39tcg==
 
 
 == POST with that Origin
 HTTP/2 200 
 content-type: application/json; charset=utf-8
 content-length: 55
-date: Sun, 25 Oct 2026 17:29:02 GMT
+date: Sun, 25 Oct 2026 17:30:19 GMT
 access-control-max-age: 86400
 x-cache-level: hit1
 vary: Accept
 vary: Origin
 server: tv
-via: 23.105.168.251:443, 1.1 815eeed126c51190eabc58088e60c7aa.cloudfront.net (CloudFront)
+via: 216.250.139.84:443, 1.1 e030eb9e2523dd8af200ce39f28ca642.cloudfront.net (CloudFront)
 strict-transport-security: max-age=63072000; includeSubDomains; preload
 access-control-allow-origin: https://m77banna.github.io
 access-control-allow-headers: Referer,Accept
 access-control-allow-methods: GET, POST
 access-control-allow-credentials: true
 x-cache: Miss from cloudfront
-x-amz-cf-pop: ORD58-P15
-x-amz-cf-id: zSyq85lMBRI0Bi1wZrFriEYNFdKF_aTpaIg80t8aZYJuigmCkOKvNQ==
+x-amz-cf-pop: IAD55-P3
+x-amz-cf-id: 0fxUyYuHyCqYt6SeeD3EEnuKUBxQbCWZNCqXMTpJ_ZLGKiRl9R24wg==
 
 {"totalCount":1,"data":[{"s":"EGX:ETEL","d":[124.06]}]}
-== POST without Origin header
+== POST as a CORS-safelisted request (text/plain, no preflight needed)
 HTTP/2 200 
 content-type: application/json; charset=utf-8
-content-length: 55
-date: Sun, 25 Oct 2026 17:29:02 GMT
+content-length: 151
+date: Sun, 25 Oct 2026 17:30:19 GMT
 access-control-max-age: 86400
 x-cache-level: hit1
 vary: Accept
 vary: Origin
 server: tv
-via: 76.164.233.94:443, 1.1 df1213036b8ba705e2df6c775680892e.cloudfront.net (CloudFront)
+via: 23.105.175.154:443, 1.1 d6b2e9bf1f40c8fcec509faeb60f8c54.cloudfront.net (CloudFront)
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+access-control-allow-origin: https://m77banna.github.io
+access-control-allow-headers: Referer,Accept
+access-control-allow-methods: GET, POST
+access-control-allow-credentials: true
+x-cache: Miss from cloudfront
+x-amz-cf-pop: IAD55-P3
+x-amz-cf-id: Co99JuZzYvTWG30gmCOIvnS_RDj9Sk1xTKZKDQ7_RXfnUzFE-IfpDQ==
+
+{"totalCount":2,"data":[{"s":"EGX:ETEL","d":[124.06,null,-0.33636363636363636]},{"s":"EGX:SWDY","d":[102.02,13.391790603956366,-0.46969696969696967]}]}
+== POST without Origin header
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+content-length: 55
+date: Sun, 25 Oct 2026 17:30:19 GMT
+access-control-max-age: 86400
+x-cache-level: hit1
+vary: Accept
+vary: Origin
+server: tv
+via: 23.105.175.154:443, 1.1 0ed062928320c9569a09db8a928795e4.cloudfront.net (CloudFront)
 strict-transport-security: max-age=63072000; includeSubDomains; preload
 access-control-allow-headers: Referer,Accept
 access-control-allow-methods: GET, POST
 access-control-allow-credentials: true
 x-cache: Miss from cloudfront
-x-amz-cf-pop: ORD58-P15
-x-amz-cf-id: 0kCrS33e3zY4zNOJXyvfkE-g5OTUGC2xNMo0JzWEr7uirii9NPyVHQ==
+x-amz-cf-pop: IAD55-P3
+x-amz-cf-id: tbwa5ac7tnTwXqUFl2Cji209WNi20tZc-KWObnxrN7xtY6Hu2G49rg==
 
 {"totalCount":1,"data":[{"s":"EGX:ETEL","d":[124.06]}]}
