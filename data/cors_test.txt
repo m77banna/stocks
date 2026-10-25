@@ -1,0 +1,58 @@
+== preflight (OPTIONS) from https://m77banna.github.io
+HTTP/2 204 
+date: Sun, 25 Oct 2026 17:29:01 GMT
+vary: Origin
+server: tv
+via: 192.108.254.161:443, 1.1 f626295496a28e38b44cc17cb3b2d176.cloudfront.net (CloudFront)
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+access-control-allow-origin: https://m77banna.github.io
+access-control-allow-headers: Referer,Accept
+access-control-allow-methods: GET, POST
+access-control-allow-credentials: true
+access-control-max-age: 86400
+x-cache: Miss from cloudfront
+x-amz-cf-pop: ORD58-P15
+x-amz-cf-id: XCDqREYBh-CdkDqc-9HnCMT15s-3K-GOSdb3cnSvJ4nuR2_D1F0gfA==
+
+
+== POST with that Origin
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+content-length: 55
+date: Sun, 25 Oct 2026 17:29:02 GMT
+access-control-max-age: 86400
+x-cache-level: hit1
+vary: Accept
+vary: Origin
+server: tv
+via: 23.105.168.251:443, 1.1 815eeed126c51190eabc58088e60c7aa.cloudfront.net (CloudFront)
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+access-control-allow-origin: https://m77banna.github.io
+access-control-allow-headers: Referer,Accept
+access-control-allow-methods: GET, POST
+access-control-allow-credentials: true
+x-cache: Miss from cloudfront
+x-amz-cf-pop: ORD58-P15
+x-amz-cf-id: zSyq85lMBRI0Bi1wZrFriEYNFdKF_aTpaIg80t8aZYJuigmCkOKvNQ==
+
+{"totalCount":1,"data":[{"s":"EGX:ETEL","d":[124.06]}]}
+== POST without Origin header
+HTTP/2 200 
+content-type: application/json; charset=utf-8
+content-length: 55
+date: Sun, 25 Oct 2026 17:29:02 GMT
+access-control-max-age: 86400
+x-cache-level: hit1
+vary: Accept
+vary: Origin
+server: tv
+via: 76.164.233.94:443, 1.1 df1213036b8ba705e2df6c775680892e.cloudfront.net (CloudFront)
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+access-control-allow-headers: Referer,Accept
+access-control-allow-methods: GET, POST
+access-control-allow-credentials: true
+x-cache: Miss from cloudfront
+x-amz-cf-pop: ORD58-P15
+x-amz-cf-id: 0kCrS33e3zY4zNOJXyvfkE-g5OTUGC2xNMo0JzWEr7uirii9NPyVHQ==
+
+{"totalCount":1,"data":[{"s":"EGX:ETEL","d":[124.06]}]}
