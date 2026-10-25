@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T13:03:02.379846+00:00",
+  "updated_at": "2026-10-25T14:06:17.739940+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -803,8 +803,8 @@
     },
     {
       "symbol": "AXPH",
-      "price": 1172.99,
-      "change_pct": -6.91,
+      "price": 1200.0,
+      "change_pct": -4.76,
       "volume": 6951,
       "cap_bn": 6.29,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
@@ -818,7 +818,7 @@
       "outlook_basis": "latest quarter",
       "outlook_eps": 163.3,
       "outlook_rev": 75.0,
-      "tech": -0.536
+      "tech": -0.47
     },
     {
       "symbol": "AMER",
