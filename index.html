@@ -32,7 +32,7 @@
   button.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
   .scroll{flex:1 1 auto;min-height:0;overflow:auto;}
-  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1700px;}
+  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1300px;}
   th{position:sticky;top:0;z-index:2;background:var(--card);color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
@@ -98,10 +98,16 @@ function pegCell(r){
 function epsCell(r){
   return r.eps!=null ? `<td class="n" title="${esc('Earnings per share, same basis as the P/E — TradingView')}">${fmt(r.eps,'',2)}</td>` : '<td class="sub" title="No earnings data">—</td>';
 }
+function pctSpan(v){
+  if(v==null||isNaN(v)) return '';
+  const a=Math.abs(v), shown=fmt(a,'%');
+  if(Math.round(a)===0) return `<span class="sub"><b>● ${shown}</b></span>`;
+  return v>0 ? `<span class="up"><b>▲ ${shown}</b></span>` : `<span class="down"><b>▼ ${shown}</b></span>`;
+}
 function targetCell(r){
   if(r.target==null) return '<td class="sub" title="No analyst price target available">—</td>';
   const L=r.L, rng=(L.target_lo!=null&&L.target_hi!=null)?`; range ${fmt(L.target_lo)}–${fmt(L.target_hi)}`:'';
-  return `<td class="n" title="${esc('Analyst average'+(L.target_n?` (${L.target_n} analysts)`:'')+rng+' — TradingView')}">${fmt(r.target)}</td>`;
+  return `<td title="${esc('Analyst average price target'+(L.target_n?` (${L.target_n} analysts)`:'')+rng+'; the arrow is the distance from the current price — TradingView')}">${fmt(r.target)} ${pctSpan(r.upside)}</td>`;
 }
 function outlookCell(r){
   const L=r.L; if(!L.outlook||!OL[L.outlook]) return '<td class="sub" title="No earnings-growth data">—</td>';
@@ -121,12 +127,6 @@ function divCells(r){
   const tip=esc('Ex-dividend date'+(d.pay?'; paid '+d.pay:'')+(d.yld!=null?'; yield '+d.yld+'%':'')+' — '+d.src);
   return `<td class="${old?'sub':''}" title="${tip}">${txt}</td><td title="${tip}">${fmt(d.amt,'',2)}</td>`;
 }
-function pctCell(v){
-  if(v==null||isNaN(v)) return '<td class="sub">—</td>';
-  const a=Math.abs(v), shown=fmt(a,'%');
-  if(Math.round(a)===0) return `<td class="sub"><b>● ${shown}</b></td>`;
-  return v>0 ? `<td class="up"><b>▲ ${shown}</b></td>` : `<td class="down"><b>▼ ${shown}</b></td>`;
-}
 function techLabel(v){ if(v==null) return null; if(v>0.5) return {t:'▲▲ Strong buy',c:'up'}; if(v>0.1) return {t:'▲ Buy',c:'up'}; if(v>=-0.1) return {t:'● Neutral',c:'sub'}; if(v>=-0.5) return {t:'▼ Sell',c:'down'}; return {t:'▼▼ Strong sell',c:'down'}; }
 const OL={positive:{v:3,t:'▲ Positive',c:'up'},neutral:{v:2,t:'● Neutral',c:'sub'},negative:{v:1,t:'▼ Negative',c:'down'}};
 let sortKey = 'cap', sortDir = 'desc';
@@ -137,32 +137,27 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'9%'},
-  {k:'cap',l:'Market cap',t:'num',w:'6.5%'},
-  {k:'price',l:'Price',t:'num',w:'5.5%'},{k:'pe',l:'PE',t:'num',w:'4%'},{k:'peg',l:'PEG',t:'num',w:'4.5%'},{k:'eps',l:'EPS',t:'num',w:'4.5%'},
-  {k:'target',l:'Target value',t:'num',w:'6%'},{k:'upside',l:'Upside %',t:'num',w:'5.5%'},
-  {k:'cfv',l:'Approx. value',t:'num',w:'6%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'7%'},
-  {k:'olv',l:'Outlook',t:'num',w:'6.5%'},{k:'tv',l:'Technical',t:'num',w:'6.5%'},{k:'alv',l:'Analysts',t:'num',w:'6.5%'},
-  {k:'divd',l:'Last dividend',t:'num',w:'6.5%'},{k:'diva',l:'Dividend / share',t:'num',w:'5.5%'},{k:'del',l:'',t:'none',w:'4.5%'}
+  {k:'symbol',l:'Symbol',t:'str',w:'5.5%'},{k:'name',l:'Name',t:'str',w:'11%'},
+  {k:'cap',l:'Market cap',t:'num',w:'7%'},
+  {k:'price',l:'Price',t:'num',w:'6%'},{k:'pe',l:'PE',t:'num',w:'5%'},{k:'peg',l:'PEG',t:'num',w:'5.5%'},{k:'eps',l:'EPS',t:'num',w:'5.5%'},
+  {k:'upside',l:'Target (upside)',t:'num',w:'10%'},
+  {k:'olv',l:'Outlook',t:'num',w:'8.5%'},{k:'tv',l:'Technical',t:'num',w:'8.5%'},{k:'alv',l:'Analysts',t:'num',w:'8.5%'},
+  {k:'divd',l:'Last dividend',t:'num',w:'8%'},{k:'diva',l:'Dividend / share',t:'num',w:'6.5%'},{k:'del',l:'',t:'none',w:'5.5%'}
 ];
 
-const FPE_DEFAULT=13.82;
 function enrich(){
   return stocks.map(r=>{
     const L=liveMap[r.symbol]||{};
     const cap = (L.cap_bn!=null) ? L.cap_bn : ((r.shares!=null && L.price!=null) ? r.shares*L.price : null);
     const price = L.price!=null ? L.price : null;
     const pe = L.pe!=null ? L.pe : null, target = L.target!=null ? L.target : null;
-    const fpe = L.fpe ?? FPE_DEFAULT;
-    const ok = pe!=null && pe>=3 && pe<=50 && price>0;
-    const cfv = ok ? +(price*Math.min(Math.max((1+fpe/pe)/2,0.6),1.6)).toFixed(2) : null;
     const tv = techMap[r.symbol]!=null ? techMap[r.symbol] : null;
     const olv = L.outlook && OL[L.outlook] ? OL[L.outlook].v : null;
     const dv = L.div_date ? {date:L.div_date,pay:L.div_pay,amt:L.div_amt,yld:L.div_yield,src:L.div_src||'TradingView'} : null;
-    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, cfv, olv, tv, alv:(L.analyst!=null?6-L.analyst:null), dv,
+    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, olv, tv, alv:(L.analyst!=null?6-L.analyst:null), dv,
       divd: dv?Date.parse(dv.date):null, diva: dv?dv.amt:null,
       upside: (target!=null && price) ? +(((target-price)/price)*100).toFixed(2) : null,
-      cupside: (cfv!=null && price) ? +(((cfv-price)/price)*100).toFixed(2) : null};
+      };
   });
 }
 const fmt=(n,s='',d=0)=> n==null||isNaN(n)?'—':n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})+s;
@@ -200,9 +195,6 @@ function render(){
       ${pegCell(r)}
       ${epsCell(r)}
       ${targetCell(r)}
-      ${pctCell(r.upside)}
-      <td>${fmt(r.cfv)}</td>
-      ${pctCell(r.cupside)}
       ${outlookCell(r)}
       ${(()=>{ const t=techLabel(r.tv); return t?`<td class="${t.c}" title="TradingView technical rating (moving averages + oscillators): ${r.tv.toFixed(2)}"><b>${t.t}</b></td>`:'<td class="sub">—</td>'; })()}
       ${analystCell(r)}

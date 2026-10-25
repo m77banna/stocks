@@ -6,7 +6,6 @@ and writes data/latest.json. Nothing in the output is typed by hand:
   rating, dividends and growth figures come from TradingView's public EGX scanner
   (data is delayed ~15 minutes);
 * dividend records TradingView lacks are filled from Yahoo Finance;
-* the "approximate value" benchmark (sector P/E) is computed from the whole market scan;
 * the Outlook is a mechanical rule applied to the latest earnings and revenue growth.
 
 If the main TradingView request fails, the existing latest.json is left untouched.
@@ -14,7 +13,6 @@ If the main TradingView request fails, the existing latest.json is left untouche
 import json
 import sys
 import time
-import statistics
 import datetime
 from pathlib import Path
 
@@ -102,30 +100,6 @@ def pick_pe(price, cap, ex, pe_ttm):
     return None, None
 
 
-def sector_pe_benchmark():
-    """Median P/E per sector over the whole EGX scan -> function sector -> benchmark P/E (clamped 6-20)."""
-    try:
-        body = {"columns": ["sector", "price_earnings_ttm"], "range": [0, 1000],
-                "filter": [{"left": "type", "operation": "equal", "right": "stock"}]}
-        r = post(body, timeout=60)
-        if r.status_code != 200:
-            raise RuntimeError(f"HTTP {r.status_code}")
-        by, allpe = {}, []
-        for row in r.json().get("data", []):
-            sector, pe = row["d"][0], row["d"][1]
-            if pe is not None and 3 <= pe <= 50:
-                allpe.append(pe)
-                if sector:
-                    by.setdefault(sector, []).append(pe)
-        overall = statistics.median(allpe)
-        med = {k: statistics.median(v) for k, v in by.items() if len(v) >= 4}
-        print(f"sector benchmark: {len(allpe)} stocks with usable P/E, {len(med)} sectors, overall {overall:.1f}")
-        return lambda sector: round(min(max(med.get(sector, overall), 6), 20), 2)
-    except Exception as e:  # noqa: BLE001
-        print(f"[warn] sector benchmark failed: {e}")
-        return lambda sector: 13.82
-
-
 def outlook(ex):
     """Mechanical trend signal from the latest YoY earnings and revenue growth. Returns None without data."""
     eps = rev = None
@@ -188,7 +162,6 @@ def main():
     rows = {row["s"].split(":", 1)[1]: dict(zip(cols, row["d"])) for row in data}
     tech = fetch_columns(tickers, ["Recommend.All"], "technical rating")
     extra = fetch_columns(tickers, EXTRA_COLUMNS, "extra fields")
-    bench = sector_pe_benchmark()
 
     stocks = []
     for t in tickers:
@@ -209,7 +182,6 @@ def main():
             item["name"] = r["description"]
         if r.get("sector"):
             item["sector"] = r["sector"]
-        item["fpe"] = bench(r.get("sector"))
         ex = extra.get(sym, {})
 
         pe, src = pick_pe(item["price"], cap, ex, r.get("price_earnings_ttm"))
