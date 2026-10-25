@@ -28,6 +28,9 @@ jobs:
             echo "== POST with that Origin"
             curl -s -i -X POST "$U" -H "Origin: https://m77banna.github.io" -H "Content-Type: application/json" -d '{"symbols":{"tickers":["EGX:ETEL"]},"columns":["close"]}' | head -30
             echo
+            echo "== POST as a CORS-safelisted request (text/plain, no preflight needed)"
+            curl -s -i -X POST "$U" -H "Origin: https://m77banna.github.io" -H "Content-Type: text/plain;charset=UTF-8" -d '{"symbols":{"tickers":["EGX:ETEL","EGX:SWDY"]},"columns":["close","price_earnings_ttm","Recommend.All"]}' | head -40
+            echo
             echo "== POST without Origin header"
             curl -s -i -X POST "$U" -H "Content-Type: application/json" -d '{"symbols":{"tickers":["EGX:ETEL"]},"columns":["close"]}' | head -20
           } > data/cors_test.txt 2>&1
