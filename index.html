@@ -142,7 +142,7 @@ const COLS = [
   {k:'cap',l:'Market cap',t:'num',w:'7%'},
   {k:'price',l:'Price',t:'num',w:'6%'},{k:'pe',l:'PE',t:'num',w:'5%'},{k:'peg',l:'PEG',t:'num',w:'5.5%'},{k:'eps',l:'EPS',t:'num',w:'5.5%'},
   {k:'upside',l:'Target (upside)',t:'num',w:'10%'},
-  {k:'olv',l:'Outlook',t:'num',w:'8.5%'},{k:'tv',l:'Technical',t:'num',w:'8.5%'},{k:'alv',l:'Analysts',t:'num',w:'8.5%'},
+  {k:'tv',l:'Technical',t:'num',w:'9.5%'},{k:'alv',l:'Analysts',t:'num',w:'9.5%'},
   {k:'divd',l:'Last dividend',t:'num',w:'8%'},{k:'diva',l:'Dividend / share',t:'num',w:'6.5%'},{k:'del',l:'',t:'none',w:'5.5%'}
 ];
 
@@ -196,7 +196,6 @@ function render(){
       ${pegCell(r)}
       ${epsCell(r)}
       ${targetCell(r)}
-      ${outlookCell(r)}
       ${(()=>{ const t=techLabel(r.tv); return t?`<td class="${t.c}" title="TradingView technical rating (moving averages + oscillators): ${r.tv.toFixed(2)}"><b>${t.t}</b></td>`:'<td class="sub">—</td>'; })()}
       ${analystCell(r)}
       ${divCells(r)}
