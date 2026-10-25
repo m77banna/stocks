@@ -4,375 +4,172 @@
     {
       "id": "s0",
       "symbol": "ETEL",
-      "name": "Telecom Egypt",
-      "industry": "Communications",
-      "shares": 1.7070948469006721,
-      "price": 133.9,
-      "target": 135,
-      "fpe": 16.78,
-      "pe": 10
+      "shares": 1.7070948469006721
     },
     {
       "id": "s1",
       "symbol": "SWDY",
-      "name": "El Sewedy Electric Company",
-      "industry": "Producer Manufacturing",
-      "shares": 2.1393304656816907,
-      "price": 106.94,
-      "target": 104,
-      "fpe": 13.82,
-      "pe": 15.23
+      "shares": 2.1393304656816907
     },
     {
       "id": "s2",
       "symbol": "TMGH",
-      "name": "Talaat Moustafa Group Holding",
-      "industry": "Finance",
-      "shares": 2.0606896551724136,
-      "price": 87,
-      "target": 142,
-      "fpe": 12.71,
-      "pe": 11.73
+      "shares": 2.0606896551724136
     },
     {
       "id": "s3",
       "symbol": "EGAL",
-      "name": "Egypt Aluminum",
-      "industry": "Non-Energy Minerals",
-      "shares": 0.4125066383430696,
-      "price": 301.28,
-      "target": 399,
-      "fpe": 9.51,
-      "pe": 13.04
+      "shares": 0.4125066383430696
     },
     {
       "id": "s4",
       "symbol": "MFPC",
-      "name": "Misr Fertilizers Production Company MOPCO",
-      "industry": "Process Industries",
-      "shares": 2.868241006400353,
-      "price": 45.31,
-      "target": 47,
-      "fpe": 12.61,
-      "pe": 8.67
+      "shares": 2.868241006400353
     },
     {
       "id": "s5",
       "symbol": "ABUK",
-      "name": "Abou Kir Fertilizers & Chemical Industries Co.",
-      "industry": "Process Industries",
-      "shares": 1.2618945102260495,
-      "price": 92.9,
-      "target": 89,
-      "fpe": 12.61,
-      "pe": 13
+      "shares": 1.2618945102260495
     },
     {
       "id": "s6",
       "symbol": "ALCN",
-      "name": "Alexandria Containers & Goods",
-      "industry": "Transportation",
-      "shares": 2.9795544705523342,
-      "price": 32.77,
-      "target": 28.55,
-      "fpe": 13.82,
-      "pe": 16.72
+      "shares": 2.9795544705523342
     },
     {
       "id": "s7",
       "symbol": "ORAS",
-      "name": "Orascom Construction Plc",
-      "industry": "Industrial Services",
-      "shares": 0.11921428571428572,
-      "price": 840,
-      "target": 679,
-      "fpe": 12.71,
-      "pe": 8.49
+      "shares": 0.11921428571428572
     },
     {
       "id": "s8",
       "symbol": "EFIH",
-      "name": "e-finance for Digital and Financial Investments S.A.E.",
-      "industry": "Technology Services",
-      "shares": 3.4666666666666663,
-      "price": 21,
-      "target": 28.1,
-      "fpe": 16.78,
-      "pe": 35
+      "shares": 3.4666666666666663
     },
     {
       "id": "s9",
       "symbol": "ADIB",
-      "name": "Abu Dhabi Islamic Bank-Egypt",
-      "industry": "Finance",
-      "shares": 1.5,
-      "price": 45,
-      "target": 59.72,
-      "fpe": 6,
-      "pe": 4.63
+      "shares": 1.5
     },
     {
       "id": "s10",
       "symbol": "FWRY",
-      "name": "Fawry For Banking Technology And Electronic Payment",
-      "industry": "Technology Services",
-      "shares": 3.406741573033708,
-      "price": 17.8,
-      "target": 26.68,
-      "fpe": 16.78,
-      "pe": 19.96
+      "shares": 3.406741573033708
     },
     {
       "id": "s11",
       "symbol": "ORHD",
-      "name": "Orascom Development Egypt (S.A.E)",
-      "industry": "Consumer Durables",
-      "shares": 3.65,
-      "price": 9.8,
-      "target": 17,
-      "fpe": 16.72,
-      "pe": 8
+      "shares": 3.65
     },
     {
       "id": "s12",
       "symbol": "VLMRA",
-      "name": "Valmore Holding",
-      "industry": "Finance",
-      "shares": 1.1282722513089007,
-      "price": 26.74,
-      "target": 64,
-      "fpe": 11.75,
-      "pe": 5.49
+      "shares": 1.1282722513089007
     },
     {
       "id": "s13",
       "symbol": "EFID",
-      "name": "Edita Food Industries SAE",
-      "industry": "Consumer Non-Durables",
-      "shares": 2.0945054945054946,
-      "price": 18.2,
-      "target": 25,
-      "fpe": 18.12,
-      "pe": 12.75
+      "shares": 2.0945054945054946
     },
     {
       "id": "s14",
       "symbol": "JUFO",
-      "name": "Juhayna Food Industries",
-      "industry": "Consumer Non-Durables",
-      "shares": 1.4707889125799576,
-      "price": 23.45,
-      "target": 29,
-      "fpe": 18.12,
-      "pe": 18.37
+      "shares": 1.4707889125799576
     },
     {
       "id": "s17",
       "symbol": "GBCO",
-      "name": "GB Corp",
-      "industry": "Distribution Services",
-      "shares": 1.0853658536585364,
-      "price": 24.6,
-      "target": 38.14,
-      "fpe": 13.82,
-      "pe": 14
+      "shares": 1.0853658536585364
     },
     {
       "id": "s18",
       "symbol": "RAYA",
-      "name": "Raya Holding for Financial Investments SAE",
-      "industry": "Technology Services",
-      "shares": 4.281138790035587,
-      "price": 5.62,
-      "target": 11,
-      "fpe": 16.78,
-      "pe": 11.59
+      "shares": 4.281138790035587
     },
     {
       "id": "s19",
       "symbol": "EGCH",
-      "name": "Egyptian Chemical Industries",
-      "industry": "Process Industries",
-      "shares": 1.986725663716814,
-      "price": 11.3,
-      "target": 16,
-      "fpe": 12.61,
-      "pe": 15
+      "shares": 1.986725663716814
     },
     {
       "id": "s22",
       "symbol": "ORWE",
-      "name": "Oriental Weavers Carpet",
-      "industry": "Consumer Durables",
-      "shares": 0.6652087475149105,
-      "price": 25.15,
-      "target": 36.35,
-      "fpe": 13.82,
-      "pe": 8.97
+      "shares": 0.6652087475149105
     },
     {
       "id": "s23",
       "symbol": "AMOC",
-      "name": "Alexandria Mineral Oils Co.",
-      "industry": "Energy Minerals",
-      "shares": 1.2916358253145817,
-      "price": 13.51,
-      "target": 12,
-      "fpe": 11.75,
-      "pe": 12
+      "shares": 1.2916358253145817
     },
     {
       "id": "s24",
       "symbol": "MASR",
-      "name": "Madinet Masr for Housing & Development",
-      "industry": "Finance",
-      "shares": 2.1349325337331333,
-      "price": 6.67,
-      "target": 11.4,
-      "fpe": 12.71,
-      "pe": 5.47
+      "shares": 2.1349325337331333
     },
     {
       "id": "s25",
       "symbol": "TALM",
-      "name": "Taaleem Management Services S.A.E",
-      "industry": "Consumer Services",
-      "shares": 0.7342365815528921,
-      "price": 19.19,
-      "target": 29,
-      "fpe": 13.82,
-      "pe": 25.98
+      "shares": 0.7342365815528921
     },
     {
       "id": "s26",
       "symbol": "NIPH",
-      "name": "El-Nile Co. for Pharmaceuticals & Chemical Industries",
-      "industry": "Health Technology",
-      "shares": 0.05001688491989044,
-      "price": 266.51,
-      "target": null,
-      "fpe": 16.61,
-      "pe": 50.68
+      "shares": 0.05001688491989044
     },
     {
       "id": "s27",
       "symbol": "KORA",
-      "name": "KORRA",
-      "industry": "Utilities",
-      "shares": 2.1428571429,
-      "price": 2.01,
-      "target": null,
-      "fpe": 13.82,
-      "pe": 7.8
+      "shares": 2.1428571429
     },
     {
       "id": "s28",
       "symbol": "ISPH",
-      "name": "Ibnsina Pharma",
-      "industry": "Distribution Services",
-      "shares": 1.1201588877855013,
-      "price": 10.07,
-      "target": 17.26,
-      "fpe": 16.61,
-      "pe": 14
+      "shares": 1.1201588877855013
     },
     {
       "id": "s29",
       "symbol": "AMES",
-      "name": "Alexandria New Medical Center Co.",
-      "industry": "Health Services",
-      "shares": 0.24453756360371148,
-      "price": 33.41,
-      "target": null,
-      "fpe": 13.82,
-      "pe": 107
+      "shares": 0.24453756360371148
     },
     {
       "id": "s30",
       "symbol": "OIH",
-      "name": "Orascom Investment Holding SAE",
-      "industry": "Communications",
-      "shares": 5.242937853107344,
-      "price": 1.77,
-      "target": null,
-      "fpe": 16.78,
-      "pe": -18
+      "shares": 5.242937853107344
     },
     {
       "id": "s31",
       "symbol": "OLFI",
-      "name": "Obour Land for Food Industries",
-      "industry": "Consumer Non-Durables",
-      "shares": 0.3997975708502024,
-      "price": 19.76,
-      "target": 26,
-      "fpe": 18.12,
-      "pe": 11
+      "shares": 0.3997975708502024
     },
     {
       "id": "s32",
       "symbol": "MPCI",
-      "name": "Memphis Pharmaceutical & Chemical Industries",
-      "industry": "Health Technology",
-      "shares": 0.022733369098712448,
-      "price": 298.24,
-      "target": null,
-      "fpe": 16.61,
-      "pe": 15.19
+      "shares": 0.022733369098712448
     },
     {
       "id": "s33",
       "symbol": "BONY",
-      "name": "Bonyan for Development and Trade",
-      "industry": "Finance",
-      "shares": 1.8759305210918111,
-      "price": 4.03,
-      "target": 6.27,
-      "fpe": 12.71,
-      "pe": 3.87
+      "shares": 1.8759305210918111
     },
     {
       "id": "s34",
       "symbol": "AXPH",
-      "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
-      "industry": "Health Technology",
-      "shares": 0.004992063492063492,
-      "price": 1260,
-      "target": null,
-      "fpe": 16.61,
-      "pe": 15
+      "shares": 0.004992063492063492
     },
     {
       "id": "s35",
       "symbol": "AMER",
-      "name": "Amer Group Holding",
-      "industry": "Finance",
-      "shares": 0.9017199017199017,
-      "price": 4.07,
-      "target": null,
-      "fpe": 12.71,
-      "pe": 15
+      "shares": 0.9017199017199017
     },
     {
       "id": "s36",
       "symbol": "LUTS",
-      "name": "Lotus For Agricultural Investments And Development",
-      "industry": "Finance",
-      "shares": 1.3333333333,
-      "price": 0.635,
-      "target": null,
-      "fpe": 18.12,
-      "pe": 78.8
+      "shares": 1.3333333333
     },
     {
       "id": "s37",
       "symbol": "POUL",
-      "name": "Cairo Poultry Co.",
-      "industry": "Process Industries",
-      "shares": 1.789855072463768,
-      "pe": 6.9,
-      "price": 9.66,
-      "target": null
+      "shares": 1.789855072463768
     }
   ]
 }

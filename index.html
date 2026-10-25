@@ -32,7 +32,7 @@
   button.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
   .scroll{flex:1 1 auto;min-height:0;overflow:auto;}
-  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1650px;}
+  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1800px;}
   th{position:sticky;top:0;z-index:2;background:var(--card);color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
@@ -86,19 +86,25 @@ const TK='egx_gh_token', POLL_MS=10000;
 const getTok=()=>{ try{ return localStorage.getItem(TK)||''; }catch(e){ return ''; } };
 const setTok=v=>{ try{ if(v) localStorage.setItem(TK,v); else localStorage.removeItem(TK); }catch(e){} };
 
-let stocks = [], nextId = 1, dirty = false, outlook = {}, techMap = {}, liveMap = {}, divExtra = {};
-const PE_TIP={ttm:'TradingView trailing P/E (last 12 months)',eps_ttm:'Price ÷ last-12-month EPS (TradingView)',eps_fy:'Price ÷ last fiscal-year EPS (TradingView) — may be dated'};
-function manCell(r,f,tip){ return `<td><input type="number" step="any" class="ci man" title="${tip}" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(0)}"></td>`; }
+let stocks = [], nextId = 1, dirty = false, techMap = {}, liveMap = {};
+const PE_TIP={ttm:'TradingView trailing P/E (last 12 months)',eps_ttm:'Price ÷ last-12-month EPS (TradingView)',ni_ttm:'Market cap ÷ last-12-month net profit (TradingView)',eps_fy:'Price ÷ last fiscal-year EPS (TradingView) — may be dated',ni_fy:'Market cap ÷ last fiscal-year net profit (TradingView) — may be dated'};
 function peCell(r){
-  if(r.peAuto) return `<td class="n" title="${esc(PE_TIP[r.L.pe_src]||'TradingView')}">${fmt(r.pe)}</td>`;
-  return manCell(r,'pe','Manual value — no automatic P/E available for this stock');
+  return r.pe!=null ? `<td class="n" title="${esc(PE_TIP[r.L.pe_src]||'TradingView')}">${fmt(r.pe)}</td>` : '<td class="sub" title="No earnings data (loss-making or not reported)">—</td>';
 }
 function targetCell(r){
-  if(r.tgAuto){
-    const rng=(r.L.target_lo!=null&&r.L.target_hi!=null)?`; range ${fmt(r.L.target_lo)}–${fmt(r.L.target_hi)}`:'';
-    return `<td class="n" title="${esc('Analyst average'+(r.L.target_n?` (${r.L.target_n} analysts)`:'')+rng+' — TradingView')}">${fmt(r.target)}</td>`;
-  }
-  return manCell(r,'target','Manual value — no analyst target found for this stock');
+  if(r.target==null) return '<td class="sub" title="No analyst price target available">—</td>';
+  const L=r.L, rng=(L.target_lo!=null&&L.target_hi!=null)?`; range ${fmt(L.target_lo)}–${fmt(L.target_hi)}`:'';
+  return `<td class="n" title="${esc('Analyst average'+(L.target_n?` (${L.target_n} analysts)`:'')+rng+' — TradingView')}">${fmt(r.target)}</td>`;
+}
+function outlookCell(r){
+  const L=r.L; if(!L.outlook||!OL[L.outlook]) return '<td class="sub" title="No earnings-growth data">—</td>';
+  const bits=[]; if(L.outlook_eps!=null) bits.push('EPS growth '+L.outlook_eps+'%'); if(L.outlook_rev!=null) bits.push('revenue growth '+L.outlook_rev+'%');
+  return `<td class="${OL[L.outlook].c}" title="${esc(bits.join(', ')+' vs a year earlier ('+(L.outlook_basis||'')+') — automatic rule, not a forecast')}"><b>${OL[L.outlook].t}</b></td>`;
+}
+function analystLabel(m){ if(m==null) return null; if(m<=1.5) return {t:'▲▲ Strong buy',c:'up'}; if(m<=2.5) return {t:'▲ Buy',c:'up'}; if(m<=3.5) return {t:'● Hold',c:'sub'}; if(m<=4.5) return {t:'▼ Sell',c:'down'}; return {t:'▼▼ Strong sell',c:'down'}; }
+function analystCell(r){
+  const a=analystLabel(r.L.analyst); if(!a) return '<td class="sub" title="No analyst coverage">—</td>';
+  return `<td class="${a.c}" title="${esc('Analyst consensus '+r.L.analyst+' (1 = strong buy … 5 = strong sell)'+(r.L.target_n?` from ${r.L.target_n} analysts`:'')+' — TradingView')}"><b>${a.t}</b></td>`;
 }
 function divCells(r){
   const d=r.dv;
@@ -124,33 +130,32 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'5.5%'},{k:'name',l:'Name',t:'str',w:'10%'},{k:'industry',l:'Sector',t:'str',w:'7.5%'},
-  {k:'cap',l:'Market cap',t:'num',w:'7%'},
-  {k:'price',l:'Price',t:'num',w:'6%'},{k:'pe',l:'PE',t:'num',w:'4.5%'},
-  {k:'target',l:'Target value',t:'num',w:'6.5%'},{k:'upside',l:'Upside %',t:'num',w:'5.5%'},
-  {k:'cfv',l:'Approx. value',t:'num',w:'6.5%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'7.5%'},
-  {k:'olv',l:'Outlook',t:'num',w:'7.5%'},{k:'tv',l:'Technical',t:'num',w:'7.5%'},
-  {k:'divd',l:'Last dividend',t:'num',w:'7.5%'},{k:'diva',l:'Dividend / share',t:'num',w:'6%'},{k:'del',l:'',t:'none',w:'5%'}
+  {k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'9%'},{k:'industry',l:'Sector',t:'str',w:'7%'},
+  {k:'cap',l:'Market cap',t:'num',w:'6.5%'},
+  {k:'price',l:'Price',t:'num',w:'5.5%'},{k:'pe',l:'PE',t:'num',w:'4%'},
+  {k:'target',l:'Target value',t:'num',w:'6%'},{k:'upside',l:'Upside %',t:'num',w:'5.5%'},
+  {k:'cfv',l:'Approx. value',t:'num',w:'6%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'7%'},
+  {k:'olv',l:'Outlook',t:'num',w:'7%'},{k:'tv',l:'Technical',t:'num',w:'7%'},{k:'alv',l:'Analysts',t:'num',w:'7%'},
+  {k:'divd',l:'Last dividend',t:'num',w:'7%'},{k:'diva',l:'Dividend / share',t:'num',w:'5.5%'},{k:'del',l:'',t:'none',w:'4.5%'}
 ];
 
 const FPE_DEFAULT=13.82;
 function enrich(){
-  const rows = stocks.map(r=>({...r,
-    cap: (r.shares!=null && r.price!=null) ? r.shares*r.price : null
-  }));
-  return rows.map(r=>{
-    const fpe = r.fpe ?? FPE_DEFAULT;
+  return stocks.map(r=>{
     const L=liveMap[r.symbol]||{};
-    const peAuto=L.pe!=null, tgAuto=L.target!=null;
-    const pe=peAuto?L.pe:r.pe, target=tgAuto?L.target:r.target;
-    const ok = pe!=null && pe>=3 && pe<=50 && r.price>0;
-    const cfv = ok ? +(r.price*Math.min(Math.max((1+fpe/pe)/2,0.6),1.6)).toFixed(2) : null;
-    const tv=techMap[r.symbol]!=null?techMap[r.symbol]:null;
-    const o=outlook[r.symbol]||null, olv=o&&OL[o.rating]?OL[o.rating].v:null;
-    const dv = L.div_date ? {date:L.div_date,pay:L.div_pay,amt:L.div_amt,yld:L.div_yield,src:'TradingView'} : (divExtra[r.symbol] ? {date:divExtra[r.symbol].date,amt:divExtra[r.symbol].amount,src:divExtra[r.symbol].src} : null);
-    return {...r, pe, target, peAuto, tgAuto, L, cfv, olv, o, tv, dv, divd: dv?Date.parse(dv.date):null, diva: dv?dv.amt:null,
-      upside: (target!=null && r.price) ? +(((target-r.price)/r.price)*100).toFixed(2) : null,
-      cupside: (cfv!=null && r.price) ? +(((cfv-r.price)/r.price)*100).toFixed(2) : null};
+    const cap = (L.cap_bn!=null) ? L.cap_bn : ((r.shares!=null && L.price!=null) ? r.shares*L.price : null);
+    const price = L.price!=null ? L.price : null;
+    const pe = L.pe!=null ? L.pe : null, target = L.target!=null ? L.target : null;
+    const fpe = L.fpe ?? FPE_DEFAULT;
+    const ok = pe!=null && pe>=3 && pe<=50 && price>0;
+    const cfv = ok ? +(price*Math.min(Math.max((1+fpe/pe)/2,0.6),1.6)).toFixed(2) : null;
+    const tv = techMap[r.symbol]!=null ? techMap[r.symbol] : null;
+    const olv = L.outlook && OL[L.outlook] ? OL[L.outlook].v : null;
+    const dv = L.div_date ? {date:L.div_date,pay:L.div_pay,amt:L.div_amt,yld:L.div_yield,src:L.div_src||'TradingView'} : null;
+    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, L, cfv, olv, tv, alv:(L.analyst!=null?6-L.analyst:null), dv,
+      divd: dv?Date.parse(dv.date):null, diva: dv?dv.amt:null,
+      upside: (target!=null && price) ? +(((target-price)/price)*100).toFixed(2) : null,
+      cupside: (cfv!=null && price) ? +(((cfv-price)/price)*100).toFixed(2) : null};
   });
 }
 const fmt=(n,s='',d=0)=> n==null||isNaN(n)?'—':n.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})+s;
@@ -190,8 +195,9 @@ function render(){
       ${pctCell(r.upside)}
       <td>${fmt(r.cfv)}</td>
       ${pctCell(r.cupside)}
-      ${r.o&&OL[r.o.rating]?`<td class="${OL[r.o.rating].c}" title="${esc(r.o.note+' (reviewed '+r.o.date+')')}"><b>${OL[r.o.rating].t}</b></td>`:'<td class="sub">—</td>'}
+      ${outlookCell(r)}
       ${(()=>{ const t=techLabel(r.tv); return t?`<td class="${t.c}" title="TradingView technical rating (moving averages + oscillators): ${r.tv.toFixed(2)}"><b>${t.t}</b></td>`:'<td class="sub">—</td>'; })()}
+      ${analystCell(r)}
       ${divCells(r)}
       <td class="act">${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">Delete?</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
   }).join('');
@@ -312,7 +318,7 @@ async function save(){
   if(!tok){ document.getElementById('settings').style.display='flex'; say('Add a GitHub token in ⚙ to save'); return; }
   const btn=document.getElementById('saveBtn'); btn.disabled=true; say('Saving…', true);
   try{
-    const content=b64(JSON.stringify({saved_at:new Date().toISOString(),stocks},null,2)+'\n');
+    const content=b64(JSON.stringify({saved_at:new Date().toISOString(),stocks:stocks.map(s=>({id:s.id,symbol:s.symbol,shares:s.shares??null}))},null,2)+'\n');
     let r=await putFile(tok,content,await getSha(tok));
     if(r.status===409||r.status===422) r=await putFile(tok,content,await getSha(tok));
     if(r.status===401||r.status===403) throw new Error('Token rejected — check it in ⚙');
@@ -342,8 +348,6 @@ async function loadData(){
   stocks=Array.isArray(data)?data:(data.stocks||[]);
   stocks.forEach(s=>{ if(s.pe===undefined) s.pe=(s.eps&&s.price)?s.price/s.eps:null; delete s.eps; });
   nextId=Math.max(0,...stocks.map(s=>parseInt(String(s.id||'s0').slice(1))||0))+1;
-  try{ outlook=(await getRepoJson('data/outlook.json')).stocks||{}; }catch(e){ outlook={}; }
-  try{ divExtra=(await getRepoJson('data/div_extra.json')).stocks||{}; }catch(e){ divExtra={}; }
   dirty=false; showDirty(); render();
   return true;
 }
