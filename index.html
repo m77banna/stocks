@@ -101,13 +101,14 @@ function epsCell(r){
 function pctSpan(v){
   if(v==null||isNaN(v)) return '';
   const a=Math.abs(v), shown=fmt(a,'%');
-  if(Math.round(a)===0) return `<span class="sub"><b>● ${shown}</b></span>`;
-  return v>0 ? `<span class="up"><b>▲ ${shown}</b></span>` : `<span class="down"><b>▼ ${shown}</b></span>`;
+  if(Math.round(a)===0) return `<b>● ${shown}</b>`;
+  return v>0 ? `<b>▲ ${shown}</b>` : `<b>▼ ${shown}</b>`;
 }
 function targetCell(r){
   if(r.target==null) return '<td class="sub" title="No analyst price target available">—</td>';
   const L=r.L, rng=(L.target_lo!=null&&L.target_hi!=null)?`; range ${fmt(L.target_lo)}–${fmt(L.target_hi)}`:'';
-  return `<td title="${esc('Analyst average price target'+(L.target_n?` (${L.target_n} analysts)`:'')+rng+'; the arrow is the distance from the current price — TradingView')}">${fmt(r.target)} ${pctSpan(r.upside)}</td>`;
+  const cls = r.upside==null||Math.round(Math.abs(r.upside))===0 ? '' : (r.upside>0 ? 'up' : 'down');
+  return `<td class="${cls}" title="${esc('Analyst average price target'+(L.target_n?` (${L.target_n} analysts)`:'')+rng+'; the arrow is the distance from the current price — TradingView')}">${fmt(r.target)} ${pctSpan(r.upside)}</td>`;
 }
 function outlookCell(r){
   const L=r.L; if(!L.outlook||!OL[L.outlook]) return '<td class="sub" title="No earnings-growth data">—</td>';
