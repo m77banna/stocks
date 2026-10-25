@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T12:12:51.277187+00:00",
+  "updated_at": "2026-10-25T13:03:02.379846+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -720,10 +720,9 @@
       "cap_bn": 9.28,
       "name": "Orascom Investment Holding SAE",
       "sector": "Communications",
-      "outlook": "negative",
-      "outlook_basis": "latest quarter",
-      "outlook_eps": -298.2,
-      "outlook_rev": 1100.3,
+      "outlook": "neutral",
+      "outlook_basis": "n/a",
+      "outlook_rev": 1556.5,
       "tech": -0.47,
       "div_date": "2017-06-20",
       "div_amt": 0.1,
