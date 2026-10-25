@@ -215,6 +215,17 @@ def main():
         pe, src = pick_pe(item["price"], cap, ex, r.get("price_earnings_ttm"))
         if pe is not None:
             item["pe"], item["pe_src"] = round(pe, 2), src
+            item["eps"] = round(item["price"] / pe, 3)  # same earnings basis as the P/E
+            growth, gbasis = None, None
+            for key, tag in (("ttm", "last 12 months"), ("fy", "last fiscal year")):
+                v = ex.get(f"earnings_per_share_diluted_yoy_growth_{key}")
+                if v is not None:
+                    growth, gbasis = float(v), tag
+                    break
+            if growth is not None:
+                item["eps_growth"], item["eps_growth_basis"] = round(growth, 1), gbasis
+                if growth > 0:  # PEG is meaningless when earnings are not growing
+                    item["peg"] = round(pe / growth, 2)
         if ex.get("price_target_average"):
             item["target"] = round(float(ex["price_target_average"]), 2)
             if ex.get("price_target_low"):

@@ -32,7 +32,7 @@
   button.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
   .scroll{flex:1 1 auto;min-height:0;overflow:auto;}
-  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1800px;}
+  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1700px;}
   th{position:sticky;top:0;z-index:2;background:var(--card);color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
@@ -91,6 +91,13 @@ const PE_TIP={ttm:'TradingView trailing P/E (last 12 months)',eps_ttm:'Price ÷ 
 function peCell(r){
   return r.pe!=null ? `<td class="n" title="${esc(PE_TIP[r.L.pe_src]||'TradingView')}">${fmt(r.pe)}</td>` : '<td class="sub" title="No earnings data (loss-making or not reported)">—</td>';
 }
+function pegCell(r){
+  if(r.peg==null) return `<td class="sub" title="${esc(r.L.eps_growth!=null?'PEG not meaningful: earnings are not growing ('+r.L.eps_growth+'%)':'No earnings-growth data')}">—</td>`;
+  return `<td class="n" title="${esc('P/E ÷ EPS growth ('+r.L.eps_growth+'% over the '+r.L.eps_growth_basis+', year on year) — below 1 means cheap relative to growth. Nominal growth is inflated by Egyptian inflation.')}">${fmt(r.peg,'',2)}</td>`;
+}
+function epsCell(r){
+  return r.eps!=null ? `<td class="n" title="${esc('Earnings per share, same basis as the P/E — TradingView')}">${fmt(r.eps,'',2)}</td>` : '<td class="sub" title="No earnings data">—</td>';
+}
 function targetCell(r){
   if(r.target==null) return '<td class="sub" title="No analyst price target available">—</td>';
   const L=r.L, rng=(L.target_lo!=null&&L.target_hi!=null)?`; range ${fmt(L.target_lo)}–${fmt(L.target_hi)}`:'';
@@ -130,13 +137,13 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'9%'},{k:'industry',l:'Sector',t:'str',w:'7%'},
+  {k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'9%'},
   {k:'cap',l:'Market cap',t:'num',w:'6.5%'},
-  {k:'price',l:'Price',t:'num',w:'5.5%'},{k:'pe',l:'PE',t:'num',w:'4%'},
+  {k:'price',l:'Price',t:'num',w:'5.5%'},{k:'pe',l:'PE',t:'num',w:'4%'},{k:'peg',l:'PEG',t:'num',w:'4.5%'},{k:'eps',l:'EPS',t:'num',w:'4.5%'},
   {k:'target',l:'Target value',t:'num',w:'6%'},{k:'upside',l:'Upside %',t:'num',w:'5.5%'},
   {k:'cfv',l:'Approx. value',t:'num',w:'6%'},{k:'cupside',l:'Approx. upside %',t:'num',w:'7%'},
-  {k:'olv',l:'Outlook',t:'num',w:'7%'},{k:'tv',l:'Technical',t:'num',w:'7%'},{k:'alv',l:'Analysts',t:'num',w:'7%'},
-  {k:'divd',l:'Last dividend',t:'num',w:'7%'},{k:'diva',l:'Dividend / share',t:'num',w:'5.5%'},{k:'del',l:'',t:'none',w:'4.5%'}
+  {k:'olv',l:'Outlook',t:'num',w:'6.5%'},{k:'tv',l:'Technical',t:'num',w:'6.5%'},{k:'alv',l:'Analysts',t:'num',w:'6.5%'},
+  {k:'divd',l:'Last dividend',t:'num',w:'6.5%'},{k:'diva',l:'Dividend / share',t:'num',w:'5.5%'},{k:'del',l:'',t:'none',w:'4.5%'}
 ];
 
 const FPE_DEFAULT=13.82;
@@ -152,7 +159,7 @@ function enrich(){
     const tv = techMap[r.symbol]!=null ? techMap[r.symbol] : null;
     const olv = L.outlook && OL[L.outlook] ? OL[L.outlook].v : null;
     const dv = L.div_date ? {date:L.div_date,pay:L.div_pay,amt:L.div_amt,yld:L.div_yield,src:L.div_src||'TradingView'} : null;
-    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, L, cfv, olv, tv, alv:(L.analyst!=null?6-L.analyst:null), dv,
+    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, cfv, olv, tv, alv:(L.analyst!=null?6-L.analyst:null), dv,
       divd: dv?Date.parse(dv.date):null, diva: dv?dv.amt:null,
       upside: (target!=null && price) ? +(((target-price)/price)*100).toFixed(2) : null,
       cupside: (cfv!=null && price) ? +(((cfv-price)/price)*100).toFixed(2) : null};
@@ -188,9 +195,10 @@ function render(){
     return `<tr data-id="${r.id}">
       <td class="n"><b>${esc(r.symbol)}</b></td>
       <td class="tx" title="${esc(r.name)}">${esc(r.name)}</td>
-      <td class="tx" title="${esc(r.industry)}">${esc(r.industry)}</td>
       <td class="n">${fmt(r.cap)}</td>
       <td class="n">${fmt(r.price,'',1)}</td>${peCell(r)}
+      ${pegCell(r)}
+      ${epsCell(r)}
       ${targetCell(r)}
       ${pctCell(r.upside)}
       <td>${fmt(r.cfv)}</td>
