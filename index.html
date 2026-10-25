@@ -53,7 +53,6 @@
   <div class="card bar">
     <input id="newSym" placeholder="Ticker, e.g. COMI" maxlength="12" autocomplete="off" style="width:150px;padding:4px 8px;text-transform:uppercase">
     <button class="primary" id="addRow">+ Add stock</button>
-    <button id="saveBtn">💾 Save</button>
     <button id="refreshBtn">↻ Refresh prices</button>
     <button id="gearBtn" title="GitHub token settings">⚙</button>
     <span id="dirty" class="down"></span>
@@ -82,7 +81,7 @@
 <script>
 const OWNER='m77banna', REPO='stocks', BRANCH='main', PATH='data/portfolio.json';
 const API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
-const TK='egx_gh_token', POLL_MS=10000;
+const TK='egx_gh_token';
 const getTok=()=>{ try{ return localStorage.getItem(TK)||''; }catch(e){ return ''; } };
 const setTok=v=>{ try{ if(v) localStorage.setItem(TK,v); else localStorage.removeItem(TK); }catch(e){} };
 
@@ -110,11 +109,6 @@ function targetCell(r){
   const cls = r.upside==null||Math.round(Math.abs(r.upside))===0 ? '' : (r.upside>0 ? 'up' : 'down');
   return `<td class="${cls}" title="${esc('Analyst average price target'+(L.target_n?` (${L.target_n} analysts)`:'')+rng+'; the arrow is the distance from the current price — TradingView')}">${fmt(r.target)} ${pctSpan(r.upside)}</td>`;
 }
-function outlookCell(r){
-  const L=r.L; if(!L.outlook||!OL[L.outlook]) return '<td class="sub" title="No earnings-growth data">—</td>';
-  const bits=[]; if(L.outlook_eps!=null) bits.push('EPS growth '+L.outlook_eps+'%'); if(L.outlook_rev!=null) bits.push('revenue growth '+L.outlook_rev+'%');
-  return `<td class="${OL[L.outlook].c}" title="${esc(bits.join(', ')+' vs a year earlier ('+(L.outlook_basis||'')+') — automatic rule, not a forecast')}"><b>${OL[L.outlook].t}</b></td>`;
-}
 function analystLabel(m){ if(m==null) return null; if(m<=1.5) return {t:'▲▲ Strong buy',c:'up'}; if(m<=2.5) return {t:'▲ Buy',c:'up'}; if(m<=3.5) return {t:'● Hold',c:'sub'}; if(m<=4.5) return {t:'▼ Sell',c:'down'}; return {t:'▼▼ Strong sell',c:'down'}; }
 function analystCell(r){
   const a=analystLabel(r.L.analyst); if(!a) return '<td class="sub" title="No analyst coverage">—</td>';
@@ -129,12 +123,16 @@ function divCells(r){
   return `<td class="${old?'sub':''}" title="${tip}">${txt}</td><td title="${tip}">${fmt(d.amt,'',2)}</td>`;
 }
 function techLabel(v){ if(v==null) return null; if(v>0.5) return {t:'▲▲ Strong buy',c:'up'}; if(v>0.1) return {t:'▲ Buy',c:'up'}; if(v>=-0.1) return {t:'● Neutral',c:'sub'}; if(v>=-0.5) return {t:'▼ Sell',c:'down'}; return {t:'▼▼ Strong sell',c:'down'}; }
-const OL={positive:{v:3,t:'▲ Positive',c:'up'},neutral:{v:2,t:'● Neutral',c:'sub'},negative:{v:1,t:'▼ Negative',c:'down'}};
 let sortKey = 'cap', sortDir = 'desc';
 let pendingDel = null, delTimer = null;
 function say(t, ok){ const m=document.getElementById('msg'); m.textContent=t; m.className=ok?'up':'down'; setTimeout(()=>{ if(m.textContent===t) m.textContent=''; },5000); }
-function markDirty(){ dirty=true; showDirty(); }
-function showDirty(){ document.getElementById('dirty').textContent = dirty ? '● Unsaved changes' : ''; document.getElementById('saveBtn').classList.toggle('primary', dirty); }
+let saveTimer=null, saving=false, saveAgain=false;
+function markDirty(){
+  dirty=true; showDirty(); clearTimeout(saveTimer);
+  if(getTok()) saveTimer=setTimeout(save,1200);
+  else say('Add a GitHub token in ⚙ so changes are saved automatically');
+}
+function showDirty(){ document.getElementById('dirty').textContent = dirty ? '● Saving…' : ''; }
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
@@ -153,9 +151,8 @@ function enrich(){
     const price = L.price!=null ? L.price : null;
     const pe = L.pe!=null ? L.pe : null, target = L.target!=null ? L.target : null;
     const tv = techMap[r.symbol]!=null ? techMap[r.symbol] : null;
-    const olv = L.outlook && OL[L.outlook] ? OL[L.outlook].v : null;
     const dv = L.div_date ? {date:L.div_date,pay:L.div_pay,amt:L.div_amt,yld:L.div_yield,src:L.div_src||'TradingView'} : null;
-    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, olv, tv, alv:(L.analyst!=null?6-L.analyst:null), dv,
+    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, tv, alv:(L.analyst!=null?6-L.analyst:null), dv,
       divd: dv?Date.parse(dv.date):null, diva: dv?dv.amt:null,
       upside: (target!=null && price) ? +(((target-price)/price)*100).toFixed(2) : null,
       };
@@ -217,7 +214,6 @@ function render(){
 
 const TICKERS_API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/tickers.json`;
 const LATEST_API=`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/latest.json`;
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
 async function getRepoJson(path){
   const tok=getTok();
@@ -236,13 +232,6 @@ async function getLatest(){
   }catch(e){} }
   const r=await fetch('data/latest.json?_='+Date.now()); if(!r.ok) throw new Error('latest.json '+r.status);
   return r.json();
-}
-function fillNew(s,e){
-  s.price=e.price;
-  if(!s.name && e.name) s.name=e.name;
-  if(!s.industry && e.sector) s.industry=e.sector;
-  if(s.shares==null && e.cap_bn && e.price) s.shares=e.cap_bn/e.price;
-  if(s.pe==null && e.pe!=null) s.pe=e.pe;
 }
 async function addTicker(tok,sym){
   const H={Authorization:'Bearer '+tok,Accept:'application/vnd.github+json'};
@@ -270,23 +259,13 @@ async function addStock(){
   if(stocks.some(s=>s.symbol===sym)){ say(sym+' is already in the list'); return; }
   const tok=getTok();
   if(!tok){ document.getElementById('settings').style.display='flex'; say('Add a GitHub token in ⚙ to look up new tickers'); return; }
-  const s={id:'s'+(nextId++),symbol:sym,name:'',industry:'',shares:null,pe:null,price:null,target:null};
+  const s={id:'s'+(nextId++),symbol:sym,name:'',shares:null};
   stocks.push(s); inp.value=''; markDirty(); render();
-  say('Looking up '+sym+'… (about a minute)', true);
-  try{ await addTicker(tok,sym); }catch(e){ say('Could not register '+sym+': '+e.message); return; }
-  for(let i=0;i<24;i++){
-    await sleep(POLL_MS);
-    try{
-      const j=await getLatest(), e=(j.stocks||[]).find(x=>x.symbol===sym);
-      if(e){
-        if(e.error){ say('No data found for '+sym+' — remove it with ✕'); return; }
-        const cur=stocks.find(x=>x.id===s.id); if(!cur) return;
-        fillNew(cur,e); markDirty(); render();
-        say(sym+' loaded — add the rest and press Save', true); return;
-      }
-    }catch(e){}
-  }
-  say('Still waiting for '+sym+' — press ↻ Refresh prices in a minute');
+  say('Looking up '+sym+'…', true);
+  try{ await fetchLive(); }catch(e){ try{ await fetchLatest(); }catch(e2){} }
+  if(!liveMap[sym]){ say('No data found for '+sym+' — remove it with ✕'); }
+  else say(sym+' added', true);
+  try{ await addTicker(tok,sym); }catch(e){ say('Could not register '+sym+' for background updates: '+e.message); }
 }
 document.getElementById('addRow').onclick=addStock;
 document.getElementById('newSym').addEventListener('keydown',e=>{ if(e.key==='Enter') addStock(); });
@@ -316,7 +295,8 @@ async function syncTickers(tok){
 async function save(){
   const tok=getTok();
   if(!tok){ document.getElementById('settings').style.display='flex'; say('Add a GitHub token in ⚙ to save'); return; }
-  const btn=document.getElementById('saveBtn'); btn.disabled=true; say('Saving…', true);
+  if(saving){ saveAgain=true; return; }
+  saving=true;
   try{
     const content=b64(JSON.stringify({saved_at:new Date().toISOString(),stocks:stocks.map(s=>({id:s.id,symbol:s.symbol,shares:s.shares??null}))},null,2)+'\n');
     let r=await putFile(tok,content,await getSha(tok));
@@ -326,9 +306,9 @@ async function save(){
     try{ await syncTickers(tok); }catch(e){}
     dirty=false; showDirty(); say('Saved ✓ '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}), true);
   }catch(e){ say(e.message||'Save failed'); }
-  btn.disabled=false;
+  saving=false;
+  if(saveAgain){ saveAgain=false; save(); }
 }
-document.getElementById('saveBtn').onclick=save;
 document.getElementById('gearBtn').onclick=()=>{ const s=document.getElementById('settings'); s.style.display=s.style.display==='none'?'flex':'none'; document.getElementById('tok').value=getTok(); };
 document.getElementById('tokSave').onclick=()=>{ setTok(document.getElementById('tok').value.trim()); document.getElementById('settings').style.display='none'; say('Token stored in this browser', true); loadData(); };
 document.getElementById('tokClear').onclick=()=>{ setTok(''); document.getElementById('tok').value=''; say('Token removed', true); };
@@ -351,20 +331,97 @@ async function loadData(){
   dirty=false; showDirty(); render();
   return true;
 }
-async function fetchLatest(){
-  const st=document.getElementById('upd');
-  try{
-    const j=await getLatest(), by={};
-    (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null){ by[s.symbol]=s; liveMap[s.symbol]=s; } if(s.tech!=null) techMap[s.symbol]=s.tech; });
-    let n=0, filled=0;
-    stocks.forEach(s=>{ const l=by[s.symbol]; if(!l) return; if(!s.name){ fillNew(s,l); filled++; } else s.price=l.price; if(l.name) s.name=l.name; if(l.sector) s.industry=l.sector; if(l.cap_bn && l.price) s.shares=l.cap_bn/l.price; n++; });
-    if(filled) markDirty();
-    if(n){ render(); st.textContent='Last update: '+new Date(j.updated_at).toLocaleString('en-GB',{dateStyle:'short',timeStyle:'short'})+' ('+n+' stocks, ~15 min delayed)'; }
-    else st.textContent='No updated prices yet';
-  }catch(e){ st.textContent='Could not read updated prices'; }
+const TV_URL='https://scanner.tradingview.com/egypt/scan';
+const TV_MAIN=['close','market_cap_basic','description','price_earnings_ttm'];
+const TV_EXTRA=['earnings_per_share_basic_ttm','earnings_per_share_diluted_fy','net_income_ttm','net_income_fy',
+  'price_target_average','price_target_high','price_target_low','recommendation_total','recommendation_mark',
+  'dividend_ex_date_recent','dividend_payment_date_recent','dividend_amount_recent','dividends_yield_current',
+  'earnings_per_share_diluted_yoy_growth_ttm','earnings_per_share_diluted_yoy_growth_fy'];
+// text/plain keeps this a "simple" cross-origin request (no preflight), which TradingView accepts
+async function tvScan(symbols, columns){
+  const r=await fetch(TV_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},cache:'no-store',
+    body:JSON.stringify({symbols:{tickers:symbols.map(s=>'EGX:'+s),query:{types:[]}},columns})});
+  if(!r.ok) throw new Error('TradingView '+r.status);
+  const out={};
+  ((await r.json()).data||[]).forEach(row=>{ out[row.s.split(':')[1]]=Object.fromEntries(columns.map((c,i)=>[c,row.d[i]])); });
+  return out;
 }
-document.getElementById('refreshBtn').onclick=fetchLatest;
-head(); loadData().then(ok=>{ if(ok) fetchLatest(); });
+const tsDate=v=>{ if(v==null) return null; const d=new Date(Number(v)*1000); return isNaN(d)?null:d.toISOString().slice(0,10); };
+function pickPe(price,cap,ex,peTtm){
+  if(peTtm!=null && peTtm>0) return [peTtm,'ttm'];
+  const e1=ex.earnings_per_share_basic_ttm, e2=ex.earnings_per_share_diluted_fy, n1=ex.net_income_ttm, n2=ex.net_income_fy;
+  if(e1!=null && e1>0 && price) return [price/e1,'eps_ttm'];
+  if(n1!=null && n1>0 && cap) return [cap*1e9/n1,'ni_ttm'];
+  if(e2!=null && e2>0 && price) return [price/e2,'eps_fy'];
+  if(n2!=null && n2>0 && cap) return [cap*1e9/n2,'ni_fy'];
+  return [null,null];
+}
+const rd=(v,n)=>+Number(v).toFixed(n);
+function buildItem(sym,r,ex,base){
+  const price=rd(r.close,3), cap=r.market_cap_basic?rd(r.market_cap_basic/1e9,2):null;
+  const it={symbol:sym,price};
+  if(cap) it.cap_bn=cap;
+  if(r.description) it.name=r.description;
+  const [pe,src]=pickPe(price,cap,ex,r.price_earnings_ttm);
+  if(pe!=null){
+    it.pe=rd(pe,2); it.pe_src=src; it.eps=rd(price/pe,3);
+    let g=null, basis=null;
+    for(const [k,tag] of [['ttm','last 12 months'],['fy','last fiscal year']]){ const v=ex['earnings_per_share_diluted_yoy_growth_'+k]; if(v!=null){ g=Number(v); basis=tag; break; } }
+    if(g!=null){ it.eps_growth=rd(g,1); it.eps_growth_basis=basis; if(g>0) it.peg=rd(pe/g,2); }
+  }
+  if(ex.price_target_average){
+    it.target=rd(ex.price_target_average,2);
+    if(ex.price_target_low) it.target_lo=rd(ex.price_target_low,2);
+    if(ex.price_target_high) it.target_hi=rd(ex.price_target_high,2);
+    if(ex.recommendation_total) it.target_n=Math.round(ex.recommendation_total);
+  }
+  if(ex.recommendation_mark!=null) it.analyst=rd(ex.recommendation_mark,2);
+  if(ex.dividend_amount_recent && tsDate(ex.dividend_ex_date_recent)){
+    it.div_amt=rd(ex.dividend_amount_recent,3); it.div_date=tsDate(ex.dividend_ex_date_recent); it.div_src='TradingView';
+    if(tsDate(ex.dividend_payment_date_recent)) it.div_pay=tsDate(ex.dividend_payment_date_recent);
+    if(ex.dividends_yield_current!=null) it.div_yield=rd(ex.dividends_yield_current,2);
+  } else if(base && base.div_date){ // records only Yahoo has come from the GitHub data
+    it.div_amt=base.div_amt; it.div_date=base.div_date; it.div_src=base.div_src; if(base.div_pay) it.div_pay=base.div_pay; if(base.div_yield!=null) it.div_yield=base.div_yield;
+  }
+  return it;
+}
+function applyLive(items, techs, label, when){
+  let n=0, filled=0;
+  stocks.forEach(s=>{
+    const it=items[s.symbol]; if(!it) return;
+    liveMap[s.symbol]=it; if(techs[s.symbol]!=null) techMap[s.symbol]=techs[s.symbol];
+    if(it.cap_bn && it.price) s.shares=it.cap_bn/it.price;
+    if(!s.name){ s.name=it.name||''; filled++; }
+    n++;
+  });
+  if(filled) markDirty();
+  render();
+  document.getElementById('upd').textContent=label+' · '+when+' · '+n+' stocks (source delay ~15 min)';
+  return n;
+}
+async function fetchLive(){
+  const syms=stocks.map(s=>s.symbol).filter(Boolean); if(!syms.length) return 0;
+  const [main,extra,tech]=await Promise.all([tvScan(syms,TV_MAIN), tvScan(syms,TV_EXTRA).catch(()=>({})), tvScan(syms,['Recommend.All']).catch(()=>({}))]);
+  const items={}, techs={};
+  syms.forEach(sym=>{ const r=main[sym]; if(r && r.close!=null){ items[sym]=buildItem(sym,r,extra[sym]||{},liveMap[sym]); if(tech[sym] && tech[sym]['Recommend.All']!=null) techs[sym]=rd(tech[sym]['Recommend.All'],3); } });
+  return applyLive(items,techs,'● Live',new Date().toLocaleTimeString('en-GB'));
+}
+async function fetchLatest(){
+  const j=await getLatest(), items={}, techs={};
+  (j.stocks||[]).forEach(s=>{ if(!s.error && s.price!=null){ items[s.symbol]=s; if(s.tech!=null) techs[s.symbol]=s.tech; } });
+  return applyLive(items,techs,'GitHub data (live feed unavailable)',new Date(j.updated_at).toLocaleString('en-GB',{dateStyle:'short',timeStyle:'short'}));
+}
+let refreshing=false;
+async function refreshAll(){
+  if(refreshing) return; refreshing=true;
+  try{ await fetchLive(); }
+  catch(e){ try{ await fetchLatest(); }catch(e2){ document.getElementById('upd').textContent='Could not read prices'; } }
+  refreshing=false;
+}
+document.getElementById('refreshBtn').onclick=refreshAll;
+setInterval(()=>{ if(!document.hidden) refreshAll(); },60000);
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) refreshAll(); });
+head(); loadData().then(ok=>{ if(ok) refreshAll(); });
 </script>
 </body>
 </html>

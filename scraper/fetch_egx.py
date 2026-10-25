@@ -2,11 +2,10 @@
 Fetches everything shown on the portfolio page for the tickers in data/tickers.json
 and writes data/latest.json. Nothing in the output is typed by hand:
 
-* prices, market cap, name, sector, technical rating, P/E, analyst targets and
-  rating, dividends and growth figures come from TradingView's public EGX scanner
-  (data is delayed ~15 minutes);
-* dividend records TradingView lacks are filled from Yahoo Finance;
-* the Outlook is a mechanical rule applied to the latest earnings and revenue growth.
+* price, market cap, name, technical rating, P/E, EPS, PEG, analyst targets and rating,
+  and dividends come from TradingView's public EGX scanner (delayed ~15 minutes);
+* dividend records TradingView lacks are filled from Yahoo Finance.
+Only values shown on the page are collected.
 
 If the main TradingView request fails, the existing latest.json is left untouched.
 """
@@ -30,17 +29,16 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
 }
 COLUMN_SETS = [
-    ["close", "change", "volume", "market_cap_basic", "description", "sector", "price_earnings_ttm"],
-    ["close", "change", "volume", "market_cap_basic", "description", "sector"],
-    ["close", "change", "volume", "market_cap_basic"],
-    ["close", "change", "volume"],
+    ["close", "market_cap_basic", "description", "price_earnings_ttm"],
+    ["close", "market_cap_basic", "description"],
+    ["close", "market_cap_basic"],
+    ["close"],
 ]
 EXTRA_COLUMNS = [
     "earnings_per_share_basic_ttm", "earnings_per_share_diluted_fy", "net_income_ttm", "net_income_fy",
     "price_target_average", "price_target_high", "price_target_low", "recommendation_total", "recommendation_mark",
     "dividend_ex_date_recent", "dividend_payment_date_recent", "dividend_amount_recent", "dividends_yield_current",
-    "earnings_per_share_diluted_yoy_growth_fq", "earnings_per_share_diluted_yoy_growth_ttm", "earnings_per_share_diluted_yoy_growth_fy",
-    "total_revenue_yoy_growth_fq", "total_revenue_yoy_growth_ttm", "total_revenue_yoy_growth_fy",
+    "earnings_per_share_diluted_yoy_growth_ttm", "earnings_per_share_diluted_yoy_growth_fy",
 ]
 
 
@@ -100,37 +98,6 @@ def pick_pe(price, cap, ex, pe_ttm):
     return None, None
 
 
-def outlook(ex):
-    """Mechanical trend signal from the latest YoY earnings and revenue growth. Returns None without data."""
-    eps = rev = None
-    basis = None
-    for key, tag in (("fq", "latest quarter"), ("ttm", "last 12 months"), ("fy", "last fiscal year")):
-        v = ex.get(f"earnings_per_share_diluted_yoy_growth_{key}")
-        if v is not None:
-            eps, basis = v, tag
-            break
-    for key in ("fq", "ttm", "fy"):
-        v = ex.get(f"total_revenue_yoy_growth_{key}")
-        if v is not None:
-            rev = v
-            break
-    if eps is None and rev is None:
-        return None
-    ni = ex.get("net_income_ttm")
-    if (ni is not None and ni <= 0) or (eps is not None and eps <= -10):
-        rating = "negative"
-    elif eps is not None and eps >= 10 and (rev is None or rev >= 0):
-        rating = "positive"
-    else:
-        rating = "neutral"
-    out = {"outlook": rating, "outlook_basis": basis or "n/a"}
-    if eps is not None:
-        out["outlook_eps"] = round(float(eps), 1)
-    if rev is not None:
-        out["outlook_rev"] = round(float(rev), 1)
-    return out
-
-
 def yahoo_dividends(symbols):
     """Last dividend per symbol from Yahoo Finance, only for the symbols TradingView has no record for."""
     out = {}
@@ -171,17 +138,11 @@ def main():
             stocks.append({"symbol": sym, "error": "no_data"})
             continue
         item = {"symbol": sym, "price": round(float(r["close"]), 3)}
-        if r.get("change") is not None:
-            item["change_pct"] = round(float(r["change"]), 2)
-        if r.get("volume") is not None:
-            item["volume"] = int(r["volume"])
         cap = round(r["market_cap_basic"] / 1e9, 2) if r.get("market_cap_basic") else None
         if cap:
             item["cap_bn"] = cap
         if r.get("description"):
             item["name"] = r["description"]
-        if r.get("sector"):
-            item["sector"] = r["sector"]
         ex = extra.get(sym, {})
 
         pe, src = pick_pe(item["price"], cap, ex, r.get("price_earnings_ttm"))
@@ -216,9 +177,6 @@ def main():
                 item["div_pay"] = ts_to_date(ex["dividend_payment_date_recent"])
             if ex.get("dividends_yield_current") is not None:
                 item["div_yield"] = round(float(ex["dividends_yield_current"]), 2)
-        o = outlook(ex)
-        if o:
-            item.update(o)
         if sym in tech and tech[sym].get("Recommend.All") is not None:
             item["tech"] = round(float(tech[sym]["Recommend.All"]), 3)
         stocks.append(item)
