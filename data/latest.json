@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T17:33:18.206610+00:00",
+  "updated_at": "2026-10-26T06:21:29.117996+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -165,7 +165,7 @@
     {
       "symbol": "ORAS",
       "price": 815.0,
-      "cap_bn": 100.14,
+      "cap_bn": 100.15,
       "name": "Orascom Construction Plc",
       "pe": 7.89,
       "pe_src": "ttm",
