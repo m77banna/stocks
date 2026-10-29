@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-10-28T14:32:04.226359+00:00",
+  "updated_at": "2026-10-29T06:27:27.159959+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
       "symbol": "ETEL",
       "price": 122.12,
-      "cap_bn": 215.77,
+      "cap_bn": 208.47,
       "name": "Telecom Egypt",
       "pe": 10.23,
       "pe_src": "eps_fy",
@@ -28,7 +28,7 @@
     {
       "symbol": "SWDY",
       "price": 113.0,
-      "cap_bn": 234.17,
+      "cap_bn": 241.75,
       "name": "El Sewedy Electric Company",
       "pe": 14.83,
       "pe_src": "ttm",
@@ -51,7 +51,7 @@
     {
       "symbol": "TMGH",
       "price": 80.15,
-      "cap_bn": 170.21,
+      "cap_bn": 165.16,
       "name": "Talaat Moustafa Group Holding",
       "pe": 10.69,
       "pe_src": "ttm",
@@ -74,7 +74,7 @@
     {
       "symbol": "EGAL",
       "price": 303.01,
-      "cap_bn": 125.19,
+      "cap_bn": 124.99,
       "name": "Egypt Aluminum",
       "pe": 8.07,
       "pe_src": "ttm",
@@ -97,7 +97,7 @@
     {
       "symbol": "MFPC",
       "price": 46.0,
-      "cap_bn": 129.64,
+      "cap_bn": 131.93,
       "name": "Misr Fertilizers Production Company MOPCO",
       "pe": 8.58,
       "pe_src": "ttm",
@@ -120,7 +120,7 @@
     {
       "symbol": "ABUK",
       "price": 91.23,
-      "cap_bn": 115.08,
+      "cap_bn": 115.12,
       "name": "Abou Kir Fertilizers & Chemical Industries Co.",
       "pe": 10.75,
       "pe_src": "ttm",
@@ -142,7 +142,7 @@
     {
       "symbol": "ALCN",
       "price": 31.09,
-      "cap_bn": 93.77,
+      "cap_bn": 92.63,
       "name": "Alexandria Containers & Goods",
       "pe": 14.37,
       "pe_src": "ttm",
@@ -164,7 +164,7 @@
     {
       "symbol": "ORAS",
       "price": 815.0,
-      "cap_bn": 97.43,
+      "cap_bn": 97.09,
       "name": "Orascom Construction Plc",
       "pe": 7.89,
       "pe_src": "ttm",
@@ -187,7 +187,7 @@
     {
       "symbol": "EFIH",
       "price": 22.02,
-      "cap_bn": 75.95,
+      "cap_bn": 76.34,
       "name": "e-finance for Digital and Financial Investments S.A.E.",
       "pe": 39.29,
       "pe_src": "eps_fy",
@@ -210,7 +210,7 @@
     {
       "symbol": "ORHD",
       "price": 9.55,
-      "cap_bn": 35.41,
+      "cap_bn": 34.86,
       "name": "Orascom Development Egypt (S.A.E)",
       "pe": 6.51,
       "pe_src": "eps_ttm",
@@ -233,7 +233,7 @@
     {
       "symbol": "VLMRA",
       "price": 25.41,
-      "cap_bn": 30.14,
+      "cap_bn": 30.09,
       "name": "Valmore Holding",
       "pe": 4.88,
       "pe_src": "ttm",
@@ -256,7 +256,7 @@
     {
       "symbol": "EFID",
       "price": 17.5,
-      "cap_bn": 37.56,
+      "cap_bn": 36.65,
       "name": "Edita Food Industries SAE",
       "pe": 11.7,
       "pe_src": "ttm",
@@ -279,7 +279,7 @@
     {
       "symbol": "JUFO",
       "price": 23.0,
-      "cap_bn": 34.27,
+      "cap_bn": 33.83,
       "name": "Juhayna Food Industries",
       "pe": 15.15,
       "pe_src": "ttm",
@@ -302,7 +302,7 @@
     {
       "symbol": "GBCO",
       "price": 23.02,
-      "cap_bn": 25.62,
+      "cap_bn": 24.99,
       "name": "GB Corp",
       "pe": 8.74,
       "pe_src": "eps_fy",
@@ -325,7 +325,7 @@
     {
       "symbol": "RAYA",
       "price": 5.46,
-      "cap_bn": 23.85,
+      "cap_bn": 23.38,
       "name": "Raya Holding for Financial Investments SAE",
       "pe": 9.59,
       "pe_src": "ttm",
@@ -343,7 +343,7 @@
     {
       "symbol": "EGCH",
       "price": 10.6,
-      "cap_bn": 21.3,
+      "cap_bn": 21.06,
       "name": "Egyptian Chemical Industries",
       "pe": 11.74,
       "pe_src": "eps_fy",
@@ -364,7 +364,7 @@
     {
       "symbol": "ORWE",
       "price": 23.1,
-      "cap_bn": 15.3,
+      "cap_bn": 15.36,
       "name": "Oriental Weavers Carpet",
       "pe": 7.02,
       "pe_src": "eps_fy",
@@ -386,7 +386,7 @@
     {
       "symbol": "AMOC",
       "price": 13.35,
-      "cap_bn": 16.85,
+      "cap_bn": 17.24,
       "name": "Alexandria Mineral Oils Co.",
       "pe": 12.97,
       "pe_src": "eps_fy",
@@ -409,7 +409,7 @@
     {
       "symbol": "MASR",
       "price": 6.36,
-      "cap_bn": 13.94,
+      "cap_bn": 13.58,
       "name": "Madinet Masr for Housing & Development",
       "pe": 4.42,
       "pe_src": "ttm",
@@ -432,7 +432,7 @@
     {
       "symbol": "TALM",
       "price": 19.09,
-      "cap_bn": 13.87,
+      "cap_bn": 14.01,
       "name": "Taaleem Management Services S.A.E",
       "pe": 22.85,
       "pe_src": "ttm",
@@ -444,7 +444,7 @@
     {
       "symbol": "NIPH",
       "price": 254.5,
-      "cap_bn": 12.1,
+      "cap_bn": 12.72,
       "name": "El-Nile Co. for Pharmaceuticals & Chemical Industries",
       "pe": 40.88,
       "pe_src": "ttm",
@@ -468,7 +468,7 @@
     {
       "symbol": "ISPH",
       "price": 9.86,
-      "cap_bn": 11.26,
+      "cap_bn": 11.04,
       "name": "Ibnsina Pharma",
       "pe": 11.13,
       "pe_src": "eps_ttm",
@@ -491,7 +491,7 @@
     {
       "symbol": "AMES",
       "price": 31.86,
-      "cap_bn": 7.94,
+      "cap_bn": 7.79,
       "name": "Alexandria New Medical Center Co.",
       "tech": -0.445,
       "div_date": "2022-06-13",
@@ -501,7 +501,7 @@
     {
       "symbol": "OIH",
       "price": 1.61,
-      "cap_bn": 8.71,
+      "cap_bn": 8.45,
       "name": "Orascom Investment Holding SAE",
       "tech": -0.312,
       "div_date": "2017-06-20",
@@ -511,7 +511,7 @@
     {
       "symbol": "OLFI",
       "price": 18.91,
-      "cap_bn": 7.74,
+      "cap_bn": 7.56,
       "name": "Obour Land for Food Industries",
       "target": 28.45,
       "target_lo": 21.0,
@@ -528,7 +528,7 @@
     {
       "symbol": "MPCI",
       "price": 289.0,
-      "cap_bn": 6.26,
+      "cap_bn": 6.57,
       "name": "Memphis Pharmaceutical & Chemical Industries",
       "pe": 12.69,
       "pe_src": "ttm",
@@ -546,7 +546,7 @@
     {
       "symbol": "BONY",
       "price": 4.1,
-      "cap_bn": 7.72,
+      "cap_bn": 7.69,
       "name": "Bonyan for Development and Trade",
       "pe": 3.84,
       "pe_src": "eps_fy",
@@ -563,7 +563,7 @@
     {
       "symbol": "AXPH",
       "price": 1347.95,
-      "cap_bn": 6.33,
+      "cap_bn": 6.74,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
       "div_amt": 62.95,
       "div_date": "2025-11-04",
@@ -575,7 +575,7 @@
     {
       "symbol": "AMER",
       "price": 4.31,
-      "cap_bn": 3.67,
+      "cap_bn": 3.89,
       "name": "Amer Group Holding",
       "tech": -0.133,
       "div_date": "2018-03-15",
@@ -591,7 +591,7 @@
     {
       "symbol": "POUL",
       "price": 9.48,
-      "cap_bn": 16.87,
+      "cap_bn": 16.96,
       "name": "Cairo Poultry Co.",
       "target": 9.49,
       "target_lo": 9.49,
