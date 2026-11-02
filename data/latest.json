@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T13:36:22.765610+00:00",
+  "updated_at": "2026-11-02T14:38:39.443791+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -510,7 +510,7 @@
     },
     {
       "symbol": "OLFI",
-      "price": 18.62,
+      "price": 18.69,
       "cap_bn": 7.65,
       "name": "Obour Land for Food Industries",
       "target": 28.45,
