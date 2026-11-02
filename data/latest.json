@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01T14:20:40.914444+00:00",
+  "updated_at": "2026-11-02T06:52:15.502861+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -164,7 +164,7 @@
     {
       "symbol": "ORAS",
       "price": 811.02,
-      "cap_bn": 98.01,
+      "cap_bn": 97.81,
       "name": "Orascom Construction Plc",
       "pe": 7.85,
       "pe_src": "ttm",
@@ -233,7 +233,7 @@
     {
       "symbol": "VLMRA",
       "price": 24.83,
-      "cap_bn": 30.22,
+      "cap_bn": 30.15,
       "name": "Valmore Holding",
       "pe": 4.77,
       "pe_src": "ttm",
