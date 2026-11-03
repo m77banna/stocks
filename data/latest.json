@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T14:38:39.443791+00:00",
+  "updated_at": "2026-11-03T06:43:01.608849+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -122,11 +122,11 @@
       "price": 80.6,
       "cap_bn": 111.08,
       "name": "Abou Kir Fertilizers & Chemical Industries Co.",
-      "pe": 9.5,
-      "pe_src": "ttm",
-      "eps": 8.485,
-      "eps_growth": -12.9,
-      "eps_growth_basis": "last 12 months",
+      "pe": 8.39,
+      "pe_src": "eps_ttm",
+      "eps": 9.604,
+      "eps_growth": -59.7,
+      "eps_growth_basis": "last fiscal year",
       "target": 93.35,
       "target_lo": 84.5,
       "target_hi": 102.2,
