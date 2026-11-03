@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T14:34:09.745244+00:00",
+  "updated_at": "2026-11-03T20:38:40.981478+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -542,23 +542,6 @@
       "div_pay": "2025-10-29",
       "div_yield": 4.4,
       "tech": 0.045
-    },
-    {
-      "symbol": "BONY",
-      "price": 4.26,
-      "cap_bn": 7.61,
-      "name": "Bonyan for Development and Trade",
-      "pe": 3.99,
-      "pe_src": "eps_fy",
-      "eps": 1.067,
-      "eps_growth": -27.2,
-      "eps_growth_basis": "last fiscal year",
-      "target": 5.23,
-      "target_lo": 5.23,
-      "target_hi": 5.23,
-      "target_n": 1,
-      "analyst": 1.0,
-      "tech": 0.358
     },
     {
       "symbol": "AXPH",
