@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T13:35:55.907948+00:00",
+  "updated_at": "2026-11-04T14:40:00.660984+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -500,10 +500,10 @@
     },
     {
       "symbol": "OIH",
-      "price": 1.73,
+      "price": 1.71,
       "cap_bn": 8.6,
       "name": "Orascom Investment Holding SAE",
-      "tech": 0.291,
+      "tech": -0.042,
       "div_date": "2017-06-20",
       "div_amt": 0.1,
       "div_src": "Yahoo Finance"
@@ -545,7 +545,7 @@
     },
     {
       "symbol": "AXPH",
-      "price": 1319.29,
+      "price": 1327.99,
       "cap_bn": 6.58,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
       "div_amt": 62.95,
@@ -553,7 +553,7 @@
       "div_src": "TradingView",
       "div_pay": "2025-11-06",
       "div_yield": 4.78,
-      "tech": -0.221
+      "tech": -0.155
     },
     {
       "symbol": "AMER",
