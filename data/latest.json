@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T14:40:00.660984+00:00",
+  "updated_at": "2026-11-05T06:50:20.809432+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -585,7 +585,7 @@
       "div_date": "2026-04-27",
       "div_src": "TradingView",
       "div_pay": "2026-04-29",
-      "div_yield": 0.89,
+      "div_yield": 0.0,
       "tech": 0.47
     }
   ]
