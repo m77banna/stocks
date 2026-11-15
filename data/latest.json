@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T15:18:45.363397+00:00",
+  "updated_at": "2026-11-15T15:20:04.291397+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -1192,6 +1192,76 @@
       "div_pay": "2026-11-12",
       "div_yield": 8.69,
       "tech": 0.091
+    },
+    {
+      "symbol": "IRON",
+      "price": 26.5,
+      "cap_bn": 26.28,
+      "name": "Egyptian Iron & Steel",
+      "pe": 25.3,
+      "pe_src": "ni_fy",
+      "eps": 1.047,
+      "ni_fy": 1038719145,
+      "tech": -0.136,
+      "div_date": "2007-11-19",
+      "div_amt": 0.166,
+      "div_src": "Yahoo Finance"
+    },
+    {
+      "symbol": "CLHO",
+      "price": 14.57,
+      "cap_bn": 21.14,
+      "name": "Cleopatra Hospital Company",
+      "pe": 31.41,
+      "pe_src": "eps_fy",
+      "eps": 0.464,
+      "eps_growth": 18.1,
+      "eps_growth_basis": "last fiscal year",
+      "peg": 1.74,
+      "target": 16.25,
+      "target_lo": 14.5,
+      "target_hi": 18.0,
+      "target_n": 2,
+      "ni_fy": 669824828,
+      "ni_growth": 18.1,
+      "analyst": 2.0,
+      "tech": 0.067
+    },
+    {
+      "symbol": "TAQA",
+      "price": 14.7,
+      "cap_bn": 19.74,
+      "name": "TAQA Arabia",
+      "tech": 0.024
+    },
+    {
+      "symbol": "CCAP",
+      "price": 6.33,
+      "cap_bn": 19.65,
+      "name": "QALA For Financial Investments",
+      "ni_fy": -1249248000,
+      "ni_growth": 62.2,
+      "tech": 0.491
+    },
+    {
+      "symbol": "EGSA",
+      "price": 9.02,
+      "cap_bn": 18.35,
+      "name": "Egyptian Satellite Co.",
+      "pe": 0.12,
+      "pe_src": "eps_fy",
+      "eps": 76.566,
+      "eps_growth": 14.6,
+      "eps_growth_basis": "last fiscal year",
+      "peg": 0.01,
+      "ni_fy": 2857878582,
+      "ni_growth": 14.6,
+      "div_amt": 35.422,
+      "div_date": "2026-05-18",
+      "div_src": "TradingView",
+      "div_pay": "2026-05-20",
+      "div_yield": 7.22,
+      "tech": 0.4
     }
   ]
 }
