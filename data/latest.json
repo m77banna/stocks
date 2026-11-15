@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T14:05:05.429245+00:00",
+  "updated_at": "2026-11-15T15:16:03.372771+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -1073,6 +1073,32 @@
       "div_date": "2002-04-09",
       "div_amt": 0.265,
       "div_src": "Yahoo Finance"
+    },
+    {
+      "symbol": "BONY",
+      "price": 4.5,
+      "cap_bn": 8.44,
+      "name": "Bonyan for Development and Trade",
+      "pe": 4.22,
+      "pe_src": "eps_fy",
+      "eps": 1.067,
+      "eps_growth": -27.2,
+      "eps_growth_basis": "last fiscal year",
+      "ni_fy": 2001363173,
+      "ni_growth": -25.0,
+      "tech": 0.309
+    },
+    {
+      "symbol": "EMFD",
+      "price": 12.7,
+      "cap_bn": 69.12,
+      "name": "Emaar Misr for Development SAE",
+      "target": 15.4,
+      "target_lo": 15.4,
+      "target_hi": 15.4,
+      "target_n": 1,
+      "analyst": 1.5,
+      "tech": 0.288
     }
   ]
 }
