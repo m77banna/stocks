@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T15:17:32.144501+00:00",
+  "updated_at": "2026-11-15T15:18:45.363397+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -1142,6 +1142,56 @@
       "div_date": "2022-05-26",
       "div_amt": 0.1,
       "div_src": "Yahoo Finance"
+    },
+    {
+      "symbol": "BIOC",
+      "price": 426.2,
+      "cap_bn": 35.16,
+      "name": "GlaxoSmithKline S.A.E.",
+      "div_amt": 1.0,
+      "div_date": "2026-01-12",
+      "div_src": "TradingView",
+      "div_pay": "2026-01-14",
+      "div_yield": 0.24,
+      "tech": 0.445
+    },
+    {
+      "symbol": "OCDI",
+      "price": 26.3,
+      "cap_bn": 33.56,
+      "name": "Six of October Development & Investment (SODIC)",
+      "pe": 8.44,
+      "pe_src": "ttm",
+      "eps": 3.115,
+      "eps_growth": 141.4,
+      "eps_growth_basis": "last 12 months",
+      "peg": 0.06,
+      "ni_fy": 4479519259,
+      "ni_growth": 77.3,
+      "tech": 0.133,
+      "div_date": "2021-06-07",
+      "div_amt": 0.55,
+      "div_src": "Yahoo Finance"
+    },
+    {
+      "symbol": "FERC",
+      "price": 68.69,
+      "cap_bn": 27.52,
+      "name": "Ferchem Misr Co. for Fertilizers & Chemicals",
+      "pe": 10.16,
+      "pe_src": "eps_fy",
+      "eps": 6.761,
+      "eps_growth": 154.6,
+      "eps_growth_basis": "last fiscal year",
+      "peg": 0.07,
+      "ni_fy": 2129017466,
+      "ni_growth": 4469.0,
+      "div_amt": 1.25,
+      "div_date": "2026-11-10",
+      "div_src": "TradingView",
+      "div_pay": "2026-11-12",
+      "div_yield": 8.69,
+      "tech": 0.091
     }
   ]
 }
