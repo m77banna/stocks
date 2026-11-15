@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T15:21:22.111483+00:00",
+  "updated_at": "2026-11-15T19:28:12.158419+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -1312,6 +1312,16 @@
       "tech": 0.379,
       "div_date": "2014-07-22",
       "div_amt": 0.084,
+      "div_src": "Yahoo Finance"
+    },
+    {
+      "symbol": "IFAP",
+      "price": 17.4,
+      "cap_bn": 8.85,
+      "name": "International Agricultural Products",
+      "tech": -0.379,
+      "div_date": "2023-10-24",
+      "div_amt": 0.095,
       "div_src": "Yahoo Finance"
     }
   ]
