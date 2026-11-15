@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T15:20:04.291397+00:00",
+  "updated_at": "2026-11-15T15:21:22.111483+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -1262,6 +1262,57 @@
       "div_pay": "2026-05-20",
       "div_yield": 7.22,
       "tech": 0.4
+    },
+    {
+      "symbol": "MTIE",
+      "price": 7.19,
+      "cap_bn": 16.34,
+      "name": "MM Group for Industry & International Trade",
+      "pe": 12.91,
+      "pe_src": "eps_fy",
+      "eps": 0.557,
+      "eps_growth": 44.9,
+      "eps_growth_basis": "last fiscal year",
+      "peg": 0.29,
+      "ni_fy": 1262042529,
+      "ni_growth": 44.9,
+      "tech": -0.155
+    },
+    {
+      "symbol": "ATQA",
+      "price": 10.9,
+      "cap_bn": 12.37,
+      "name": "Misr National Steel",
+      "tech": 0.445
+    },
+    {
+      "symbol": "MIPH",
+      "price": 780.0,
+      "cap_bn": 8.93,
+      "name": "Minapharm Pharmaceuticals",
+      "pe": 1304.35,
+      "pe_src": "eps_fy",
+      "eps": 0.598,
+      "eps_growth": -94.8,
+      "eps_growth_basis": "last fiscal year",
+      "ni_fy": 6615723,
+      "ni_growth": -94.8,
+      "div_amt": 2.5,
+      "div_date": "2026-08-12",
+      "div_src": "TradingView",
+      "div_pay": "2026-11-15",
+      "div_yield": 0.32,
+      "tech": 0.067
+    },
+    {
+      "symbol": "SVCE",
+      "price": 9.75,
+      "cap_bn": 8.93,
+      "name": "South Valley Cement Co.",
+      "tech": 0.379,
+      "div_date": "2014-07-22",
+      "div_amt": 0.084,
+      "div_src": "Yahoo Finance"
     }
   ]
 }
