@@ -38,7 +38,7 @@ EXTRA_COLUMNS = [
     "earnings_per_share_basic_ttm", "earnings_per_share_diluted_fy", "net_income_ttm", "net_income_fy",
     "price_target_average", "price_target_high", "price_target_low", "recommendation_total", "recommendation_mark",
     "dividend_ex_date_recent", "dividend_payment_date_recent", "dividend_amount_recent", "dividends_yield_current",
-    "earnings_per_share_diluted_yoy_growth_ttm", "earnings_per_share_diluted_yoy_growth_fy",
+    "earnings_per_share_diluted_yoy_growth_ttm", "earnings_per_share_diluted_yoy_growth_fy", "net_income_yoy_growth_fy",
 ]
 
 
@@ -167,6 +167,10 @@ def main():
                 item["target_hi"] = round(float(ex["price_target_high"]), 2)
             if ex.get("recommendation_total"):
                 item["target_n"] = int(ex["recommendation_total"])
+        if ex.get("net_income_fy") is not None:
+            item["ni_fy"] = round(float(ex["net_income_fy"]))
+            if ex.get("net_income_yoy_growth_fy") is not None:
+                item["ni_growth"] = round(float(ex["net_income_yoy_growth_fy"]), 1)
         if ex.get("recommendation_mark") is not None:
             item["analyst"] = round(float(ex["recommendation_mark"]), 2)
         if ex.get("dividend_amount_recent") and ts_to_date(ex.get("dividend_ex_date_recent")):

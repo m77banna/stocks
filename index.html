@@ -32,9 +32,9 @@
   button.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
   .scroll{flex:1 1 auto;min-height:0;overflow:auto;}
-  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1300px;}
+  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1250px;}
   th{position:sticky;top:0;z-index:2;background:var(--card);color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
-  td,th{border-bottom:1px solid var(--border);padding:7px 8px;}
+  td,th{border-bottom:1px solid var(--border);padding:6px 5px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
   .ci{width:100%;box-sizing:border-box;text-align:left;padding:4px 6px;font-size:13px;}
   .ci.t{text-align:left;}
@@ -114,6 +114,18 @@ function analystCell(r){
   const a=analystLabel(r.L.analyst); if(!a) return '<td class="sub" title="No analyst coverage">—</td>';
   return `<td class="${a.c}" title="${esc('Analyst consensus '+r.L.analyst+' (1 = strong buy … 5 = strong sell)'+(r.L.target_n?` from ${r.L.target_n} analysts`:'')+' — TradingView')}"><b>${a.t}</b></td>`;
 }
+function bigNum(v){
+  const a=Math.abs(v), sign=v<0?'-':'';
+  if(a>=1e9) return sign+(a/1e9).toFixed(1)+'B';
+  if(a>=1e6) return sign+Math.round(a/1e6).toLocaleString('en-US')+'M';
+  return sign+Math.round(a/1e3).toLocaleString('en-US')+'K';
+}
+function profitCell(r){
+  if(r.ni==null) return '<td class="sub" title="No annual profit reported">—</td>';
+  const g=r.L.ni_growth, cls=r.ni<0?'down':'';
+  const tip=esc('Net profit for the last fiscal year (EGP)'+(g!=null?'; '+(g>=0?'+':'')+Math.round(g)+'% vs the year before':'')+' — TradingView. Fiscal years end at different dates, so some figures may be dated.');
+  return `<td class="${cls}" title="${tip}">${bigNum(r.ni)}</td>`;
+}
 function divCells(r){
   const d=r.dv;
   if(!d) return '<td class="sub" title="No dividend record found">—</td><td class="sub">—</td>';
@@ -136,12 +148,13 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'5.5%'},{k:'name',l:'Name',t:'str',w:'11%'},
-  {k:'cap',l:'Market cap',t:'num',w:'7%'},
-  {k:'price',l:'Price',t:'num',w:'6%'},{k:'pe',l:'PE',t:'num',w:'5%'},{k:'peg',l:'PEG',t:'num',w:'5.5%'},{k:'eps',l:'EPS',t:'num',w:'5.5%'},
-  {k:'upside',l:'Target (upside)',t:'num',w:'10%'},
-  {k:'tv',l:'Technical',t:'num',w:'9.5%'},{k:'alv',l:'Analysts',t:'num',w:'9.5%'},
-  {k:'divd',l:'Last dividend',t:'num',w:'8%'},{k:'diva',l:'Dividend / share',t:'num',w:'6.5%'},{k:'del',l:'',t:'none',w:'5.5%'}
+  {k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'19%'},
+  {k:'cap',l:'Market cap',t:'num',w:'6.5%'},
+  {k:'price',l:'Price',t:'num',w:'5.5%'},{k:'pe',l:'PE',t:'num',w:'4%'},{k:'peg',l:'PEG',t:'num',w:'4.5%'},{k:'eps',l:'EPS',t:'num',w:'4.5%'},
+  {k:'upside',l:'Target (upside)',t:'num',w:'9%'},
+  {k:'tv',l:'Technical',t:'num',w:'8.5%'},{k:'alv',l:'Analysts',t:'num',w:'8.5%'},
+  {k:'ni',l:'Annual profit',t:'num',w:'7%'},
+  {k:'divd',l:'Last dividend',t:'num',w:'7.5%'},{k:'diva',l:'Dividend',t:'num',w:'5%'},{k:'del',l:'',t:'none',w:'4%'}
 ];
 
 function enrich(){
@@ -152,7 +165,7 @@ function enrich(){
     const pe = L.pe!=null ? L.pe : null, target = L.target!=null ? L.target : null;
     const tv = techMap[r.symbol]!=null ? techMap[r.symbol] : null;
     const dv = L.div_date ? {date:L.div_date,pay:L.div_pay,amt:L.div_amt,yld:L.div_yield,src:L.div_src||'TradingView'} : null;
-    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, tv, alv:(L.analyst!=null?6-L.analyst:null), dv,
+    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, tv, alv:(L.analyst!=null?6-L.analyst:null), dv, ni:(L.ni_fy!=null?L.ni_fy:null),
       divd: dv?Date.parse(dv.date):null, diva: dv?dv.amt:null,
       upside: (target!=null && price) ? +(((target-price)/price)*100).toFixed(2) : null,
       };
@@ -195,6 +208,7 @@ function render(){
       ${targetCell(r)}
       ${(()=>{ const t=techLabel(r.tv); return t?`<td class="${t.c}" title="TradingView technical rating (moving averages + oscillators): ${r.tv.toFixed(2)}"><b>${t.t}</b></td>`:'<td class="sub">—</td>'; })()}
       ${analystCell(r)}
+      ${profitCell(r)}
       ${divCells(r)}
       <td class="act">${pendingDel===r.id?`<button class="del" data-del="${r.id}" style="font-weight:700;white-space:nowrap">Delete?</button>`:`<button class="del" data-del="${r.id}">✕</button>`}</td></tr>`;
   }).join('');
@@ -336,7 +350,7 @@ const TV_MAIN=['close','market_cap_basic','description','price_earnings_ttm'];
 const TV_EXTRA=['earnings_per_share_basic_ttm','earnings_per_share_diluted_fy','net_income_ttm','net_income_fy',
   'price_target_average','price_target_high','price_target_low','recommendation_total','recommendation_mark',
   'dividend_ex_date_recent','dividend_payment_date_recent','dividend_amount_recent','dividends_yield_current',
-  'earnings_per_share_diluted_yoy_growth_ttm','earnings_per_share_diluted_yoy_growth_fy'];
+  'earnings_per_share_diluted_yoy_growth_ttm','earnings_per_share_diluted_yoy_growth_fy','net_income_yoy_growth_fy'];
 // text/plain keeps this a "simple" cross-origin request (no preflight), which TradingView accepts
 async function tvScan(symbols, columns){
   const r=await fetch(TV_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=UTF-8'},cache:'no-store',
@@ -375,6 +389,7 @@ function buildItem(sym,r,ex,base){
     if(ex.price_target_high) it.target_hi=rd(ex.price_target_high,2);
     if(ex.recommendation_total) it.target_n=Math.round(ex.recommendation_total);
   }
+  if(ex.net_income_fy!=null){ it.ni_fy=Math.round(ex.net_income_fy); if(ex.net_income_yoy_growth_fy!=null) it.ni_growth=rd(ex.net_income_yoy_growth_fy,1); }
   if(ex.recommendation_mark!=null) it.analyst=rd(ex.recommendation_mark,2);
   if(ex.dividend_amount_recent && tsDate(ex.dividend_ex_date_recent)){
     it.div_amt=rd(ex.dividend_amount_recent,3); it.div_date=tsDate(ex.dividend_ex_date_recent); it.div_src='TradingView';
