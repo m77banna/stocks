@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T15:16:03.372771+00:00",
+  "updated_at": "2026-11-15T15:16:55.961939+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -1099,6 +1099,26 @@
       "target_n": 1,
       "analyst": 1.5,
       "tech": 0.288
+    },
+    {
+      "symbol": "FWRY",
+      "price": 17.74,
+      "cap_bn": 60.87,
+      "name": "Fawry For Banking Technology And Electronic Payment",
+      "pe": 18.58,
+      "pe_src": "ttm",
+      "eps": 0.955,
+      "eps_growth": 45.5,
+      "eps_growth_basis": "last 12 months",
+      "peg": 0.41,
+      "target": 26.25,
+      "target_lo": 22.5,
+      "target_hi": 30.0,
+      "target_n": 2,
+      "ni_fy": 2889189159,
+      "ni_growth": 79.8,
+      "analyst": 1.0,
+      "tech": -0.088
     }
   ]
 }
