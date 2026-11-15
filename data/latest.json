@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T13:02:03.703697+00:00",
+  "updated_at": "2026-11-15T14:05:05.429245+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -553,7 +553,7 @@
     },
     {
       "symbol": "OLFI",
-      "price": 20.8,
+      "price": 20.78,
       "cap_bn": 8.28,
       "name": "Obour Land for Food Industries",
       "target": 29.95,
@@ -590,7 +590,7 @@
     },
     {
       "symbol": "AXPH",
-      "price": 1486.09,
+      "price": 1490.0,
       "cap_bn": 7.42,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
       "div_amt": 62.95,
@@ -705,10 +705,10 @@
     },
     {
       "symbol": "CPCI",
-      "price": 595.77,
+      "price": 596.0,
       "cap_bn": 8.9,
       "name": "Kahira Pharmaceuticals & Chemical Industries Co.",
-      "pe": 16.1,
+      "pe": 16.11,
       "pe_src": "ttm",
       "eps": 36.998,
       "eps_growth": 24.5,
@@ -971,7 +971,7 @@
     },
     {
       "symbol": "OCPH",
-      "price": 213.67,
+      "price": 212.85,
       "cap_bn": 5.05,
       "name": "October Pharma Co.",
       "tech": 0.379,
@@ -1054,6 +1054,24 @@
       "tech": 0.512,
       "div_date": "2025-04-28",
       "div_amt": 0.179,
+      "div_src": "Yahoo Finance"
+    },
+    {
+      "symbol": "ADIB",
+      "price": 49.52,
+      "cap_bn": 74.1,
+      "name": "Abu Dhabi Islamic Bank-Egypt",
+      "pe": 4.52,
+      "pe_src": "ttm",
+      "eps": 10.953,
+      "eps_growth": 29.7,
+      "eps_growth_basis": "last 12 months",
+      "peg": 0.15,
+      "ni_fy": 12588572000,
+      "ni_growth": 39.7,
+      "tech": 0.288,
+      "div_date": "2002-04-09",
+      "div_amt": 0.265,
       "div_src": "Yahoo Finance"
     }
   ]
