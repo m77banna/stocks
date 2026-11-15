@@ -40,6 +40,7 @@
   .ci.t{text-align:left;}
   .ci.man{font-style:italic;border-style:dashed;}
   td.n{text-align:left;}
+  td.rn{color:var(--sub);text-align:left;}
   td.tx{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .up{color:var(--up)}.down{color:var(--down)}.sub{color:var(--sub)}
   .del{color:var(--down);border:none;background:none;padding:2px 4px;white-space:nowrap;}
@@ -148,7 +149,7 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'19%'},
+  {k:'rn',l:'#',t:'none',w:'3%'},{k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'17%'},
   {k:'cap',l:'Market cap',t:'num',w:'6.5%'},
   {k:'price',l:'Price',t:'num',w:'5.5%'},{k:'pe',l:'PE',t:'num',w:'4%'},{k:'peg',l:'PEG',t:'num',w:'4.5%'},{k:'eps',l:'EPS',t:'num',w:'4.5%'},
   {k:'upside',l:'Target (upside)',t:'num',w:'9%'},
@@ -176,7 +177,7 @@ const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(
 
 function head(){
   const h=document.getElementById('headRow');
-  h.innerHTML=COLS.map(c=>c.t==='none'?`<th style="width:${c.w}"></th>`:`<th data-k="${c.k}" style="width:${c.w}">${c.l}${sortKey===c.k?(sortDir==='asc'?' ▲':' ▼'):''}</th>`).join('');
+  h.innerHTML=COLS.map(c=>c.t==='none'?`<th style="width:${c.w}">${c.l}</th>`:`<th data-k="${c.k}" style="width:${c.w}">${c.l}${sortKey===c.k?(sortDir==='asc'?' ▲':' ▼'):''}</th>`).join('');
   h.querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{
     const k=th.dataset.k;
     if(sortKey===k) sortDir=sortDir==='asc'?'desc':'asc';
@@ -196,9 +197,10 @@ function render(){
   const tot=rows.reduce((s,r)=>s+(r.cap||0),0);
   document.getElementById('totals').textContent=`${stocks.length} stocks — Total market cap: ${fmt(tot)}`;
   const num=(r,f)=>`<td><input type="number" step="any" class="ci" data-f="${f}" value="${r[f]==null?'':Number(r[f]).toFixed(0)}"></td>`;
-  document.getElementById('rows').innerHTML=rows.map(r=>{
+  document.getElementById('rows').innerHTML=rows.map((r,idx)=>{
     const u=r.upside==null?'sub':(r.upside>=0?'up':'down');
     return `<tr data-id="${r.id}">
+      <td class="rn">${idx+1}</td>
       <td class="n"><b>${esc(r.symbol)}</b></td>
       <td class="tx" title="${esc(r.name)}">${esc(r.name)}</td>
       <td class="n">${fmt(r.cap)}</td>
