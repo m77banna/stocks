@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-15T15:16:55.961939+00:00",
+  "updated_at": "2026-11-15T15:17:32.144501+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -1119,6 +1119,29 @@
       "ni_growth": 79.8,
       "analyst": 1.0,
       "tech": -0.088
+    },
+    {
+      "symbol": "PHDC",
+      "price": 12.27,
+      "cap_bn": 35.46,
+      "name": "Palm Hills Development Co.",
+      "pe": 8.38,
+      "pe_src": "eps_fy",
+      "eps": 1.464,
+      "eps_growth": 31.0,
+      "eps_growth_basis": "last fiscal year",
+      "peg": 0.27,
+      "target": 17.8,
+      "target_lo": 17.5,
+      "target_hi": 18.09,
+      "target_n": 2,
+      "ni_fy": 4216657655,
+      "ni_growth": 29.5,
+      "analyst": 1.0,
+      "tech": -0.021,
+      "div_date": "2022-05-26",
+      "div_amt": 0.1,
+      "div_src": "Yahoo Finance"
     }
   ]
 }
