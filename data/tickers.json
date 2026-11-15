@@ -238,5 +238,9 @@
   {
     "symbol": "ETRS",
     "name": ""
+  },
+  {
+    "symbol": "EGAS",
+    "name": ""
   }
 ]
