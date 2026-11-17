@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T14:59:54.725532+00:00",
+  "updated_at": "2026-11-17T21:54:26.039241+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -286,13 +286,13 @@
       "eps_growth": 89.2,
       "eps_growth_basis": "last 12 months",
       "peg": 0.16,
-      "target": 25.29,
+      "target": 24.36,
       "target_lo": 17.0,
       "target_hi": 29.1,
       "target_n": 5,
       "ni_fy": 2520915183,
       "ni_growth": 65.5,
-      "analyst": 1.2,
+      "analyst": 1.3,
       "div_amt": 0.864,
       "div_date": "2026-05-12",
       "div_src": "TradingView",
@@ -311,8 +311,8 @@
       "eps_growth": 9.6,
       "eps_growth_basis": "last 12 months",
       "peg": 1.61,
-      "target": 31.12,
-      "target_lo": 28.0,
+      "target": 29.62,
+      "target_lo": 24.0,
       "target_hi": 36.4,
       "target_n": 4,
       "ni_fy": 1632090117,
