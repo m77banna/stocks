@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18T14:40:40.891799+00:00",
+  "updated_at": "2026-11-18T19:33:22.173726+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -25,7 +25,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-04-30",
       "div_yield": 1.06,
-      "tech": 0.218
+      "tech": 0.218,
+      "change_pct": -0.11
     },
     {
       "symbol": "SWDY",
@@ -50,7 +51,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-06-04",
       "div_yield": 1.54,
-      "tech": 0.312
+      "tech": 0.312,
+      "change_pct": -1.49
     },
     {
       "symbol": "TMGH",
@@ -63,10 +65,10 @@
       "eps_growth": 59.5,
       "eps_growth_basis": "last fiscal year",
       "peg": 0.17,
-      "target": 130.0,
+      "target": 132.56,
       "target_lo": 130.0,
-      "target_hi": 130.0,
-      "target_n": 1,
+      "target_hi": 135.13,
+      "target_n": 2,
       "ni_fy": 14383890306,
       "ni_growth": 59.4,
       "analyst": 1.0,
@@ -75,7 +77,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-07-30",
       "div_yield": 0.36,
-      "tech": -0.512
+      "tech": -0.512,
+      "change_pct": 0.15
     },
     {
       "symbol": "EGAL",
@@ -100,7 +103,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-11-19",
       "div_yield": 2.58,
-      "tech": -0.333
+      "tech": -0.333,
+      "change_pct": -0.91
     },
     {
       "symbol": "MFPC",
@@ -125,7 +129,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-09-30",
       "div_yield": 10.14,
-      "tech": -0.558
+      "tech": -0.558,
+      "change_pct": -1.73
     },
     {
       "symbol": "ABUK",
@@ -149,7 +154,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-06-24",
       "div_yield": 10.77,
-      "tech": -0.603
+      "tech": -0.603,
+      "change_pct": -1.09
     },
     {
       "symbol": "ALCN",
@@ -173,7 +179,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-05-14",
       "div_yield": 9.15,
-      "tech": -0.291
+      "tech": -0.291,
+      "change_pct": -0.59
     },
     {
       "symbol": "ORAS",
@@ -198,7 +205,8 @@
       "div_src": "TradingView",
       "div_pay": "2025-08-13",
       "div_yield": 3.12,
-      "tech": 0.288
+      "tech": 0.288,
+      "change_pct": 0.85
     },
     {
       "symbol": "EFIH",
@@ -223,7 +231,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-06-29",
       "div_yield": 1.18,
-      "tech": 0.445
+      "tech": 0.445,
+      "change_pct": 0.28
     },
     {
       "symbol": "ORHD",
@@ -248,7 +257,8 @@
       "div_src": "TradingView",
       "div_pay": "2025-09-25",
       "div_yield": 1.16,
-      "tech": -0.133
+      "tech": -0.133,
+      "change_pct": 0.59
     },
     {
       "symbol": "VLMRA",
@@ -273,7 +283,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-04-29",
       "div_yield": 6.92,
-      "tech": -0.4
+      "tech": -0.4,
+      "change_pct": 0.13
     },
     {
       "symbol": "EFID",
@@ -298,7 +309,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-05-14",
       "div_yield": 2.76,
-      "tech": 0.355
+      "tech": 0.355,
+      "change_pct": -2.16
     },
     {
       "symbol": "JUFO",
@@ -323,7 +335,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-05-14",
       "div_yield": 2.17,
-      "tech": -0.467
+      "tech": -0.467,
+      "change_pct": -0.55
     },
     {
       "symbol": "GBCO",
@@ -348,7 +361,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-07-29",
       "div_yield": 1.55,
-      "tech": -0.512
+      "tech": -0.512,
+      "change_pct": -1.37
     },
     {
       "symbol": "RAYA",
@@ -368,7 +382,8 @@
       "div_src": "TradingView",
       "div_pay": "2025-07-10",
       "div_yield": 0.68,
-      "tech": -0.379
+      "tech": -0.379,
+      "change_pct": -3.05
     },
     {
       "symbol": "EGCH",
@@ -389,6 +404,7 @@
       "ni_growth": 81.8,
       "analyst": 2.0,
       "tech": -0.512,
+      "change_pct": -2.0,
       "div_date": "2009-11-17",
       "div_amt": 0.11,
       "div_src": "Yahoo Finance"
@@ -403,9 +419,9 @@
       "eps": 3.292,
       "eps_growth": -0.1,
       "eps_growth_basis": "last fiscal year",
-      "target": 36.6,
+      "target": 37.17,
       "target_lo": 33.5,
-      "target_hi": 39.2,
+      "target_hi": 40.9,
       "target_n": 3,
       "ni_fy": 2189343558,
       "ni_growth": -0.1,
@@ -415,7 +431,8 @@
       "div_src": "TradingView",
       "div_pay": "2027-02-24",
       "div_yield": 5.88,
-      "tech": -0.2
+      "tech": -0.2,
+      "change_pct": -1.65
     },
     {
       "symbol": "AMOC",
@@ -439,7 +456,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-10-15",
       "div_yield": 8.89,
-      "tech": -0.179
+      "tech": -0.179,
+      "change_pct": -1.78
     },
     {
       "symbol": "MASR",
@@ -464,7 +482,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-05-24",
       "div_yield": 2.27,
-      "tech": -0.467
+      "tech": -0.467,
+      "change_pct": -0.91
     },
     {
       "symbol": "TALM",
@@ -476,9 +495,15 @@
       "eps": 0.836,
       "eps_growth": -18.1,
       "eps_growth_basis": "last 12 months",
+      "target": 21.6,
+      "target_lo": 21.6,
+      "target_hi": 21.6,
+      "target_n": 1,
       "ni_fy": 624321961,
       "ni_growth": 18.7,
-      "tech": 0.245
+      "analyst": 2.0,
+      "tech": 0.245,
+      "change_pct": -1.37
     },
     {
       "symbol": "NIPH",
@@ -498,13 +523,15 @@
       "div_src": "TradingView",
       "div_pay": "2025-11-02",
       "div_yield": 0.65,
-      "tech": 0.536
+      "tech": 0.536,
+      "change_pct": 4.56
     },
     {
       "symbol": "KORA",
       "price": 2.01,
       "name": "KORRA",
-      "tech": -0.353
+      "tech": -0.353,
+      "change_pct": 0.0
     },
     {
       "symbol": "ISPH",
@@ -529,7 +556,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-10-14",
       "div_yield": 2.47,
-      "tech": -0.158
+      "tech": -0.158,
+      "change_pct": -0.67
     },
     {
       "symbol": "AMES",
@@ -537,6 +565,7 @@
       "cap_bn": 10.76,
       "name": "Alexandria New Medical Center Co.",
       "tech": -0.467,
+      "change_pct": -10.21,
       "div_date": "2022-06-13",
       "div_amt": 0.052,
       "div_src": "Yahoo Finance"
@@ -547,6 +576,7 @@
       "cap_bn": 8.66,
       "name": "Orascom Investment Holding SAE",
       "tech": -0.47,
+      "change_pct": -2.42,
       "div_date": "2017-06-20",
       "div_amt": 0.1,
       "div_src": "Yahoo Finance"
@@ -566,7 +596,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-09-24",
       "div_yield": 8.52,
-      "tech": -0.2
+      "tech": -0.2,
+      "change_pct": -0.97
     },
     {
       "symbol": "MPCI",
@@ -586,7 +617,8 @@
       "div_src": "TradingView",
       "div_pay": "2025-10-29",
       "div_yield": 3.84,
-      "tech": 0.558
+      "tech": 0.558,
+      "change_pct": 4.09
     },
     {
       "symbol": "AXPH",
@@ -598,7 +630,8 @@
       "div_src": "TradingView",
       "div_pay": "2025-11-06",
       "div_yield": 4.25,
-      "tech": 0.309
+      "tech": 0.309,
+      "change_pct": -0.94
     },
     {
       "symbol": "AMER",
@@ -606,6 +639,7 @@
       "cap_bn": 3.74,
       "name": "Amer Group Holding",
       "tech": -0.312,
+      "change_pct": 1.21,
       "div_date": "2018-03-15",
       "div_amt": 0.075,
       "div_src": "Yahoo Finance"
@@ -614,7 +648,8 @@
       "symbol": "LUTS",
       "price": 0.691,
       "name": "Lotus For Agricultural Investments And Development",
-      "tech": -0.291
+      "tech": -0.291,
+      "change_pct": -3.36
     },
     {
       "symbol": "POUL",
@@ -626,7 +661,8 @@
       "div_src": "TradingView",
       "div_pay": "2026-11-18",
       "div_yield": 0.0,
-      "tech": -0.355
+      "tech": -0.355,
+      "change_pct": 1.72
     }
   ]
 }
