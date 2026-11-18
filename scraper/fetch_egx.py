@@ -2,7 +2,7 @@
 Fetches everything shown on the portfolio page for the tickers in data/tickers.json
 and writes data/latest.json. Nothing in the output is typed by hand:
 
-* price, market cap, name, technical rating, P/E, EPS, PEG, analyst targets and rating,
+* price, daily change, market cap, name, technical rating, P/E, EPS, PEG, analyst targets and rating,
   and dividends come from TradingView's public EGX scanner (delayed ~15 minutes);
 * dividend records TradingView lacks are filled from Yahoo Finance.
 Only values shown on the page are collected.
@@ -127,7 +127,7 @@ def main():
         print("TradingView request failed; keeping the existing latest.json")
         sys.exit(1)
     rows = {row["s"].split(":", 1)[1]: dict(zip(cols, row["d"])) for row in data}
-    tech = fetch_columns(tickers, ["Recommend.All"], "technical rating")
+    tech = fetch_columns(tickers, ["Recommend.All", "change"], "technical rating and daily change")
     extra = fetch_columns(tickers, EXTRA_COLUMNS, "extra fields")
 
     stocks = []
@@ -183,6 +183,8 @@ def main():
                 item["div_yield"] = round(float(ex["dividends_yield_current"]), 2)
         if sym in tech and tech[sym].get("Recommend.All") is not None:
             item["tech"] = round(float(tech[sym]["Recommend.All"]), 3)
+        if sym in tech and tech[sym].get("change") is not None:
+            item["change_pct"] = round(float(tech[sym]["change"]), 2)
         stocks.append(item)
 
     missing = [s["symbol"] for s in stocks if "error" not in s and "div_amt" not in s]

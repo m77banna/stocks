@@ -32,7 +32,7 @@
   button.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   input{background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;font:inherit;}
   .scroll{flex:1 1 auto;min-height:0;overflow:auto;}
-  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1250px;}
+  table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:1350px;}
   th{position:sticky;top:0;z-index:2;background:var(--card);color:var(--sub);font-weight:600;white-space:nowrap;cursor:pointer;user-select:none;text-align:left;}
   td,th{border-bottom:1px solid var(--border);padding:6px 5px;}
   tr:hover td{background:rgba(37,99,235,0.06);}
@@ -115,6 +115,12 @@ function analystCell(r){
   const a=analystLabel(r.L.analyst); if(!a) return '<td class="sub" title="No analyst coverage">—</td>';
   return `<td class="${a.c}" title="${esc('Analyst consensus '+r.L.analyst+' (1 = strong buy … 5 = strong sell)'+(r.L.target_n?` from ${r.L.target_n} analysts`:'')+' — TradingView')}"><b>${a.t}</b></td>`;
 }
+function chgCell(r){
+  if(r.chg==null||r.price==null) return '<td class="sub" title="No daily change available">—</td>';
+  const abs=r.price-r.price/(1+r.chg/100), flat=Math.abs(r.chg)<0.05;
+  const cls=flat?'':(r.chg>0?'up':'down'), arrow=flat?'●':(r.chg>0?'▲':'▼');
+  return `<td class="${cls}" title="Change versus the previous close (the last session while the market is closed) — TradingView">${abs>=0?'+':'−'}${Math.abs(abs).toFixed(2)} <b>${arrow} ${Math.abs(r.chg).toFixed(1)}%</b></td>`;
+}
 function bigNum(v){
   const a=Math.abs(v), sign=v<0?'-':'';
   if(a>=1e9) return sign+(a/1e9).toFixed(1)+'B';
@@ -149,13 +155,14 @@ function showDirty(){ document.getElementById('dirty').textContent = dirty ? '�
 window.addEventListener('beforeunload', e=>{ if(dirty){ e.preventDefault(); e.returnValue=''; } });
 
 const COLS = [
-  {k:'rn',l:'#',t:'none',w:'3%'},{k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'17%'},
-  {k:'cap',l:'Market cap',t:'num',w:'6.5%'},
-  {k:'price',l:'Price',t:'num',w:'5.5%'},{k:'pe',l:'PE',t:'num',w:'4%'},{k:'peg',l:'PEG',t:'num',w:'4.5%'},{k:'eps',l:'EPS',t:'num',w:'4.5%'},
-  {k:'upside',l:'Target (upside)',t:'num',w:'9%'},
-  {k:'tv',l:'Technical',t:'num',w:'8.5%'},{k:'alv',l:'Analysts',t:'num',w:'8.5%'},
-  {k:'ni',l:'Annual profit',t:'num',w:'7%'},
-  {k:'divd',l:'Last dividend',t:'num',w:'7.5%'},{k:'diva',l:'Dividend',t:'num',w:'5%'},{k:'del',l:'',t:'none',w:'4%'}
+  {k:'rn',l:'#',t:'none',w:'2.5%'},{k:'symbol',l:'Symbol',t:'str',w:'5%'},{k:'name',l:'Name',t:'str',w:'15%'},
+  {k:'cap',l:'Market cap',t:'num',w:'6%'},
+  {k:'price',l:'Price',t:'num',w:'5.5%'},{k:'chg',l:'Today',t:'num',w:'8%'},
+  {k:'pe',l:'PE',t:'num',w:'4%'},{k:'peg',l:'PEG',t:'num',w:'4.5%'},{k:'eps',l:'EPS',t:'num',w:'4.5%'},
+  {k:'upside',l:'Target (upside)',t:'num',w:'8.5%'},
+  {k:'tv',l:'Technical',t:'num',w:'8%'},{k:'alv',l:'Analysts',t:'num',w:'8%'},
+  {k:'ni',l:'Annual profit',t:'num',w:'6.5%'},
+  {k:'divd',l:'Last dividend',t:'num',w:'7%'},{k:'diva',l:'Dividend',t:'num',w:'5%'},{k:'del',l:'',t:'none',w:'4%'}
 ];
 
 function enrich(){
@@ -166,7 +173,7 @@ function enrich(){
     const pe = L.pe!=null ? L.pe : null, target = L.target!=null ? L.target : null;
     const tv = techMap[r.symbol]!=null ? techMap[r.symbol] : null;
     const dv = L.div_date ? {date:L.div_date,pay:L.div_pay,amt:L.div_amt,yld:L.div_yield,src:L.div_src||'TradingView'} : null;
-    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, tv, alv:(L.analyst!=null?6-L.analyst:null), dv, ni:(L.ni_fy!=null?L.ni_fy:null),
+    return {...r, name:L.name||r.name||'', industry:L.sector||r.industry||'', price, cap, pe, target, eps:(L.eps!=null?L.eps:null), peg:(L.peg!=null?L.peg:null), L, tv, chg:(L.change_pct!=null?L.change_pct:null), alv:(L.analyst!=null?6-L.analyst:null), dv, ni:(L.ni_fy!=null?L.ni_fy:null),
       divd: dv?Date.parse(dv.date):null, diva: dv?dv.amt:null,
       upside: (target!=null && price) ? +(((target-price)/price)*100).toFixed(2) : null,
       };
@@ -204,7 +211,8 @@ function render(){
       <td class="n"><b>${esc(r.symbol)}</b></td>
       <td class="tx" title="${esc(r.name)}">${esc(r.name)}</td>
       <td class="n">${fmt(r.cap)}</td>
-      <td class="n">${fmt(r.price,'',1)}</td>${peCell(r)}
+      <td class="n">${fmt(r.price,'',1)}</td>
+      ${chgCell(r)}${peCell(r)}
       ${pegCell(r)}
       ${epsCell(r)}
       ${targetCell(r)}
@@ -418,9 +426,9 @@ function applyLive(items, techs, label, when){
 }
 async function fetchLive(){
   const syms=stocks.map(s=>s.symbol).filter(Boolean); if(!syms.length) return 0;
-  const [main,extra,tech]=await Promise.all([tvScan(syms,TV_MAIN), tvScan(syms,TV_EXTRA).catch(()=>({})), tvScan(syms,['Recommend.All']).catch(()=>({}))]);
+  const [main,extra,tech]=await Promise.all([tvScan(syms,TV_MAIN), tvScan(syms,TV_EXTRA).catch(()=>({})), tvScan(syms,['Recommend.All','change']).catch(()=>({}))]);
   const items={}, techs={};
-  syms.forEach(sym=>{ const r=main[sym]; if(r && r.close!=null){ items[sym]=buildItem(sym,r,extra[sym]||{},liveMap[sym]); if(tech[sym] && tech[sym]['Recommend.All']!=null) techs[sym]=rd(tech[sym]['Recommend.All'],3); } });
+  syms.forEach(sym=>{ const r=main[sym]; if(r && r.close!=null){ items[sym]=buildItem(sym,r,extra[sym]||{},liveMap[sym]); if(tech[sym] && tech[sym]['Recommend.All']!=null) techs[sym]=rd(tech[sym]['Recommend.All'],3); if(tech[sym] && tech[sym].change!=null) items[sym].change_pct=rd(tech[sym].change,2); } });
   return applyLive(items,techs,'● Live',new Date().toLocaleTimeString('en-GB'));
 }
 async function fetchLatest(){
