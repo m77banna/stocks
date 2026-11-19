@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-19T14:47:27.260320+00:00",
+  "updated_at": "2026-11-19T21:49:08.191418+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -111,10 +111,10 @@
       "price": 38.22,
       "cap_bn": 109.48,
       "name": "Misr Fertilizers Production Company MOPCO",
-      "pe": 7.13,
+      "pe": 7.0,
       "pe_src": "ttm",
-      "eps": 5.364,
-      "eps_growth": 255.4,
+      "eps": 5.457,
+      "eps_growth": 226.7,
       "eps_growth_basis": "last 12 months",
       "peg": 0.03,
       "target": 51.15,
