@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-23T16:39:25.751898+00:00",
+  "updated_at": "2026-11-24T01:13:49.636190+00:00",
   "source": "TradingView (delayed ~15 min); dividends gaps from Yahoo Finance",
   "stocks": [
     {
@@ -291,12 +291,12 @@
       "price": 20.4,
       "cap_bn": 43.99,
       "name": "Edita Food Industries SAE",
-      "pe": 13.64,
+      "pe": 12.28,
       "pe_src": "ttm",
-      "eps": 1.496,
-      "eps_growth": 89.2,
+      "eps": 1.662,
+      "eps_growth": 113.8,
       "eps_growth_basis": "last 12 months",
-      "peg": 0.15,
+      "peg": 0.11,
       "target": 24.58,
       "target_lo": 18.1,
       "target_hi": 29.1,
@@ -620,10 +620,10 @@
       "price": 1415.42,
       "cap_bn": 7.37,
       "name": "Alexandria Company for Pharmaceuticals and Chemical Industries",
-      "div_amt": 62.95,
-      "div_date": "2025-11-04",
+      "div_amt": 80.0,
+      "div_date": "2026-11-24",
       "div_src": "TradingView",
-      "div_pay": "2025-11-06",
+      "div_pay": "2026-11-26",
       "div_yield": 4.27,
       "tech": -0.091,
       "change_pct": 1.08
